@@ -1,4 +1,0 @@
-<?
-
-    echo "Hiep oc cho";
-?>
