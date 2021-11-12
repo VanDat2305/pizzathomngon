@@ -1,4 +1,4 @@
 <?
 
-    echo "dsasdsa";
+    echo "Hiep oc cho";
 ?>
