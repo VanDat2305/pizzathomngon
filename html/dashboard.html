@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pizza Thơm Ngon</title>
+    <link rel="stylesheet" href="../content/css/uikit.min.css">
+    <link rel="stylesheet" href="../content/css/dark.css">
+    <link rel="stylesheet" href="../content/css/dashboard.css">
+</head>
+
+<body>
+
+    <!--HEADER-->
+    <header id="top-head" class="uk-position-fixed">
+        <div class="uk-background-primary">
+            <nav class="uk-navbar uk-light pr-5" data-uk-navbar="mode:click; duration: 250">
+
+                <div class="left-logo uk-flex uk-flex-middle uk-flex-center">
+                    <a href="">
+                        <img class="custom-logo" src="../content/img/logo.png" alt="">
+                    </a>
+                </div>
+                <div class="uk-navbar-left">
+                    <button uk-icon="icon: menu" class="uk-button uk-button-default" uk-toggle="target: #sidebar;"></button>
+
+                </div>
+                <div class="uk-navbar-center">
+                    <div class="uk-navbar-item uk-visible@s">
+                        <form action="dashboard.html" class="uk-search uk-search-default">
+                            <span data-uk-search-icon></span>
+                            <input class="uk-search-input search-field" type="search" placeholder="Tìm kiếm...">
+                        </form>
+                    </div>
+                </div>
+                <div class="uk-navbar-right">
+                    <a href="#" data-uk-icon="icon:user" title="Hồ sơ" data-uk-tooltip></a>
+                    <div class="uk-navbar-dropdown">
+                        <ul class="uk-nav uk-navbar-dropdown-nav">
+                            <li class="uk-nav-header">ADMIN</li>
+                            <li><a href="#"><span data-uk-icon="icon: sign-out"></span> Đăng xuất</a></li>
+                        </ul>
+                    </div>
+                </div>
+            </nav>
+        </div>
+
+    </header>
+    <main class="main">
+        <aside id="sidebar" class="uk-light uk-visible@m pt-1">
+
+            <div class="left-nav-wrap">
+                <ul class="uk-nav uk-nav-default uk-nav-parent-icon" data-uk-nav>
+                    <li><a href="#"><span data-uk-icon="icon: home" class="uk-margin-small-right"></span>Trang
+                            chủ</a>
+                    </li>
+                    <li><a href="#"><span data-uk-icon="icon: comments" class="uk-margin-small-right"></span>Danh
+                            mục</a>
+                    </li>
+                    <li><a href="#"><span data-uk-icon="icon: users" class="uk-margin-small-right"></span>Món Ăn</a>
+                    </li>
+                    <li class="uk-parent">
+                        <a href="#"><span data-uk-icon="icon: thumbnails"
+                                class="uk-margin-small-right"></span>Templates</a>
+                        <ul class="uk-nav-sub">
+                            <li><a title="Article" href="Ư">Article</a></li>
+                            <li><a title="Album" href="">Album</a></li>
+                        </ul>
+                    </li>
+                    <li><a href="#"><span data-uk-icon="icon: album" class="uk-margin-small-right"></span>Albums</a>
+                    </li>
+                    <li><a href="#"><span data-uk-icon="icon: thumbnails" class="uk-margin-small-right"></span>Featured
+                            Content</a></li>
+                    <li><a href="#"><span data-uk-icon="icon: lifesaver" class="uk-margin-small-right"></span>Tips</a>
+                    </li>
+                </ul>
+
+
+            </div>
+        </aside>
+        <div id="content">
+
+        </div>
+    </main>
+    <!--/HEADER-->
+    <!-- LEFT BAR -->
+
+    <!-- /LEFT BAR -->
+    <!-- CONTENT -->
+
+    <!-- /CONTENT -->
+
+
+    <!-- JS FILES -->
+    <script src="../content/js/jquery-3.6.0.min.js"></script>
+    <script src="../content/js/uikit.min.js"></script>
+    <script src="../content/js/uikit-icons.min.js"></script>
+    <script src="../content/js/main.js"></script>
+    <script src="../content/js/fontawesome.all.min.js"></script>
+</body>
+
+</html>
