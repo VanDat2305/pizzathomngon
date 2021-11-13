@@ -60,6 +60,6 @@ function category_exist_name($cate_name){
  * kiem tra su ton tai cua ten co id 
  */
 function category_exist_name_id($cate_id, $cate_name){
-    $sql = "SELECT count(*) FROM tbl_categoties WHERE category_id != ? AND category_name = ?";
+    $sql = "SELECT count(*) FROM tbl_categories WHERE category_id != ? AND category_name = ?";
     return pdo_query_value($sql,$cate_id,$cate_name) > 0;
 }
