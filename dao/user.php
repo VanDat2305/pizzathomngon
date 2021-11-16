@@ -11,9 +11,9 @@ function user_insert($username,$user_image,$password,$fullname,$phoneNumber,$ema
 /**
  * Cap nhat 
  */
-function user_update($user_id,$username,$user_image,$password,$fullname,$phoneNumber,$email,$address,$birthdate,$created_at,$update_at,$role_id){
-    $sql = "UPDATE tbl_users SET `username` = ?,`user_image` = ?,`password` = ?,`fullname` = ?,`phoneNumber` = ?,`email` = ?,`address` = ?,`birthdate` = ?,`created_at` = ?,`update_at` = ?,`role_id = ?` WHERE `user_id` = ?";
-    pdo_execute($sql,$username,$user_image,$password,$fullname,$phoneNumber,$email,$address,$birthdate,$created_at,$update_at,$role_id,$user_id);
+function user_update($user_id,$username,$user_image,$password,$fullname,$phoneNumber,$email,$address,$birthdate,$update_at,$role_id){
+    $sql = "UPDATE tbl_users SET `username` = ?,`user_image` = ?,`password` = ?,`fullname` = ?,`phoneNumber` = ?,`email` = ?,`address` = ?,`birthdate` = ?,`update_at` = ?,`role_id` = ? WHERE `user_id` = ?";
+    pdo_execute($sql,$username,$user_image,$password,$fullname,$phoneNumber,$email,$address,$birthdate,$update_at,$role_id,$user_id);
 }
 /**
  * Xoa 1 hoac nhieu ma 
@@ -57,10 +57,24 @@ function user_exist_name($username){
     $sql = "SELECT count(*) FROM tbl_users WHERE `username` = ?";
     return pdo_query_value($sql,$username) > 0;
 }
-/** 
- * kiem tra su ton tai cua ten co id dung cho update
+/**
+ * kiem tra su ton tai theo email
  */
-function user_exist_name_id($user_id, $username){
-    $sql = "SELECT count(*) FROM tbl_users WHERE `user_id` != ? AND `username` = ?";
-    return pdo_query_value($sql,$user_id,$username) > 0;
+function user_exist_email($email){
+    $sql = "SELECT count(*) FROM tbl_users WHERE `email` = ?";
+    return pdo_query_value($sql,$email) > 0;
+}
+/** 
+ * kiem tra su ton tai email co id dung cho update
+ */
+function user_exist_email_id($user_id, $email){
+    $sql = "SELECT count(*) FROM tbl_users WHERE `user_id` != ? AND `email` = ?";
+    return pdo_query_value($sql,$user_id,$email) > 0;
+}
+/**
+ * truy van quyen 
+ */
+function role_select_all(){
+    $sql = "SELECT * FROM tbl_role order by role_id desc";
+    return pdo_query($sql);
 }
