@@ -1,5 +1,6 @@
 <?php
 session_start();
+date_default_timezone_set('Asia/Ho_Chi_Minh');
 /* 
  định nghĩa các url
 */
@@ -13,7 +14,7 @@ define('IMG_USER_URL', CONTENT_URL . 'images/users/');
     dinh nghia duong dan chua anh trong upload
 */
 
-$IMAGE_DIR = $_SERVER['DOCUMENT_ROOT'] . BASE_URL . "content/images";
+$IMAGE_DIR = $_SERVER['DOCUMENT_ROOT'] . BASE_URL . "content/img";
 // var_dump($IMAGE_DIR);die;
 // define('DEFAULT_IMAGE',CONTENT_URL."images/default_image.jpg");
 
@@ -41,6 +42,20 @@ function save_file($fieldname, $target_dir)
     move_uploaded_file($file_upload['tmp_name'], $targer_path);
     return $file_name;
 }
+// Lưu nhiều file upload
+function multiple_save_image($fieldname, $target_dir)
+{
+    $file_upload = $_FILES[$fieldname];
+    $count = count($file_upload['name']);
+    for ($i = 0; $i < $count; $i++) {
+        $file_name = basename($file_upload['name'][$i]);
+        $targer_path = $target_dir . $file_name;
+        move_uploaded_file($file_upload['tmp_name'][$i], $targer_path);
+    }
+    //Chưa basename
+    return $file_upload['name'];
+}
+
 // Tao cookie
 
 function add_cookie($name, $value, $day)

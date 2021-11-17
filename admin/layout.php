@@ -13,7 +13,7 @@
     <!-- font awesome -->
     <link href="<?= CONTENT_URL ?>css/all.min.css" rel="stylesheet" type="text/css">
     <!-- datatable -->
-    <link href="<?= CONTENT_URL ?>css/datatable.min.css" rel="stylesheet" type="text/css">
+    <link href="<?= CONTENT_URL ?>css/datatables.min.css" rel="stylesheet" type="text/css">
 
     <!-- custom css -->
     <link href="<?= CONTENT_URL ?>css/dashboard.css" rel="stylesheet" type="text/css">
@@ -61,6 +61,8 @@
     <script src="<?= CONTENT_URL ?>js/initiate-datatables.js"></script>
     <script src="<?= CONTENT_URL ?>js/jquery.validate.js"></script>
     <script src="<?= CONTENT_URL ?>js/dashboard.js"></script>
+    <script src="<?= CONTENT_URL ?>js/validate_admin.js"></script>
+    <script src="<?= CONTENT_URL ?>js/multi_option.js"></script>
 </body>
 
 </html>
