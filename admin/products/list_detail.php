@@ -2,13 +2,13 @@
 <div class="row bg-white">
     <?php extract($items);
     $index = 1; ?>
-    <div class="col-lg-4 col-md p-4">
+    <div class="col-lg-4 col-md ">
         <img src="<?= CONTENT_URL . 'img/products/' . $product_image ?>" width="100%" alt="">
         <button type="button" class="btn btn-outline-dark form-control" data-bs-toggle="modal" data-bs-target="#exampleModal">
             Xem thêm
         </button>
     </div>
-    <div class="col-lg-8 col-md p-8">
+    <div class="col-lg-8 col-md ">
         <div class="table-responsive">
             <table class="table table-hover text-left " width="100%">
                 <tbody>

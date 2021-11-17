@@ -5,7 +5,7 @@
         <?php if (strlen($MESSAGE)) {
             echo "<div class='alert'>" . $MESSAGE . "</div>";
         } ?>
-        <form action="?btn_edit_product" method="post" enctype="multipart/form-data" id="form_update_product">
+        <form action="?" method="post" enctype="multipart/form-data" id="form_update_product">
             <div class="form-group">
                 <label for="">Loại món <span style="color: red;">(*)</span></label>
                 <select class="custom-select" name="category_id">
@@ -40,7 +40,7 @@
             <div class="col-12">
                 <input type="hidden" name="id" value="<?= $item_pro['product_id'] ?>">
                 <input type="hidden" name="created_at" value="<?= $item_pro['created_at'] ?>">
-                <button class="btn btn-success" name="btn_insert" type="submit">Sửa</button>
+                <button class="btn btn-success" name="btn_edit_product" type="submit">Sửa</button>
                 <button class="btn btn-success" type="reset">Nhập lại</button>
                 <a href="?" class="btn">Quay lại</a>
             </div>
@@ -50,7 +50,7 @@
 
 </div>
 <div class="row bg-white m-2 p-4">
-    <form action="?btn_update_option" method="post" class="col">
+    <form action="?" method="post" class="col">
         <input type="hidden" name="id" value="<?= $item_pro['product_id'] ?>">
         <table class="table table-hover text-center input_option_mulit">
             <thead>
@@ -80,7 +80,7 @@
             </tbody>
             <tfoot>
                 <tr>
-                    <td colspan="4"><button type="submit" class="btn btn-primary">Cập nhật option</button></td>
+                    <td colspan="4"><button type="submit" name="btn_update_option" class="btn btn-primary">Cập nhật option</button></td>
                 </tr>
             </tfoot>
         </table>
@@ -98,7 +98,7 @@
                 </button>
             </div>
             <div class="modal-body">
-                <form action="?btn_insert_gallery" method="post" enctype="multipart/form-data">
+                <form action="?" method="post" enctype="multipart/form-data" id="form_insert_gallery">
                     <div class="form-group">
                         <div class="custom-file">
                             <input type="file" class="custom-file-input" name="gallery_image[]" id="gallery_image" multiple>
@@ -107,10 +107,10 @@
                     </div>
                     <div class="form-group">
                         <input type="hidden" name="id" value="<?= $item_pro['product_id'] ?>">
-                        <button type="submit" class="btn btn-primary">Thêm ảnh</button>
+                        <button type="submit"  class="btn btn-primary">Thêm ảnh</button>
                     </div>
                 </form>
-                <form action="?btn_delete_gallery" method="post" enctype="multipart/form-data">
+                <form action="?" method="post" enctype="multipart/form-data">
                     <table class="d-flex flex-row">
                         <tbody>
                             <?php foreach ($item_gallery as $item) : ?>
@@ -126,7 +126,7 @@
                                 <tr>
                                     <td>
                                         <input type="hidden" name="id" value="<?= $item_pro['product_id'] ?>">
-                                        <button type="submit" class="btn btn-danger">Xóa đã chọn</button>
+                                        <button type="submit" name="btn_delete_gallery" class="btn btn-danger">Xóa đã chọn</button>
                                     </td>
                                 </tr>
                             <?php

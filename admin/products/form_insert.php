@@ -1,6 +1,8 @@
 <h3 class="alert alert-secondary">Thêm món ăn</h3>
-<div class="row m-2 p-4 bg-white">
-    <div class="col-12 alert"><?= $MESSAGE ?></div>
+<div class="row m-1 p-2 bg-white">
+<?php if (strlen($MESSAGE)) {
+                        echo "<div class='col-12 alert'>" . $MESSAGE . "</div>";
+                    } ?>
     <form action="?" method="post" enctype="multipart/form-data" class="col" id="form_insert_product">
         <div class="form-group">
             <label for="">Loại món <span style="color: red;">(*)</span></label>
