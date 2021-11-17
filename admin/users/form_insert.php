@@ -1,7 +1,9 @@
 <h3 class="alert alert-secondary">Thêm thành viên</h3>
-<div class="row m-2 p-4 bg-white">
-    <div class="col-12 alert"><?= $MESSAGE ?></div>
-    <form action="?btn_insert" method="post" enctype="multipart/form-data" class="col" id="form_insert_user">
+<div class="row m-2 p-2 bg-white">
+    <?php if (strlen($MESSAGE)) {
+        echo "<div class='col-12 alert'>" . $MESSAGE . "</div>";
+    } ?>
+    <form action="?" method="post" enctype="multipart/form-data" class="col" id="form_insert_user">
         <div class="form-group">
             <label class="label" for="username">Tên đăng nhập <span style="color: red;">(*)</span></label>
             <input type="text" name="username" id="username" class="form-control" value="" placeholder="">
@@ -24,7 +26,7 @@
                 <div class="input-group-prepend">
                     <span class="input-group-text">+84</span>
                 </div>
-                <input type="number" name="phoneNumber" id="phoneNumber" class="form-control" >
+                <input type="number" name="phoneNumber" id="phoneNumber" class="form-control">
             </div>
         </div>
         <div class="form-group">
