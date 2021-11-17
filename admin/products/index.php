@@ -56,13 +56,16 @@ if (exist_param("form_insert")) {
     $up_image = save_file("image", "$IMAGE_DIR/products/");
     $image = strlen($up_image) > 0 ? $up_image : $image_old;
 
-    if ($product_name == "" ) {
-        $items = category_select_all();
-        $VIEW_NAME = "form_insert.php/?form_edit&id=".$id;
-        $MESSAGE = "Vui lòng điền đầy đủ thông tin ";
+    if ($product_name == "") {
+        $item_pro = product_select_by_id($id);
+        $item_option = option_select_by_pro_id($id);
+        $item_gallery = gallery_select_by_pro_id($id);
+        $category = category_select_all();
+        $MESSAGE = "Vui lòng không để trống!";
+        $VIEW_NAME = "form_edit.php";
     } else {
         try {
-            product_update($id,$category_id,$product_name,$description,$image,$created_at);
+            product_update($id, $category_id, $product_name, $description, $image, $created_at);
             $MESSAGE = "Cập nhật thành công!";
         } catch (Exception $exc) {
             $MESSAGE = "Cập nhật thất bại!";
@@ -106,14 +109,14 @@ if (exist_param("form_insert")) {
 } elseif (exist_param("btn_update_option")) {
     try {
         if (isset($option_id)) {
-            for ($i=0; $i < count($option_id); $i++) { 
-             option_update($option_id[$i],$id,$option_name_update[$i],$option_price_update[$i]);
+            for ($i = 0; $i < count($option_id); $i++) {
+                option_update($option_id[$i], $id, $option_name_update[$i], $option_price_update[$i]);
             }
         }
         if (isset($option_price)) {
-            for ($i=0; $i < count($option_price); $i++) { 
-                if ($option_price[$i]!="") {
-                    option_insert($id,$option_name[$i],$option_price[$i]);
+            for ($i = 0; $i < count($option_price); $i++) {
+                if ($option_price[$i] != "") {
+                    option_insert($id, $option_name[$i], $option_price[$i]);
                 }
             }
         }
