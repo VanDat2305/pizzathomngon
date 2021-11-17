@@ -52,7 +52,24 @@ if (exist_param("form_insert")) {
     $item_gallery = gallery_select_by_pro_id($id);
     $category = category_select_all();
     $VIEW_NAME = "form_edit.php";
-} elseif (exist_param("btn_edit")) {
+} elseif (exist_param("btn_edit_product")) {
+    $up_image = save_file("image", "$IMAGE_DIR/products/");
+    $image = strlen($up_image) > 0 ? $up_image : $image_old;
+
+    if ($product_name == "" ) {
+        $items = category_select_all();
+        $VIEW_NAME = "form_insert.php/?form_edit&id=".$id;
+        $MESSAGE = "Vui lòng điền đầy đủ thông tin ";
+    } else {
+        try {
+            product_update($id,$category_id,$product_name,$description,$image,$created_at);
+            $MESSAGE = "Cập nhật thành công!";
+        } catch (Exception $exc) {
+            $MESSAGE = "Cập nhật thất bại!";
+        }
+        $items = product_select_all();
+        $VIEW_NAME = "list.php";
+    }
 } elseif (exist_param("btn_insert_gallery")) {
     //luu file vào thu muc upload
     $up_gallery = multiple_save_image("gallery_image", "$IMAGE_DIR/products/");

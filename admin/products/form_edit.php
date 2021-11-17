@@ -1,11 +1,11 @@
 <h3 class="alert alert-secondary">Sửa món ăn</h3>
-<div class="row m-2 p-4 bg-white">
+<div class="row m-2  bg-white">
 
     <div class="col-8">
         <?php if (strlen($MESSAGE)) {
             echo "<div class='alert'>" . $MESSAGE . "</div>";
         } ?>
-        <form action="?" method="post" enctype="multipart/form-data" id="form_update_product">
+        <form action="?btn_edit_product" method="post" enctype="multipart/form-data" id="form_update_product">
             <div class="form-group">
                 <label for="">Loại món <span style="color: red;">(*)</span></label>
                 <select class="custom-select" name="category_id">
@@ -38,6 +38,8 @@
                 <textarea name="description" id="description" rows="4" class="form-control"><?= $item_pro['description'] ?></textarea>
             </div>
             <div class="col-12">
+                <input type="hidden" name="id" value="<?= $item_pro['product_id'] ?>">
+                <input type="hidden" name="created_at" value="<?= $item_pro['created_at'] ?>">
                 <button class="btn btn-success" name="btn_insert" type="submit">Sửa</button>
                 <button class="btn btn-success" type="reset">Nhập lại</button>
                 <a href="?" class="btn">Quay lại</a>
@@ -119,14 +121,15 @@
                                     <td><a href="?btn_delete_gallery&id=<?= $item_pro['product_id'] ?>&id_image_gallery=<?= $gallery_image_id ?>" onclick="return confirm('Bạn có chắc chắn muốn xóa không ???')"><i class="far fa-trash-alt btn "></i></a></td>
                                 </tr>
                             <?php endforeach ?>
-                            <?php if ($item_gallery == null) { } else {?>
+                            <?php if ($item_gallery == null) {
+                            } else { ?>
                                 <tr>
                                     <td>
                                         <input type="hidden" name="id" value="<?= $item_pro['product_id'] ?>">
                                         <button type="submit" class="btn btn-danger">Xóa đã chọn</button>
                                     </td>
                                 </tr>
-                            <?php 
+                            <?php
                             } ?>
                         </tbody>
                         <tfoot>
