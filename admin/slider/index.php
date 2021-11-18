@@ -3,12 +3,12 @@ require_once "../../global.php";
 require "../../dao/slide.php";
 extract($_REQUEST);
 if (exist_param("btn_insert")) {
-    $up_hinh = save_file("hinh", "$IMAGE_DIR/slides/");
-    $hinh = strlen($up_hinh) > 0 ? $up_hinh : "";
-    if (strlen($hinh) > 0) {     
+    $up_slider_name = save_file("slider_name", "$IMAGE_DIR/slides/");
+    $slider_name = strlen($up_slider_name) > 0 ? $up_slider_name : "";
+    if (strlen($slider_name) > 0) {     
         try {
-                slide_insert($hinh);
-                unset($hinh, $slider_id,$slider_status);
+                slide_insert($slider_name);
+                unset($slider_name, $slider_id,$slider_status);
                 $MESSAGE = "Thêm mới thành công!";
         } catch (Exception $exc) {
             $MESSAGE = "Thêm mới thất bại!";
@@ -20,7 +20,7 @@ if (exist_param("btn_insert")) {
     $VIEW_NAME = "slide/list.php";
 } else if (exist_param("btn_update")) {
     try {
-        slide_update($slider_id, $hinh);
+        slide_update($slider_id, $slider_name);
         $MESSAGE = "Cập nhật thành công!";
     } catch (Exception $exc) {
         $MESSAGE = "Cập nhật thất bại!";

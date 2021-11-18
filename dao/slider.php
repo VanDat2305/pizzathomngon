@@ -7,7 +7,7 @@ function slide_insert($slider_name)
 {
     
     $slider_status = 0;
-    $sql = "INSERT INTO `slide`( `slider_status`, `slider_name`) VALUES (b?,?)";
+    $sql = "INSERT INTO `tbl_slider`( `slider_status`, `slider_name`) VALUES (b?,?)";
     pdo_execute($sql,$slider_status, $slider_name);
     
 }
@@ -45,4 +45,31 @@ function slide_select_all(){
 function slide_exist($slide_id){
     $sql = "SELECT count(*) FROM tbl_slider WHERE slide_id = ?";
     return pdo_query_value($sql,$slide_id) > 0;
+}
+
+function slide_select_by_id($slider_id)
+{
+    $sql = "SELECT * FROM tbl_slider WHERE slider_id=?";
+    return pdo_query_one($sql, $slider_id);
+}
+function slide_exist_name($slider_name)
+{
+    $sql = "SELECT count(*) FROM tbl_slider WHERE slider_id=?";
+    return pdo_query_value($sql, $slider_name) > 0;
+}
+function slide_exist_slider_name($slider_id,$slider_name){
+    $sql = "SELECT count(*) FROM tbl_slider WHERE  slider_id!=? and slider_name=?";
+    return pdo_query_value($sql, $slider_id, $slider_name) > 0;
+}
+
+
+function slide_select_page()
+{
+    $sql = "SELECT * FROM tbl_slider where slider_status = 1";
+  return pdo_query($sql);
+}
+function slider_status_update($slider_id, $slider_status)
+{
+    $sql = "UPDATE tbl_slider SET slider_status=b? WHERE slider_id=?";
+    pdo_execute($sql, $slider_status, $slider_id);
 }
