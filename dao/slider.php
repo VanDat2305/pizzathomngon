@@ -3,17 +3,21 @@ require_once "pdo.php";
 /**
  * Them moi
  */
-function slide_insert($slide_name,$slide_status){
-    $sql = "INSERT INTO tbl_slider(slide_name,slide_status) VALUES (?,b?)";
-    pdo_execute($sql,$slide_name,$slide_status);
+function slide_insert($slider_name)
+{
+    
+    $slider_status = 0;
+    $sql = "INSERT INTO `slide`( `slider_status`, `slider_name`) VALUES (b?,?)";
+    pdo_execute($sql,$slider_status, $slider_name);
+    
 }
 
 /**
  * Cap nhat 
  */
-function slide_update($slide_id,$slide_status){
-    $sql = "UPDATE tbl_slider SET slide_status = b? WHERE slide_id = ?";
-    pdo_execute($sql,$slide_status,$slide_id);
+function slide_update($slide_id,$slide_name){
+    $sql = "UPDATE tbl_slider SET slide_name = b? WHERE slide_id = ?";
+    pdo_execute($sql,$slide_name,$slide_id);
 }
 /**
  * Xoa 1 hoac nhieu ma 

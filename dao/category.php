@@ -63,3 +63,28 @@ function category_exist_name_id($cate_id, $cate_name){
     $sql = "SELECT count(*) FROM tbl_categories WHERE category_id != ? AND category_name = ?";
     return pdo_query_value($sql,$cate_id,$cate_name) > 0;
 }
+function category_exist_cate_name($cate_id,$cate_name){
+    $sql = "SELECT count(*) FROM category WHERE  ma_category!=? and cate_name=?";
+    return pdo_query_value($sql, $cate_id, $cate_name) > 0;
+}
+function category_select_page()
+{
+    if (!isset($_SESSION['page'])) {
+        $_SESSION['page'] = 1;
+    }
+    $query = "SELECT * FROM category order by ma_category desc";
+    $select_all = pdo_query($query);
+    $_SESSION['cate'] = count($select_all);
+
+    if (exist_param("page")) {
+        $_SESSION['page'] = $_REQUEST['page'];
+    }
+
+    $limit = 4;
+    $start = ($_SESSION['page'] - 1) * $limit;
+    $_SESSION['total_cate'] = ceil($_SESSION['cate'] / $limit);
+
+    $sql = "SELECT * FROM category ORDER BY ma_category DESC LIMIT $start,$limit";
+
+    return pdo_query($sql);
+}
