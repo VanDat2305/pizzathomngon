@@ -61,4 +61,4 @@ if (exist_param("btn_insert")) {
 }
 
 
-require "../template.php";
+require "../layout.php";
