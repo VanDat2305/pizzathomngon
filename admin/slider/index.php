@@ -3,7 +3,7 @@ require_once "../../global.php";
 require "../../dao/slider.php";
 extract($_REQUEST);
 if (exist_param("btn_insert")) {
-    $up_slide_image = save_file("slide_image", "$IMAGE_DIR/slides/");
+    $up_slide_image = save_file("slide_image", "$IMAGE_DIR/banners/");
     $slide_image = strlen($up_slide_image) > 0 ? $up_slide_image : "";
     if (strlen($slide_image) > 0) {     
         try {
@@ -17,7 +17,7 @@ if (exist_param("btn_insert")) {
          $MESSAGE = "Thêm mới thất bại!";
     } 
     $items = slide_select_all();
-    $VIEW_NAME = "slide/list.php";
+    $VIEW_NAME = "slider/list.php";
 } else if (exist_param("btn_update")) {
     try {
         slide_update($slide_id, $slide_image);

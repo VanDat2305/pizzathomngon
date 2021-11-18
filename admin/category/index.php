@@ -17,7 +17,12 @@ if (exist_param("btn_insert")) {
     }
     $items = category_select_all();
     $VIEW_NAME = "category/list.php";
-} else if (exist_param("btn_update")) {
+}  else if (exist_param("btn_edit")) {
+    $items = category_select_by_id($category_id);
+    // extract($item);
+    $VIEW_NAME = "form_edit.php";
+}
+  else if (exist_param("btn_update")) {
     try {
         category_update($category_id, $category_name);
         $MESSAGE = "Cập nhật thành công!";
@@ -48,11 +53,7 @@ if (exist_param("btn_insert")) {
     }
     $items = category_select_all();
     $VIEW_NAME = "list.php";
-} else if (exist_param("btn_edit")) {
-    $items = category_select_all();
-    // extract($item);
-    $VIEW_NAME = "edit.php";
-} else if (exist_param("list.php")) {
+}  else if (exist_param("list.php")) {
     $items = category_select_all();
     $VIEW_NAME = "list.php";
 } else {

@@ -1,17 +1,15 @@
-
-<div class="content-main-cate">
-    <div class="content-cate">
-        <h4>THÊM LOẠI HÀNG</h4>
-        <form action="index.php" method="post" id="add_category" class="form">
-            <div class="form-group">
-                <label for="">Tên loại hàng</label>
-                <input type="text" name="category_name"  class="form-control" aria-describedby="helpId">
-            </div>
-            <button type="submit" name="btn_insert" class="btn btn-dark">Thêm </button>
-            <button type="reset" class="btn btn-dark">Nhập lại</button>
-        </form>
+<h3 class="alert alert-secondary">Thêm loại món</h3>
+<form action="index.php" method="post" id="add_category" class="form m-b-2">
+    <div class="form-group">
+        <label for="">Tên loại hàng</label>
+        <input type="text" name="category_name" class="form-control" aria-describedby="helpId">
     </div>
-</div>
+    <div class="form-group">
+        <button type="submit" name="btn_insert" class="btn btn-dark">Thêm </button>
+        <button type="reset" class="btn btn-dark">Nhập lại</button>
+    </div>
+</form>
+
 <h3 class="alert alert-secondary">Danh sách loại món</h3>
 <div class="row">
     <div class="col-md-12 col-lg-12">
@@ -28,7 +26,7 @@
                     </tr>
                 </thead>
                 <tbody>
-                <?php foreach ($items as $category) : ?>
+                    <?php foreach ($items as $category) : ?>
                         <tr>
                             <td><?= $category['category_id'] ?></td>
                             <td><?= $category['category_name'] ?></td>
@@ -38,7 +36,7 @@
                             </td>
                         </tr>
                     <?php endforeach ?>
-                </tbody>` 
+                </tbody>`
 
             </table>
         </div>

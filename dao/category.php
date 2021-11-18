@@ -42,6 +42,7 @@ function category_select_by_id($category_id){
     $sql = "SELECT * FROM tbl_categories WHERE category_id = ?";
     return pdo_query_one($sql,$category_id);
 }
+
 /**
  * Kiem tra su ton tai theo id
  */
