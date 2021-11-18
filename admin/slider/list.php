@@ -49,25 +49,9 @@
                 </tbody>
                 <tfoot>
                     <tr>
-                        <td colspan="5" style="text-align: center;">
-                            <nav aria-label="Page navigation example ">
-                                <ul class="pagination justify-content-center" style="margin-bottom: 0; ">
-                                    <?php for ($i = 1; $i <= $_SESSION['total_slide']; $i++) { ?>
-                                        <li class="page-item">
-                                            <a class="page-link  <?= $_SESSION['page'] == $i ? "bg-dark text-white" : "text-dark" ?>" href="?page=<?= $i ?>" aria-label="Previous">
-                                                <span aria-hidden="true"><?= $i ?></span>
-                                            </a>
-                                        </li>
-                                    <?php } ?>
-                                </ul>
-                            </nav>
-                        </td>
-                    </tr>
-                    <tr>
                         <td colspan="2"><button type="button" class="btn btn-dark" onclick="checkAll()">Chọn tất cả</button></td>
                         <td colspan="2"><button type="button" class="btn btn-dark" onclick="clearAll()">Bỏ chọn tất cả</button></td>
                         <td><button type="submit" name="btn_delete_all" class="btn btn-dark" id="deleteAll">Xóa các mục đã chọn</button></td>
-
                     </tr>
                 </tfoot>
             </table>

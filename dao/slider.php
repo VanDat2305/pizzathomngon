@@ -35,25 +35,8 @@ function slide_delete($slide_id){
 /**
  * truy van tat ca 
  */
-function slide_select_all()
-{
-    if (!isset($_SESSION['page'])) {
-        $_SESSION['page'] = 1;
-    }
-    $query = "SELECT * FROM tbl_slider order by slide_id desc";
-    $select_all = pdo_query($query);
-    $_SESSION['slide'] = count($select_all);
-
-    if (exist_param("page")) {
-        $_SESSION['page'] = $_REQUEST['page'];
-    }
-
-    $limit = 4;
-    $start = ($_SESSION['page'] - 1) * $limit;
-    $_SESSION['total_slide'] = ceil($_SESSION['slide'] / $limit);
-
-    $sql = "SELECT * FROM tbl_slider ORDER BY slide_id DESC LIMIT $start,$limit";
-
+function slide_select_all(){
+    $sql = "SELECT * FROM tbl_slider order by slide_id";
     return pdo_query($sql);
 }
 /**
@@ -68,23 +51,4 @@ function slide_select_by_id($slide_id)
 {
     $sql = "SELECT * FROM tbl_slider WHERE slide_id=?";
     return pdo_query_one($sql, $slide_id);
-}
-function slide_exist_name($slide_image)
-{
-    $sql = "SELECT count(*) FROM tbl_slider WHERE slide_id=?";
-    return pdo_query_value($sql, $slide_image) > 0;
-}
-function slide_exist_slide_image($slide_id,$slide_image){
-    $sql = "SELECT count(*) FROM tbl_slider WHERE  slide_id!=? and slide_image=?";
-    return pdo_query_value($sql, $slide_id, $slide_image) > 0;
-}
-function slide_select_page()
-{
-    $sql = "SELECT * FROM tbl_slider where slide_status = 1";
-  return pdo_query($sql);
-}
-function slide_status_update($slide_id, $slide_status)
-{
-    $sql = "UPDATE tbl_slider SET slide_status=b? WHERE slide_id=?";
-    pdo_execute($sql, $slide_status, $slide_id);
 }

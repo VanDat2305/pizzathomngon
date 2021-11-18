@@ -15,7 +15,7 @@ if (exist_param("btn_insert")) {
     } catch (Exception $exc) {
         $MESSAGE = "Thêm mới thất bại!";
     }
-    $items = category_select_page();
+    $items = category_select_all();
     $VIEW_NAME = "category/list.php";
 } else if (exist_param("btn_update")) {
     try {
@@ -24,7 +24,7 @@ if (exist_param("btn_insert")) {
     } catch (Exception $exc) {
         $MESSAGE = "Cập nhật thất bại!";
     }
-    $items = category_select_page();
+    $items = category_select_all();
     $VIEW_NAME = "list.php";
 } else if (exist_param("btn_delete")) {
     try {
@@ -33,7 +33,7 @@ if (exist_param("btn_insert")) {
     } catch (Exception $exc) {
         $MESSAGE = "Xóa thất bại!";
     }
-    $items = category_select_page();
+    $items = category_select_all();
     $VIEW_NAME = "list.php";
 } else if (exist_param("btn_delete_all")) {
     try {
@@ -46,17 +46,17 @@ if (exist_param("btn_insert")) {
     } catch (Exception $exc) {
         $MESSAGE = "Xóa thất bại!";
     }
-    $items = category_select_page();
+    $items = category_select_all();
     $VIEW_NAME = "list.php";
 } else if (exist_param("btn_edit")) {
-    $items = category_select_page();
+    $items = category_select_all();
     // extract($item);
     $VIEW_NAME = "edit.php";
 } else if (exist_param("list.php")) {
-    $items = category_select_page();
+    $items = category_select_all();
     $VIEW_NAME = "list.php";
 } else {
-    $items = category_select_page();
+    $items = category_select_all();
     $VIEW_NAME = "list.php";
 }
 

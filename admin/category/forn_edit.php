@@ -1,6 +1,6 @@
 <?php
 
-$items = category_select_page();
+$items = category_select_all();
 if (isset($_GET['category_id'])) {
     $row_get_id = category_select_by_id($_GET['category_id']);
 }
@@ -51,21 +51,6 @@ if (isset($_GET['category_id'])) {
                     <?php endforeach ?>
                 </tbody>
                 <tfoot>
-                    <tr>
-                        <td colspan="4" style="text-align: center;">
-                            <nav aria-label="Page navigation example ">
-                                <ul class="pagination justify-content-center" style="margin-bottom: 0; ">
-                                    <?php for ($i = 1; $i <= $_SESSION['total_cate']; $i++) { ?>
-                                        <li class="page-item">
-                                            <a class="page-link  <?= $_SESSION['page'] == $i ? "bg-dark text-white" : "text-dark" ?>" href="?page=<?= $i ?>" aria-label="Previous">
-                                                <span aria-hidden="true"><?= $i ?></span>
-                                            </a>
-                                        </li>
-                                    <?php } ?>
-                                </ul>
-                            </nav>
-                        </td>
-                    </tr>
                     <tr>
                         <td></td>
                         <td><button type="button" class="btn btn-dark" onclick="checkAll()">Chọn tất cả</button></td>
