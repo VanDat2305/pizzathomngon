@@ -30,19 +30,19 @@
                 <tbody>
                     <?php foreach ($items as $slide) { ?>
                         <tr>
-                            <td><input type="checkbox" class="check-one" name="check_id[]" id="" value="<?= $slide['slider_id'] ?>"></td>
-                            <td><?= $slide['slider_id'] ?></td>
-                            <td><img src="<?= CONTENT_URL . 'images/slides/' . $slide['hinh'] ?>" width="200rem" height="100rem" alt=""></td>
+                            <td><input type="checkbox" class="check-one" name="check_id[]" id="" value="<?= $slide['slide_id'] ?>"></td>
+                            <td><?= $slide['slide_id'] ?></td>
+                            <td><img src="<?= CONTENT_URL . 'images/slides/' . $slide['slide_image'] ?>" width="200rem" height="100rem" alt=""></td>
                             <td>
-                                <?php if ($slide['slider_status'] == 0) { ?>
-                                    <a href="?act=btn_hien&slider_id=<?= $slide['slider_id'] ?>">Ẩn</a>
+                                <?php if ($slide['slide_status'] == 0) { ?>
+                                    <a href="?act=btn_hien&slide_id=<?= $slide['slide_id'] ?>">Ẩn</a>
                                 <?php } else { ?>
-                                    <a href="?act=btn_an&slider_id=<?= $slide['slider_id'] ?>">Hiện</a>
+                                    <a href="?act=btn_an&slide_id=<?= $slide['slide_id'] ?>">Hiện</a>
                                 <?php } ?>
                             </td>
                             <td>
                                 
-                                <a href="index.php?btn_delete&slider_id=<?= $slide['slider_id'] ?>" class="btn btn-defaule">Xóa</a>
+                                <a href="index.php?btn_delete&slide_id=<?= $slide['slide_id'] ?>" class="btn btn-defaule">Xóa</a>
                             </td>
                         </tr>
                     <?php } ?>

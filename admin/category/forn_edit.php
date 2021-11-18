@@ -1,8 +1,8 @@
 <?php
 
 $items = category_select_page();
-if (isset($_GET['cate_id'])) {
-    $row_get_id = category_select_by_id($_GET['cate_id']);
+if (isset($_GET['category_id'])) {
+    $row_get_id = category_select_by_id($_GET['category_id']);
 }
 
 ?>
@@ -10,10 +10,10 @@ if (isset($_GET['cate_id'])) {
     <div class="content-cate">
         <h4>SỬA LOẠI HÀNG</h4>
         <form action="index.php" id="edit_category" method="post" class="form">
-            <input type="hidden" name="cate_id" value="<?= isset($row_get_id['cate_id']) ? $row_get_id['cate_id'] : "" ?>">
+            <input type="hidden" name="category_id" value="<?= isset($row_get_id['category_id']) ? $row_get_id['category_id'] : "" ?>">
             <div class="form-group">
                 <label for="">Tên loại hàng</label>
-                <input type="text" name="cate_name" id="" value="<?= isset($row_get_id['cate_name']) ? $row_get_id['cate_name'] : "" ?>" class="form-control" placeholder="" aria-describedby="helpId">
+                <input type="text" name="category_name" id="" value="<?= isset($row_get_id['category_name']) ? $row_get_id['category_name'] : "" ?>" class="form-control" placeholder="" aria-describedby="helpId">
             </div>
             <button type="submit" name="btn_update" class="btn btn-dark">Sửa</button>
             <button type="reset" class="btn btn-dark">Nhập lại</button>
@@ -40,12 +40,12 @@ if (isset($_GET['cate_id'])) {
                 <tbody>
                     <?php foreach ($items as $category) : ?>
                         <tr>
-                            <td><input type="checkbox" class="check-one" name="check_id[]" id="" value="<?= $category['cate_id'] ?>"></td>
-                            <td><?= $category['cate_id'] ?></td>
-                            <td><?= $category['cate_name'] ?></td>
+                            <td><input type="checkbox" class="check-one" name="check_id[]" id="" value="<?= $category['category_id'] ?>"></td>
+                            <td><?= $category['category_id'] ?></td>
+                            <td><?= $category['category_name'] ?></td>
                             <td>
-                                <a href="index.php?btn_edit&cate_id=<?= $category['cate_id'] ?>" class="btn btn-defaule">Sửa</a>
-                                <a href="index.php?btn_delete&cate_id=<?= $category['cate_id'] ?>" class="btn btn-defaule">Xóa</a>
+                                <a href="index.php?btn_edit&category_id=<?= $category['category_id'] ?>" class="btn btn-defaule">Sửa</a>
+                                <a href="index.php?btn_delete&category_id=<?= $category['category_id'] ?>" class="btn btn-defaule">Xóa</a>
                             </td>
                         </tr>
                     <?php endforeach ?>

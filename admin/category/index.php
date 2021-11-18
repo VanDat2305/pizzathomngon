@@ -5,9 +5,9 @@ extract($_REQUEST);
 
 if (exist_param("btn_insert")) {
     try {
-        if ($cate_name != "") {
-            category_insert($cate_name);
-            unset($cate_name, $cate_id);
+        if ($category_name != "") {
+            category_insert($category_name);
+            unset($category_name, $category_id);
             $MESSAGE = "Thêm mới thành công!";
         } else {
             $MESSAGE = "Thêm mới thất bại!";
@@ -19,7 +19,7 @@ if (exist_param("btn_insert")) {
     $VIEW_NAME = "category/list.php";
 } else if (exist_param("btn_update")) {
     try {
-        category_update($cate_id, $cate_name);
+        category_update($category_id, $category_name);
         $MESSAGE = "Cập nhật thành công!";
     } catch (Exception $exc) {
         $MESSAGE = "Cập nhật thất bại!";
@@ -28,7 +28,7 @@ if (exist_param("btn_insert")) {
     $VIEW_NAME = "list.php";
 } else if (exist_param("btn_delete")) {
     try {
-        category_delete($cate_id);
+        category_delete($category_id);
         $MESSAGE = "Xóa thành công!";
     } catch (Exception $exc) {
         $MESSAGE = "Xóa thất bại!";
