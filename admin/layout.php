@@ -49,9 +49,9 @@
             </nav>
             <!-- end of navbar navigation -->
             <div class="content">
-                <div class="container">
+                <!-- <div class="container"> -->
                     <?php include $VIEW_NAME ?>
-                </div>
+                <!-- </div> -->
             </div>
         </div>
     </div>

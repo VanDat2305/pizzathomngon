@@ -32,6 +32,10 @@
             </div>
         </div>
         <div class="form-group">
+            <label class="label" for="discount">Giảm giá (%)</label>
+            <input type="number" name="discount" id="discount" class="form-control" value="" placeholder="">
+        </div>
+        <div class="form-group">
             <label class="label" for="product_name">Mô tả </label>
             <textarea name="description" id="description" rows="4" class="form-control"></textarea>
         </div>

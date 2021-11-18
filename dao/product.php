@@ -4,9 +4,9 @@ date_default_timezone_set('Asia/Ho_Chi_Minh');
 /**
  * Them moi mon an
  */
-function product_insert($cate_id,$product_name,$description,$image,$created_at,$count_view=0){
-    $sql = "INSERT INTO tbl_products(`category_id`,`product_name`,`description`,`product_image`,`created_at`,`count_view`) VALUES (?,?,?,?,?,?)";
-    return pdo_execute_return_id($sql,$cate_id,$product_name,$description,$image,$created_at,$count_view);
+function product_insert($cate_id,$product_name,$description,$image,$discount,$created_at,$count_view=0){
+    $sql = "INSERT INTO tbl_products(`category_id`,`product_name`,`description`,`product_image`,`discount`,`created_at`,`count_view`) VALUES (?,?,?,?,?,?,?)";
+    return pdo_execute_return_id($sql,$cate_id,$product_name,$description,$image,$discount,$created_at,$count_view);
 }
 /**
  * them moi option
@@ -25,9 +25,9 @@ function gallery_insert($product_id,$gallery_name){
 /**
  * Cap nhat mon an
  */
-function product_update($product_id,$cate_id,$product_name,$desciption,$image,$created_at){
-    $sql = "UPDATE tbl_products SET category_id = ?, product_name = ?, `description` = ?, product_image = ?, created_at = ? WHERE product_id = ?";
-    pdo_execute($sql,$cate_id,$product_name,$desciption,$image,$created_at,$product_id);
+function product_update($product_id,$cate_id,$product_name,$desciption,$image,$discount,$created_at){
+    $sql = "UPDATE tbl_products SET category_id = ?, product_name = ?, `description` = ?, product_image = ?, discount = ? , created_at = ? WHERE product_id = ?";
+    pdo_execute($sql,$cate_id,$product_name,$desciption,$image,$discount,$created_at,$product_id);
 }
 /**
  * Cập nhat option
