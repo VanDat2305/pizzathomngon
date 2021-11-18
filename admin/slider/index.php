@@ -1,14 +1,14 @@
 <?php
 require_once "../../global.php";
-require "../../dao/slide.php";
+require "../../dao/slider.php";
 extract($_REQUEST);
 if (exist_param("btn_insert")) {
-    $up_slider_name = save_file("slider_name", "$IMAGE_DIR/slides/");
-    $slider_name = strlen($up_slider_name) > 0 ? $up_slider_name : "";
-    if (strlen($slider_name) > 0) {     
+    $up_slide_image = save_file("slide_image", "$IMAGE_DIR/slides/");
+    $slide_image = strlen($up_slide_image) > 0 ? $up_slide_image : "";
+    if (strlen($slide_image) > 0) {     
         try {
-                slide_insert($slider_name);
-                unset($slider_name, $slider_id,$slider_status);
+                slide_insert($slide_image);
+                unset($slide_image, $slide_id,$slide_status);
                 $MESSAGE = "Thêm mới thành công!";
         } catch (Exception $exc) {
             $MESSAGE = "Thêm mới thất bại!";
@@ -20,7 +20,7 @@ if (exist_param("btn_insert")) {
     $VIEW_NAME = "slide/list.php";
 } else if (exist_param("btn_update")) {
     try {
-        slide_update($slider_id, $slider_name);
+        slide_update($slide_id, $slide_image);
         $MESSAGE = "Cập nhật thành công!";
     } catch (Exception $exc) {
         $MESSAGE = "Cập nhật thất bại!";
@@ -29,7 +29,7 @@ if (exist_param("btn_insert")) {
     $VIEW_NAME = "list.php";
 } else if (exist_param("btn_delete")) {
     try {
-        slide_delete($slider_id);
+        slide_delete($slide_id);
         $MESSAGE = "Xóa thành công!";
     } catch (Exception $exc) {
         $MESSAGE = "Xóa thất bại!";
