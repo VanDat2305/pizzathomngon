@@ -18,7 +18,6 @@
                         echo "<tr>" . $MESSAGE . "</tr>";
                     } ?>
                     <tr>
-                        <th></th>
                         <th>Mã slide</th>
                         <th>Hình</th>
                         <th>Trạng thái</th>
@@ -28,7 +27,6 @@
                 <tbody>
                 <?php foreach ($items as $slide) { ?>
                 <tr>
-                    <td><input type="checkbox" class="check-one" name="check_id[]" id="" value="<?= $slide['slide_id'] ?>"></td>
                     <td><?= $slide['slide_id'] ?></td>
                     <td><img src="<?= CONTENT_URL . 'img/banners/' . $slide['slide_image'] ?>" width="200rem" height="100rem" alt=""></td>
                     <td>
@@ -39,7 +37,6 @@
                         <?php } ?>
                     </td>
                     <td>
-
                         <a href="index.php?btn_delete&slide_id=<?= $slide['slide_id'] ?>" class="btn btn-defaule">Xóa</a>
                     </td>
                 </tr>
