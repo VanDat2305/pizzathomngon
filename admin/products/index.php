@@ -29,7 +29,7 @@ if (exist_param("form_insert")) {
     } else {
         try {
             // insert lấy id product
-            $product_id = product_insert($category_id, $product_name, $description, $image, $created_at, $count_view);
+            $product_id = product_insert($category_id, $product_name, $description, $image,$discount, $created_at, $count_view);
             $count = count($option_price);
             // insert option
             for ($i = 0; $i < $count; $i++) {
@@ -65,7 +65,7 @@ if (exist_param("form_insert")) {
         $VIEW_NAME = "form_edit.php";
     } else {
         try {
-            product_update($id, $category_id, $product_name, $description, $image, $created_at);
+            product_update($id, $category_id, $product_name, $description, $image,$discount, $created_at);
             $MESSAGE = "Cập nhật thành công!";
         } catch (Exception $exc) {
             $MESSAGE = "Cập nhật thất bại!";
