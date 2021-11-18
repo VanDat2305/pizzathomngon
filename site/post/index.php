@@ -17,6 +17,19 @@
         <input type="submit" value="Thêm nội  dung">
 
     </form>
+    <br>
+    <hr>
+    <?php
+
+    if (isset($_POST['content'])) {
+        $content = $_POST['content'];
+        var_dump($content);
+        die;
+    }
+
+
+    ?>
+
     <script src="<?= CONTENT_URL ?>ckeditor/ckeditor.js"></script>
     <script type="text/javascript">
         CKEDITOR.replace('content');
