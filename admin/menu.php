@@ -1,3 +1,6 @@
+<?php
+$array_url =  explode('/', $_SERVER['REQUEST_URI']);
+?>
 <nav id="sidebar" class="">
     <div class="sidebar-header text-center">
         <a href="" class="">
@@ -6,76 +9,48 @@
     </div>
     <ul class="list-unstyled components text-secondary">
         <li>
-            <a href="dashboard.html"><i class="fas fa-home"></i> Dashboard</a>
+            <a href="<?= ADMIN_URL ?>dashboard/" class="list <?= in_array("dashboard", $array_url) ? "active" : "" ?>">
+                <span class="fas fa-home"></span><span>Trang chủ</span></a>
         </li>
         <li>
-            <a href="forms.html"><i class="fas fa-file-alt"></i> Forms</a>
+            <a href="<?= ADMIN_URL ?>category/" class="list <?= in_array("category", $array_url) ? "active" : "" ?>">
+                <span class="fas fa-folder-open"></span><span>Quản lý loại món</span></a>
         </li>
         <li>
-            <a href="tables.html"><i class="fas fa-table"></i> Tables</a>
+            <a href="<?= ADMIN_URL ?>products/" class="list <?= in_array("products", $array_url) ? "active" : "" ?>">
+                <span class="fas  fa-utensils"></span><span>Quản lý món ăn</span></a>
         </li>
         <li>
-            <a href="charts.html"><i class="fas fa-chart-bar"></i> Charts</a>
+            <a href="<?= ADMIN_URL ?>sale/" class="list <?= in_array("sale", $array_url) ? "active" : "" ?>">
+                <span class="fas fa-balance-scale-right"></span><span>Quản lý khuyến mãi</span></a>
         </li>
         <li>
-            <a href="icons.html"><i class="fas fa-icons"></i> Icons</a>
+            <a href="<?= ADMIN_URL ?>comment/" class="list <?= in_array("comment", $array_url) ? "active" : "" ?>">
+            <span class="fas fa-comments"></span><span>Quản lý bình luận</span></a>
         </li>
         <li>
-            <a href="#uielementsmenu" data-bs-toggle="collapse" aria-expanded="false" class="dropdown-toggle no-caret-down"><i class="fas fa-layer-group"></i> UI Elements</a>
-            <ul class="collapse list-unstyled" id="uielementsmenu">
-                <li>
-                    <a href="ui-buttons.html"><i class="fas fa-angle-right"></i> Buttons</a>
-                </li>
-                <li>
-                    <a href="ui-badges.html"><i class="fas fa-angle-right"></i> Badges</a>
-                </li>
-                <li>
-                    <a href="ui-cards.html"><i class="fas fa-angle-right"></i> Cards</a>
-                </li>
-                <li>
-                    <a href="ui-alerts.html"><i class="fas fa-angle-right"></i> Alerts</a>
-                </li>
-                <li>
-                    <a href="ui-tabs.html"><i class="fas fa-angle-right"></i> Tabs</a>
-                </li>
-                <li>
-                    <a href="ui-date-time-picker.html"><i class="fas fa-angle-right"></i> Date & Time Picker</a>
-                </li>
-            </ul>
+            <a href="<?= ADMIN_URL ?>invoice/" class="list <?= in_array("invoice", $array_url) ? "active" : "" ?>">
+            <span class="fas fa-file-invoice-dollar"></span><span>Quản lý đơn hàng </span></a>
         </li>
         <li>
-            <a href="#authmenu" data-bs-toggle="collapse" aria-expanded="false" class="dropdown-toggle no-caret-down"><i class="fas fa-user-shield"></i> Authentication</a>
-            <ul class="collapse list-unstyled" id="authmenu">
-                <li>
-                    <a href="login.html"><i class="fas fa-lock"></i> Login</a>
-                </li>
-                <li>
-                    <a href="signup.html"><i class="fas fa-user-plus"></i> Signup</a>
-                </li>
-                <li>
-                    <a href="forgot-password.html"><i class="fas fa-user-lock"></i> Forgot password</a>
-                </li>
-            </ul>
+            <a href="<?= ADMIN_URL ?>post/" class="list <?= in_array("post", $array_url) ? "active" : "" ?>">
+            <span class="fas fa-book-open"></span><span>Quản lý bài viết</span></a>
         </li>
         <li>
-            <a href="#pagesmenu" data-bs-toggle="collapse" aria-expanded="false" class="dropdown-toggle no-caret-down"><i class="fas fa-copy"></i> Pages</a>
-            <ul class="collapse list-unstyled" id="pagesmenu">
-                <li>
-                    <a href="blank.html"><i class="fas fa-file"></i> Blank page</a>
-                </li>
-                <li>
-                    <a href="404.html"><i class="fas fa-info-circle"></i> 404 Error page</a>
-                </li>
-                <li>
-                    <a href="500.html"><i class="fas fa-info-circle"></i> 500 Error page</a>
-                </li>
-            </ul>
+            <a href="<?= ADMIN_URL ?>users/" class="list <?= in_array("users", $array_url) ? "active" : "" ?>">
+            <span class="fas fa-user-friends"></span><span>Quản lý thành viên</span></a>
         </li>
         <li>
-            <a href="users.html"><i class="fas fa-user-friends"></i>Users</a>
+            <a href="<?= ADMIN_URL ?>contact/" class="list <?= in_array("contact", $array_url) ? "active" : "" ?>">
+                <span class="fas fa-address-book"></span><span>Quản lý phản hồi</span></a>
         </li>
         <li>
-            <a href="settings.html"><i class="fas fa-cog"></i>Settings</a>
+            <a href="<?= ADMIN_URL ?>slide/" class="list <?= in_array("slide", $array_url) ? "active" : "" ?>">
+                <span class="fas fa-images"></span><span>Quản lý banner</span></a>
+        </li>
+        <li>
+            <a href="<?= ADMIN_URL ?>chart/" class="list <?= in_array("chart", $array_url) ? "active" : "" ?>">
+                <span class="fas fa-chart-bar"></span><span>Thống kê</span></a>
         </li>
     </ul>
 </nav>
