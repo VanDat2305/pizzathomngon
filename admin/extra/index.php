@@ -9,7 +9,6 @@ if (exist_param("form_insert")) {
     // extract($item);
     $VIEW_NAME = "form_insert.php";
 } elseif (exist_param("btn_insert")) {
-    $items = category_select_all();
     if ($extra_name != "" || $extra_price > 0) {
         try {
             extra_insert($extra_name, $extra_price, $category_id);
@@ -20,21 +19,21 @@ if (exist_param("form_insert")) {
     } else {
         $MESSAGE = "Thêm mới thất bại!";
     }
+    $items = category_select_extra();
     $VIEW_NAME = "list.php";
 } else if (exist_param("btn_edit")) {
     $items = extra_select_by_id($extra_id);
     // extract($item);
     $VIEW_NAME = "form_edit.php";
 } else if (exist_param("btn_update")) {
-    $items = extra_select_by_id($extra_id);
     try {
         extra_update($extra_id, $extra_name, $extra_price);
         $MESSAGE = "Cập nhật thành công!";
     } catch (Exception $exc) {
         $MESSAGE = "Cập nhật thất bại!";
     }
-    $items = category_select_all();
-    $VIEW_NAME = "list.php";
+    $items = extra_select_all($category_id);
+    $VIEW_NAME = "list_topping.php";
 } else if (exist_param("btn_delete")) {
     try {
         extra_delete($extra_id);
@@ -42,8 +41,8 @@ if (exist_param("form_insert")) {
     } catch (Exception $exc) {
         $MESSAGE = "Xóa thất bại!";
     }
-    $items = category_select_all();
-    $VIEW_NAME = "list.php";
+    $items = extra_select_all($category_id);
+    $VIEW_NAME = "list_topping.php";
 } else if (exist_param("btn_delete_all")) {
     try {
         $checkbox = $_POST['check_id'];
@@ -67,7 +66,8 @@ if (exist_param("form_insert")) {
         $VIEW_NAME = "form_insert.php";
     }
 } else {
-    $items = category_select_all();
+
+    $items = category_select_extra();
     $VIEW_NAME = "list.php";
 }
 

@@ -9,6 +9,7 @@
                     } ?>
                     <tr>
                         <th>Tên Loại</th>
+                        <th>Số lượng</th>
                         <th><a href="?form_insert" class="btn btn-dark">Thêm mới</a></th>
                     </tr>
                 </thead>
@@ -17,6 +18,7 @@
                         <?php extract($item); ?>
                         <tr>
                             <td><?= $category_name ?></td>
+                            <td><?= number_format($count_extra,0,'','') ?></td>
                             <td><a href="?btn_info&id=<?= $category_id ?>">Chi tiết</a></td>
                         </tr>
                     <?php endforeach ?>
