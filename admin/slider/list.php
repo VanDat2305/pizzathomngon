@@ -40,7 +40,7 @@
                     </td>
                     <td>
 
-                        <a href="index.php?btn_delete&slide_id=<?= $slide['slide_id'] ?>" class="btn btn-defaule">Xóa</a>
+                        <a href="index.php?btn_delete&slide_id=<?= $slide['slide_id'] ?>" class="btn btn-defaule" onclick=" return confirm('Bạn có chắc chắn muốn xóa không ???')">Xóa</a>
                     </td>
                 </tr>
             <?php } ?>

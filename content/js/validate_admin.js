@@ -162,6 +162,11 @@ $("#form_insert_product").validate({
       required: true,
       extension: "jpg|jpeg|png|ico|bmp",
     },
+    discount:{
+      required: true,
+      min:0,
+      max:90,
+    }
   },
   messages: {
     product_name: {
@@ -180,5 +185,10 @@ $("#form_insert_product").validate({
       required: "Hãy chọn ảnh",
       extension: "Vui lòng chọn đúng định dạng",
     },
+    discount:{
+      required: "Vui lòng điền ̀%",
+      min:" % không được bé hơn 0",
+      max:"không được quá 90%",
+    }
   },
 });
