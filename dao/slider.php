@@ -15,9 +15,9 @@ function slide_insert($slide_image)
 /**
  * Cap nhat 
  */
-function slide_update($slide_id,$slide_image){
-    $sql = "UPDATE tbl_slider SET slide_image = b? WHERE slide_id = ?";
-    pdo_execute($sql,$slide_image,$slide_id);
+function slide_update($slide_id,$status){
+    $sql = "UPDATE tbl_slider SET slide_status = b? WHERE slide_id = ?";
+    pdo_execute($sql,$status,$slide_id);
 }
 /**
  * Xoa 1 hoac nhieu ma 
