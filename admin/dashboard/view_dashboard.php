@@ -76,15 +76,15 @@
         <div>
             <span class="las la-clipboard-list"></span>
         </div>
-    </div>
-    <div class="card-single">
+    </div> -->
+    <!-- <div class="card-single">
         <div>
             <h1><?= $amount_user ?></h1>
             <span>Users</span>
         </div>
         <div>
             <span class="las la-users"></span>
-        </div> -->
-    <!-- </div>
+        </div>
+    </div> -->
 
 </div>

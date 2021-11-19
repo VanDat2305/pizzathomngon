@@ -32,7 +32,7 @@
                             <td><?= $category['category_name'] ?></td>
                             <td>
                                 <a href="index.php?btn_edit&category_id=<?= $category['category_id'] ?>" class="btn btn-defaule">Sửa</a>
-                                <a href="index.php?btn_delete&category_id=<?= $category['category_id'] ?>" class="btn btn-defaule">Xóa</a>
+                                <a href="index.php?btn_delete&category_id=<?= $category['category_id'] ?>" class="btn btn-defaule" onclick=" return confirm('Bạn có chắc chắn muốn xóa không ???')">Xóa</a>
                             </td>
                         </tr>
                     <?php endforeach ?>
