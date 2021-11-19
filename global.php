@@ -28,7 +28,7 @@ $title_site = "";
 /* 
 kiem tra su ton tai cua mot tham so trong request
 */
-function exist_param($file_name)
+function exist_param($file_name) //field_name ko phai file_name
 {
     return array_key_exists($file_name, $_REQUEST); //ham kiem tra $file_name co trong mang request k
 }
