@@ -1,8 +1,8 @@
 <h3 class="alert alert-secondary">Thêm banner</h3>
-<form action="index.php" method="post" enctype="multipart/form-data" class="form">
+<form action="index.php" id="form_insert_slider" method="post" enctype="multipart/form-data" class="form">
     <div class="form-group">
         <label for="">Slide</label>
-        <input type="file" name="slide_image" class="form-control" aria-describedby="helpId">
+        <input type="file" name="slide_image" id="slide_image" class="form-control" aria-describedby="helpId">
     </div>
     <div class="form-group">
         <button type="submit" name="btn_insert" class="btn btn-dark">Thêm </button>
@@ -37,12 +37,11 @@
                         <?php } ?>
                     </td>
                     <td>
-                        <a href="index.php?btn_delete&slide_id=<?= $slide['slide_id'] ?>" class="btn btn-defaule">Xóa</a>
+                        <a href="index.php?btn_delete&slide_id=<?= $slide['slide_id'] ?>" onclick=" return confirm('Bạn có chắc chắn muốn xóa không ???')" class="btn btn-defaule">Xóa</a>
                     </td>
                 </tr>
             <?php } ?>
                 </tbody>`
-
             </table>
         </div>
     </div>
