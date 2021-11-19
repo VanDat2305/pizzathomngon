@@ -192,3 +192,106 @@ $("#form_insert_product").validate({
     }
   },
 });
+$("#form_insert_category").validate({
+  rules: {
+    category_name: {
+      required: true,
+      minlength: 3,
+    },
+  },
+  messages: {
+    category_name: {
+      required: "Vui lòng điền tên loại",
+      minlength: "Hãy nhập ít nhất 3 ký tự",
+    },
+  },
+});
+$("#form_edit_category").validate({
+  rules: {
+    category_name: {
+      required: true,
+      minlength: 3,
+    },
+  },
+  messages: {
+    category_name: {
+      required: "Vui lòng điền tên loại",
+      minlength: "Hãy nhập ít nhất 3 ký tự",
+    },
+  },
+});
+$("#form_insert_slider").validate({
+  rules: {
+    slide_image: {
+      required: true,
+      extension: "jpg|jpeg|png|ico|bmp",
+    },
+  },
+  messages: {
+    slide_image: {
+      required: "Hãy chọn ảnh",
+      extension: "Vui lòng chọn đúng định dạng",
+    },
+  },
+});
+$("#form_insert_extra").validate({
+  rules: {
+    extra_name: {
+      required: true,
+      minlength: 3,
+    },
+    extra_price: {
+      required: true,
+      minlength: 3,
+    },
+    category_name: {
+      required: true,
+      minlength: 1,
+    },
+  },
+  messages: {
+    extra_name: {
+      required: "Vui lòng điền tên topping",
+      minlength: "Hãy nhập ít nhất 3 ký tự",
+    },
+    extra_price: {
+      required: "Vui lòng điền thông tin",
+      minlength: "Giá phải hơn 1.000đ",
+    },
+    category_name:{
+      required: "Vui lòng chọn loại",
+      minlength: "Vui lòng chọn loại",
+    },
+  },
+});$("#form_edit_extra").validate({
+  rules: {
+    extra_name: {
+      required: true,
+      minlength: 3,
+    },
+    extra_price: {
+      required: true,
+      minlength: 3,
+    },
+    category_name: {
+      required: true,
+      minlength: 1,
+    },
+  },
+  messages: {
+    extra_name: {
+      required: "Vui lòng điền tên topping",
+      minlength: "Hãy nhập ít nhất 3 ký tự",
+    },
+    extra_price: {
+      required: "Vui lòng điền thông tin",
+      minlength: "Giá phải hơn 1.000đ",
+    },
+    category_name:{
+      required: "Vui lòng chọn loại",
+      minlength: "Vui lòng chọn loại",
+    },
+  },
+});
+
+

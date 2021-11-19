@@ -60,6 +60,10 @@ $array_url =  explode('/', $_SERVER['REQUEST_URI']);
                 <span class="fas fa-images"></span><span>Quản lý banner</span></a>
         </li>
         <li>
+            <a href="<?= ADMIN_URL ?>chart/" class="list <?= in_array("contact", $array_url) ? "active" : "" ?>">
+                <span class="fas fa-chart-bar"></span><span>Quản lý liên hệ</span></a>
+        </li>
+        <li>
             <a href="<?= ADMIN_URL ?>chart/" class="list <?= in_array("chart", $array_url) ? "active" : "" ?>">
                 <span class="fas fa-chart-bar"></span><span>Thống kê</span></a>
         </li>
