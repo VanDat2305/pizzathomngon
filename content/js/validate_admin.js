@@ -283,5 +283,89 @@ $("#form_insert_extra").validate({
     },
   },
 });
+$("#form_insert_contact").validate({
+  rules: {
+    contact_name: {
+      required: true,
+      minlength: 3,
+    },
+    contact_phone: {
+      required: true,
+      minlength: 9,
+      maxlength: 10,
+    },
+    contact_email: {
+      required: true,
+      email:true,
+      minlength: 3,
+    },
+    contact_address: {
+      required: true,
+      minlength: 3,
+    },
+  },
+  messages: {
+    contact_name: {
+      required: "Vui lòng điền tên",
+      minlength: "Hãy nhập ít nhất 3 ký tự",
+    },
+    contact_phone: {
+      required: "Vui lòng điền số điện thoại",
+      minlength: "Số điện thoại không hợp lệ",
+      maxlength: "Số điện thoại không hợp lệ",
+    },
+    contact_email: {
+      required: "Vui lòng điền email",
+      email:"Vui lòng điền đúng email",
+      minlength: "Hãy nhập ít nhất 3 ký tự",
+    },
+    contact_address: {
+      required: "Vui lòng điền địa chỉ",
+      minlength: "Hãy nhập ít nhất 3 ký tự",
+    },   
+  },
+});
+$("#form_edit_contact").validate({
+  rules: {
+    contact_name: {
+      required: true,
+      minlength: 3,
+    },
+    contact_phone: {
+      required: true,
+      minlength: 9,
+      maxlength: 10,
+    },
+    contact_email: {
+      required: true,
+      email:true,
+      minlength: 3,
+    },
+    contact_address: {
+      required: true,
+      minlength: 3,
+    },
+  },
+  messages: {
+    contact_name: {
+      required: "Vui lòng điền tên",
+      minlength: "Hãy nhập ít nhất 3 ký tự",
+    },
+    contact_phone: {
+      required: "Vui lòng điền số điện thoại",
+      minlength: "Số điện thoại không hợp lệ",
+      maxlength: "Số điện thoại không hợp lệ",
+    },
+    contact_email: {
+      required: "Vui lòng điền email",
+      email:"Vui lòng điền đúng email",
+      minlength: "Hãy nhập ít nhất 3 ký tự",
+    },
+    contact_address: {
+      required: "Vui lòng điền địa chỉ",
+      minlength: "Hãy nhập ít nhất 3 ký tự",
+    },   
+  },
+});
 
 
