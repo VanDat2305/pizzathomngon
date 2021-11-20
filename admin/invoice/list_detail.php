@@ -44,7 +44,7 @@
                         <th>Ghi chú:</th>
                         <td><?= $note ?></td>
                     </tr>
-                    
+
                 </tbody>
             </table>
         </div>
@@ -53,7 +53,7 @@
 <div class="row">
     <div class="col-md-12 col-lg-12">
         <div class="card-body ">
-            <table class="table table-hover text-center " width="100%">
+            <table class="table table-hover text-center " id="dataTables-example" width="100%">
                 <thead>
                     <tr>
                         <th>STT</th>
@@ -61,22 +61,43 @@
                         <th>Tên option</th>
                         <th>Giá</th>
                         <th>Số lượng</th>
-                        <th>Tổng tiền</th>
+                        <th>Giảm giá</th>
+                        <th>Toping</th>
+                        <th>Tổng tiền topping</th>
+                        <th>Thành tiền</th>
                     </tr>
                 </thead>
-                <tbody >
-                    <?php foreach($option as $item):?>
+                <tbody>
+                    <?php foreach ($option as $item) : ?>
                         <?php extract($item);  ?>
                         <tr>
-                            <td><?= $index++?></td>
-                            <td><?= $product_name?></td>
+                            <td><?= $index++ ?></td>
+                            <td><?= $product_name ?></td>
                             <td><?= $option_name ?></td>
-                            <td><?= number_format($option_price,0,'','')?> đ</td>
-                            <td><?= $quantity?></td>
-                            <td><?= number_format($total_option,0,',','.')?> đ</td>
+                            <td><?= number_format($option_price, 0, '', '') ?> đ</td>
+                            <td><?= $quantity ?></td>
+                            <td><?= number_format($discount, 0, ',', '.') ?> %</td>
+                            <td>
+                                <div class="dropdown open">
+                                    <button class="btn btn-outline-white dropdown-toggle" type="button" id="dropdownMenu5" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                        Xem
+                                    </button>
+                                    <div class="dropdown-menu">
+                                        <ul class="list-group">
+                                            <?php foreach($topping as $item):?>
+                                            <?php if ($item['order_detail_id'] == $order_detail_id) { ?>
+                                                <li class="list-group-item"><?= $item['extra_name']?> - <?= number_format($item['extra_price'],0,",",".")?>đ</li>
+                                            <?php }?>
+                                            <?php endforeach?>
+                                        </ul>
+                                    </div>
+                                </div>
+                            </td>
+                            <td><?= number_format($total_extra, 0, ',', '.') ?> đ</td>
+                            <td><?= number_format($total_option, 0, ',', '.') ?> đ</td>
                         </tr>
-                    <?php endforeach?>
-                    
+                    <?php endforeach ?>
+
                 </tbody>
             </table>
         </div>
