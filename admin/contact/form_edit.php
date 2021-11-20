@@ -7,12 +7,12 @@
                 <input type="text" name="contact_name" id="contact_name" id="" value="<?= isset($items['contact_name']) ? $items['contact_name'] : "" ?>" class="form-control" placeholder="" aria-describedby="helpId">
             </div>
             <div class="form-group">
-                <label for="">Số điện thoại</label>
-                <input type="number" name="contact_phone" id="contact_phone" id="" value="<?= isset($items['contact_phone']) ? $items['contact_phone'] : "" ?>" class="form-control" placeholder="" aria-describedby="helpId">
-            </div>
-            <div class="form-group">
                 <label for="">Email</label>
                 <input type="email" name="contact_email" id="contact_email" id="" value="<?= isset($items['contact_email']) ? $items['contact_email'] : "" ?>" class="form-control" placeholder="" aria-describedby="helpId">
+            </div>
+            <div class="form-group">
+                <label for="">Số điện thoại</label>
+                <input type="number" name="contact_phone" id="contact_phone" id="" value="<?= isset($items['contact_phone']) ? $items['contact_phone'] : "" ?>" class="form-control" placeholder="" aria-describedby="helpId">
             </div>
             <div class="form-group">
                 <label for="">Địa chỉ</label>

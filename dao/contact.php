@@ -8,7 +8,6 @@ function contact_insert($contact_name, $contact_email, $contact_phone, $contact_
     $contact_status = 0;
     $sql = "INSERT INTO tbl_contact( `contact_name`, `contact_email`, `contact_phone`, `contact_address`, `contact_status`) VALUES (?,?,?,?,b?)";
     pdo_execute($sql, $contact_name, $contact_email, $contact_phone, $contact_address, $contact_status);
-    
 }
 
 /**

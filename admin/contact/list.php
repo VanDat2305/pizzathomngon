@@ -5,12 +5,12 @@
         <input type="text" name="contact_name" id="contact_name" class="form-control" aria-describedby="helpId">
     </div>
     <div class="form-group">
-        <label for="">Số điện thoại</label>
-        <input type="number" name="contact_phone" id="contact_phone" class="form-control" aria-describedby="helpId">
-    </div>
-    <div class="form-group">
         <label for="">Email</label>
         <input type="email" name="contact_email" id="contact_email" class="form-control" aria-describedby="helpId">
+    </div>
+    <div class="form-group">
+        <label for="">Số điện thoại</label>
+        <input type="number" name="contact_phone" id="contact_phone" class="form-control" aria-describedby="helpId">
     </div>
     <div class="form-group">
         <label for="">Địa chỉ</label>
