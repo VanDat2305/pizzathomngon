@@ -20,6 +20,10 @@
                 <input type="text" name="product_name" id="product_name" class="form-control" value="<?= $item_pro['product_name'] ?>" placeholder="">
             </div>
             <div class="form-group">
+            <label class="label" for="discount">Giảm giá (%)</label>
+            <input type="number" name="discount" id="discount" class="form-control" value="<?= $discount?>" placeholder="">
+        </div>
+            <div class="form-group">
                 <label for="">Ảnh</label>
                 <input type="hidden" name="image_old" value="<?= $item_pro['product_image'] ?>">
                 <div class="custom-file">

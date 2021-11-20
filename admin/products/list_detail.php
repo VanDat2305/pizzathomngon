@@ -1,14 +1,14 @@
 <h3 class="alert alert-secondary">Chi tiết món ăn</h3>
-<div class="row bg-white">
+<div class="row bg-white ml-2">
     <?php extract($items);
     $index = 1; ?>
-    <div class="col-lg-4 col-md ">
-        <img src="<?= CONTENT_URL . 'img/products/' . $product_image ?>" width="100%" alt="">
+    <div class="col-lg-4  ">
+        <img src="<?= CONTENT_URL . 'img/products/' . $product_image ?>" width="100px" alt="">
         <button type="button" class="btn btn-outline-dark form-control" data-bs-toggle="modal" data-bs-target="#exampleModal">
             Xem thêm
         </button>
     </div>
-    <div class="col-lg-8 col-md ">
+    <div class="col-lg-8 ">
         <div class="table-responsive">
             <table class="table table-hover text-left " width="100%">
                 <tbody>
@@ -23,6 +23,10 @@
                     <tr>
                         <th>Tên món:</th>
                         <td><?= $product_name ?></td>
+                    </tr>
+                    <tr>
+                        <th>Giảm giá:</th>
+                        <td><?= $discount ?> %</td>
                     </tr>
                     <tr>
                         <th>Số lượt xem:</th>
@@ -40,7 +44,7 @@
         </div>
     </div>
 </div>
-<div class="row bg-white">
+<div class="row bg-white ml-2">
     <div class="col-md-12 col-lg-12">
         <table class="table table-hover text-center " width="100%">
             <thead>
