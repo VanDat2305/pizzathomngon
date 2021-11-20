@@ -51,8 +51,8 @@ $array_url =  explode('/', $_SERVER['REQUEST_URI']);
             <a href="<?= ADMIN_URL ?>users/" class="list <?= in_array("users", $array_url) ? "active" : "" ?>">
                 <span class="fas fa-user-friends"></span><span>Quản lý thành viên</span></a>
         </li>
-        <!-- <li>
-            <a href="<?= ADMIN_URL ?>contact/" class="list <?= in_array("contact", $array_url) ? "active" : "" ?>">
+        <li>
+            <a href="<?= ADMIN_URL ?>/" class="list <?= in_array("phanhoi", $array_url) ? "active" : "" ?>">
                 <span class="fas fa-address-book"></span><span>Quản lý phản hồi</span></a>
         </li> -->
         <li>
@@ -60,7 +60,7 @@ $array_url =  explode('/', $_SERVER['REQUEST_URI']);
                 <span class="fas fa-images"></span><span>Quản lý banner</span></a>
         </li>
         <li>
-            <a href="<?= ADMIN_URL ?>chart/" class="list <?= in_array("contact", $array_url) ? "active" : "" ?>">
+            <a href="<?= ADMIN_URL ?>contact/" class="list <?= in_array("contact", $array_url) ? "active" : "" ?>">
                 <span class="fas fa-address-book"></span><span>Quản lý liên hệ</span></a>
         </li>
         <li>
