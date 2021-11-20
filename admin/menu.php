@@ -52,7 +52,7 @@ $array_url =  explode('/', $_SERVER['REQUEST_URI']);
                 <span class="fas fa-user-friends"></span><span>Quản lý thành viên</span></a>
         </li>
         <li>
-            <a href="<?= ADMIN_URL ?>/" class="list <?= in_array("phanhoi", $array_url) ? "active" : "" ?>">
+            <a href="<?= ADMIN_URL ?>/feedback" class="list <?= in_array("feedback", $array_url) ? "active" : "" ?>">
                 <span class="fas fa-address-book"></span><span>Quản lý phản hồi</span></a>
         </li>
         <li>
