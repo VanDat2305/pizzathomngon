@@ -178,16 +178,6 @@
                                                                     chảy</a></div>
                                                             <div class="product-item__desc">Pizza phô mai cay với lớp trên là bò pepperoni & sốt</div>
                                                             <div class="product-item__select">
-                                                                <div class="select-box select-box--thickness">
-                                                                    <ul>
-                                                                        <li><label><input type="radio" name="thickness-1" checked="checked" /><span>Mỏng</span></label>
-                                                                        </li>
-                                                                        <li><label><input type="radio" name="thickness-1" /><span>Vừa</span></label>
-                                                                        </li>
-                                                                        <li><label><input type="radio" name="thickness-1" /><span>Dầy</span></label>
-                                                                        </li>
-                                                                    </ul>
-                                                                </div>
                                                                 <div class="select-box select-box--size">
                                                                     <ul>
                                                                         <li><label><input type="radio" name="size-1" /><span>S</span></label>
@@ -312,16 +302,6 @@
                                                             <div class="product-item__desc">Ngon quên lối về haha
                                                             </div>
                                                             <div class="product-item__select">
-                                                                <div class="select-box select-box--thickness">
-                                                                    <ul>
-                                                                        <li><label><input type="radio" name="thickness-2" checked="checked" /><span>Mỏng</span></label>
-                                                                        </li>
-                                                                        <li><label><input type="radio" name="thickness-2" /><span>Vừa</span></label>
-                                                                        </li>
-                                                                        <li><label><input type="radio" name="thickness-2" /><span>Dầy</span></label>
-                                                                        </li>
-                                                                    </ul>
-                                                                </div>
                                                                 <div class="select-box select-box--size">
                                                                     <ul>
                                                                         <li><label><input type="radio" name="size-2" /><span>S
