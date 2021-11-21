@@ -54,7 +54,7 @@ $array_url =  explode('/', $_SERVER['REQUEST_URI']);
         <li>
             <a href="<?= ADMIN_URL ?>/" class="list <?= in_array("phanhoi", $array_url) ? "active" : "" ?>">
                 <span class="fas fa-address-book"></span><span>Quản lý phản hồi</span></a>
-        </li> -->
+        </li> 
         <li>
             <a href="<?= ADMIN_URL ?>slider/" class="list <?= in_array("slider", $array_url) ? "active" : "" ?>">
                 <span class="fas fa-images"></span><span>Quản lý banner</span></a>
