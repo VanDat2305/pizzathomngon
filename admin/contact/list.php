@@ -1,5 +1,7 @@
 <h3 class="alert alert-secondary">Thêm thông tin liên hệ</h3>
-<form action="index.php" id="form_insert_contact" method="post" enctype="multipart/form-data" class="form">
+<div class="row">
+    <div class="col ml-4 mr-4">
+    <form action="index.php" id="form_insert_contact" method="post" enctype="multipart/form-data" class="form">
     <div class="form-group">
         <label for="">Tên nhà hàng</label>
         <input type="text" name="contact_name" id="contact_name" class="form-control" aria-describedby="helpId">
@@ -20,6 +22,8 @@
         <button type="submit" name="btn_insert" class="btn btn-dark">Thêm </button>
     </div>
 </form>
+    </div>
+</div>
 <h3 class="alert alert-secondary">Danh sách thông tin liên hệ</h3>
 <div class="row">
     <div class="col-md-12 col-lg-12">
@@ -55,8 +59,8 @@
                         <?php } ?>
                     </td>
                     <td>
-                        <a href="index.php?btn_edit&contact_id=<?= $contact['contact_id'] ?>" class="btn btn-defaule">Sửa</a>
-                        <a href="index.php?btn_delete&contact_id=<?= $contact['contact_id'] ?>" onclick=" return confirm('Bạn có chắc chắn muốn xóa không ???')" class="btn btn-defaule">Xóa</a>
+                        <a href="index.php?btn_edit&contact_id=<?= $contact['contact_id'] ?>" class="btn btn-defaule"><i class="far fa-edit"></i></a>
+                        <a href="index.php?btn_delete&contact_id=<?= $contact['contact_id'] ?>" onclick=" return confirm('Bạn có chắc chắn muốn xóa không ???')" class="btn btn-defaule"><i class="far fa-trash-alt"></i></a>
                     </td>
                     
                 </tr>

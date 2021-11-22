@@ -53,7 +53,7 @@
 <div class="row">
     <div class="col-md-12 col-lg-12">
         <div class="card-body ">
-            <table class="table table-hover text-center " id="dataTables-example" width="100%">
+            <table class="table table-hover text-center "  width="100%">
                 <thead>
                     <tr>
                         <th>STT</th>
