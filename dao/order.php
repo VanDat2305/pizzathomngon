@@ -40,9 +40,13 @@ function order_select_all()
     return pdo_query($sql);
 }
 /**
- * truy van 1 ma
+ * truy van list trạng thái
  */
-
+function status_select_all()
+{
+    $sql = "SELECT * FROM tbl_status_order ";
+    return pdo_query($sql);
+}
 
 /**
  * Kiem tra su ton tai theo id
@@ -72,6 +76,50 @@ function order_exist_name_id($order_id, $order_name)
 /**
  * truy van hoa đơn
  */
+function order_select_by_id_status($status_id)
+{
+    $sql = "SELECT
+                ord.order_id, ord.user_id,ord.fullname, ord.phoneNumber ,ord.note,ord.address,sta.status_name,ord.created_at,
+                SUM(distinct tbl_total.total) as total_money
+            FROM(
+                SELECT
+                total_option.order_id,
+                IFNULL((total_option.total_option + tbl_total_extra.total_extra),total_option.total_option) as total
+                FROM(
+                    SELECT 
+                    op.option_id, or_de.order_detail_id, or_de.order_id,
+                    (op.option_price * or_de.quantity)-((op.option_price * or_de.quantity)*(pro.discount/100)) as total_option 
+                    FROM tbl_options op 
+                    JOIN tbl_order_details or_de ON op.option_id = or_de.option_id 
+                    JOIN tbl_products pro ON pro.product_id = op.product_id 
+                    GROUP BY op.option_id, total_option
+                ) as total_option
+                JOIN (
+                    SELECT 
+                    or_de.order_detail_id,
+                    total_extra.total_extra
+                    FROM tbl_order_details or_de 
+                    LEFT JOIN (
+                        SELECT 
+                        ex_de.order_detail_id,
+                        SUM(distinct ex.extra_price) as total_extra
+                        FROM tbl_extra ex 
+                        JOIN tbl_extra_details ex_de 
+                        ON ex.extra_id = ex_de.extra_id
+                        GROUP BY ex_de.order_detail_id
+                    ) as total_extra
+                    ON total_extra.order_detail_id = or_de.order_detail_id
+                    ) as tbl_total_extra
+                ON tbl_total_extra.order_detail_id = total_option.order_detail_id
+                ) as tbl_total
+            JOIN tbl_orders ord ON ord.order_id = tbl_total.order_id
+            JOIN tbl_status_order sta ON sta.status_id = ord.status_id
+            WHERE sta.status_id = ?
+            GROUP BY ord.order_id,ord.fullname
+    ";
+
+    return pdo_query($sql,$status_id);
+}
 function order_select_list()
 {
     $sql = "SELECT

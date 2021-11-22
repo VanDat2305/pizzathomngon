@@ -26,9 +26,9 @@
                             <td><img src="<?= CONTENT_URL . 'img/products/' . $product_image ?>" alt="" width="100px" height="80px"></td>
                             <td><?= $category_name ?></td>
                             <td><?= $count_view ?></td>
-                            <td><a href="?btn_info&id=<?= $product_id ?>">link</a></td>
-                            <td><a href="?form_edit&id=<?= $product_id ?>" class="btn">Sửa</a>
-                                <a href="?btn_delete&id=<?= $product_id ?>" class="btn" onclick=" return confirm('Bạn có chắc chắn muốn xóa không ???')">Xóa</a>
+                            <td><a href="?btn_info&id=<?= $product_id ?>"><i class="fas fa-external-link-alt"></i></a></td>
+                            <td><a href="?form_edit&id=<?= $product_id ?>" class="btn"><i class="far fa-edit"></i></a>
+                                <a href="?btn_delete&id=<?= $product_id ?>" class="btn" onclick=" return confirm('Bạn có chắc chắn muốn xóa không ???')"><i class="far fa-trash-alt"></i></a>
                             </td>
                         </tr>
                     <?php endforeach ?>

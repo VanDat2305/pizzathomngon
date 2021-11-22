@@ -32,7 +32,7 @@ $array_url =  explode('/', $_SERVER['REQUEST_URI']);
         </li>
 
         <li>
-            <a href="<?= ADMIN_URL ?>sale/" class="list <?= in_array("sale", $array_url) ? "active" : "" ?>">
+            <a href="<?= ADMIN_URL ?>coupon/" class="list <?= in_array("coupon", $array_url) ? "active" : "" ?>">
                 <span class="fas fa-balance-scale-right"></span><span>Quản lý khuyến mãi</span></a>
         </li>
         <li>

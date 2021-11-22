@@ -11,6 +11,7 @@ if (exist_param("btn_info")) {
     $VIEW_NAME = "list_detail.php";
 }else{
     $items = order_select_list();
+    $list_status = status_select_all();
     $VIEW_NAME = "list.php";
 }
 
