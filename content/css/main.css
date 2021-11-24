@@ -1794,9 +1794,15 @@ body.dm-light .pan-loader .shadow {
 }
 
 .product-item__desc {
-    padding: 0 20px 35px;
+    margin: 0 20px 20px;
     font-size: 14px;
     font-weight: 400;
+    display: -webkit-box;
+    -webkit-box-orient: vertical;
+    -webkit-line-clamp: 2;
+    max-height: 54px;
+    min-height: 54px;
+    overflow: hidden;
 }
 
 .product-item__select {

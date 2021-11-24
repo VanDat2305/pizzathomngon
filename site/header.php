@@ -13,7 +13,7 @@
 
 <body class="page-home dm-dark">
     <!-- Loader-->
-    <div id="page-preloader"><span class="spinner border-t_second_b border-t_prim_a"></span></div>
+    <!-- <div id="page-preloader"><span class="spinner border-t_second_b border-t_prim_a"></span></div> -->
     <!-- Loader end-->
     <div class="page-wrapper">
         <header class="page-header">
