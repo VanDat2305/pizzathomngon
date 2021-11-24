@@ -12,7 +12,7 @@
                         <th>Mã Topping</th>
                         <th>Tên Topping</th>
                         <th>Giá</th>
-                        <th></th>
+                        <th>Hành động</th>
                     </tr>
                 </thead>
                 <tbody>
@@ -21,7 +21,7 @@
                         <tr>
                             <td><?= $extra_id ?></td>
                             <td><?= $extra_name ?></td>
-                            <td><?= $extra_price ?></td>
+                            <td><?= number_format($extra_price,0,",",".") ?> đ</td>
                             <td>
                                 <a href="index.php?btn_edit&extra_id=<?= $extra_id ?>" class="btn btn-defaule"><i class="far fa-edit"></i></a>
                                 <a href="index.php?btn_delete&extra_id=<?= $extra_id ?>&category_id=<?=$category_id?>" onclick=" return confirm('Bạn có chắc chắn muốn xóa không ???')" class="btn btn-defaule"><i class="far fa-trash-alt"></i></a>

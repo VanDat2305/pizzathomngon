@@ -34,7 +34,7 @@
                         echo "<tr>" . $MESSAGE . "</tr>";
                     } ?>
                     <tr>
-                        <th>Mã Liên hệ</th>
+                        <th>ID</th>
                         <th>Tên nhà hàng</th>
                         <th>Số điện thoại</th>
                         <th>Email</th>
@@ -53,9 +53,9 @@
                     <td><?= $contact['contact_address'] ?></td>
                     <td>
                         <?php if ($contact['contact_status'] == 0) { ?>
-                            <a href="?act=btn_show&contact_id=<?= $contact['contact_id'] ?>">Ẩn</a>
+                            <a href="?act=btn_show&contact_id=<?= $contact['contact_id'] ?>" class="btn btn-danger">Ẩn</a>
                         <?php } else { ?>
-                            <a href="?act=btn_none&contact_id=<?= $contact['contact_id'] ?>">Hiện</a>
+                            <a href="?act=btn_none&contact_id=<?= $contact['contact_id'] ?>" class="btn btn-success">Hiện</a>
                         <?php } ?>
                     </td>
                     <td>
