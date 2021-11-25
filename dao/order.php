@@ -18,6 +18,14 @@ function order_update($order_id, $order_name)
     pdo_execute($sql, $order_name, $order_id);
 }
 /**
+ * Cap nhat status
+ */
+function status_order_update($order_id, $status_id)
+{
+    $sql = "UPDATE tbl_orders SET status_id = ? WHERE order_id = ?";
+    pdo_execute($sql, $status_id, $order_id);
+}
+/**
  * Xoa 1 hoac nhieu ma 
  */
 function order_delete($order_id)
@@ -79,7 +87,8 @@ function order_exist_name_id($order_id, $order_name)
 function order_select_by_id_status($status_id)
 {
     $sql = "SELECT
-                ord.order_id, ord.user_id,ord.fullname, ord.phoneNumber ,ord.note,ord.address,sta.status_name,ord.created_at,
+                ord.order_id, ord.user_id,ord.fullname, ord.phoneNumber ,ord.note,ord.address,
+                sta.status_name,sta.status_id,ord.created_at,
                 SUM(distinct tbl_total.total) as total_money
             FROM(
                 SELECT
@@ -123,7 +132,8 @@ function order_select_by_id_status($status_id)
 function order_select_list()
 {
     $sql = "SELECT
-                ord.order_id, ord.user_id,ord.fullname, ord.phoneNumber ,ord.note,ord.address,sta.status_name,ord.created_at,
+                ord.order_id, ord.user_id,ord.fullname, ord.phoneNumber ,ord.note,ord.address,
+                sta.status_id,sta.status_name,ord.created_at,
                 SUM(distinct tbl_total.total) as total_money
             FROM(
                 SELECT
@@ -166,7 +176,8 @@ function order_select_list()
 function order_select_by_id($order_id)
 {
     $sql = "SELECT
-                ord.order_id, ord.user_id,ord.fullname, ord.phoneNumber ,ord.note,ord.address,sta.status_name,ord.created_at,
+                ord.order_id, ord.user_id,ord.fullname, ord.phoneNumber ,ord.note,ord.address
+                ,sta.status_id,sta.status_name,ord.created_at,
                 SUM(distinct tbl_total.total) as total_money
             FROM(
                 SELECT

@@ -1,6 +1,6 @@
 <h3 class="alert alert-secondary">Danh sách khuyến mãi</h3>
 <div class="row">
-    <div class="col-md-12 col-lg-12">
+    <div class="col-12 mr-1">
         <div class="card-body ">
             <table class="table table-hover text-center " id="dataTables-example" width="100%">
                 <thead>
@@ -10,12 +10,12 @@
                     <tr>
                         <th>ID</th>
                         <th>Tên giảm giá</th>
-                        <th>Mã CODE</th>
-                        <th>Tổng số lượt</th>
-                        <th>Số lượt đã dùng</th>
+                        <th>Mã</th>
+                        <th>Số lượt</th>
+                        <th>Đã dùng</th>
                         <th>Số tiền || %</th>
-                        <th>Ngày bắt đầu</th>
-                        <th>Ngày kết thúc</th>
+                        <th>Thời gian</th>
+                        
                         <th>Trạng thái</th>
                         <th><a href="?form_insert" class="btn btn-dark">Thêm</a></th>
                     </tr>
@@ -36,8 +36,7 @@
                                     echo number_format($coupon_price,0,'','') . "%";
                                 }?>
                             </td>
-                            <td><?= $start_date?></td>
-                            <td><?= $end_date?></td>
+                            <td><?= $start_date?><br><?= $end_date?></td>
                             <td>
                                 <?php if ($coupon_status == 0) { ?>
                                     <a href="?act=btn_acticve&coupon_id=<?= $coupon_id ?>" class=" btn btn-danger">Dừng</a>

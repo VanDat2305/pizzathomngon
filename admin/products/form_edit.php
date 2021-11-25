@@ -21,7 +21,7 @@
             </div>
             <div class="form-group">
             <label class="label" for="discount">Giảm giá (%)</label>
-            <input type="number" name="discount" id="discount" class="form-control" value="<?= $discount?>" placeholder="">
+            <input type="number" name="discount" id="discount" class="form-control" min="0" value="<?= $item_pro['discount']?>" placeholder="">
         </div>
             <div class="form-group">
                 <label for="">Ảnh</label>

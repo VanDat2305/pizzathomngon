@@ -23,19 +23,35 @@
                         <th>Thời gian đặt</th>
                         <th>Trạng thái </th>
                         <th>Chi tiết</th>
-
+                        <th>Hàng động</th>
                     </tr>
                 </thead>
                 <tbody class="load_data">
                     <?php foreach ($items as $item) : ?>
                         <?php extract($item); ?>
-                        <tr >
+                        <tr>
                             <td><?= $order_id ?></td>
                             <td><?= $fullname ?></td>
                             <td><?= number_format($total_money, 0, ",", ".") ?> đ</td>
                             <td><?= $created_at ?></td>
                             <td><?= $status_name ?></td>
                             <td><a href="?btn_info&id=<?= $order_id ?>"><i class="fas fa-external-link-alt"></i></a></td>
+                            <td>
+                            <div class="dropdown open">
+                                    <button class="btn btn-outline-white dropdown-toggle" type="button" id="dropdownMenu5" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                        Cập nhật
+                                    </button>
+                                    <div class="dropdown-menu">
+                                        <ul class="list-group">
+                                            <?php foreach($list_status as $item):?>
+                                            <?php if ($item['status_id'] > $status_id ) { ?>
+                                                <li class="list-group-item"><a href="?btn_update_status&id=<?= $order_id?>&status_id=<?= $item['status_id']?>"><?= $item['status_name']?></a> </li>
+                                            <?php }?>
+                                            <?php endforeach?>
+                                        </ul>
+                                    </div>
+                                </div>
+                            </td>
                         </tr>
                     <?php endforeach ?>
                 </tbody>

@@ -26,12 +26,12 @@ if (exist_param("form_insert")) {
         try {
             coupon_update($coupon_id, $coupon_code, $coupon_name, $coupon_count, $coupon_price, $coupon_type, $coupon_status, $start_date, $end_date);
             unset($coupon_id, $coupon_code, $coupon_name, $coupon_count, $coupon_price, $coupon_type, $coupon_status, $start_date, $end_date);
-            $MESSAGE = "Thêm mới thành công!";
+            $MESSAGE = "Cập nhật thành công!";
         } catch (Exception $exc) {
-            $MESSAGE = "Thêm mới thất bại";
+            $MESSAGE = "Cập nhật thất bại";
         }
     } else {
-        $MESSAGE = "Thêm mới thất bại";
+        $MESSAGE = "Cập nhật thất bại";
     }
     $items = coupon_select_all();
     $VIEW_NAME = "list.php";

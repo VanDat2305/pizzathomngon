@@ -31,9 +31,9 @@
                     <td><img src="<?= CONTENT_URL . 'img/banners/' . $slide['slide_image'] ?>" width="200rem" height="100rem" alt=""></td>
                     <td>
                         <?php if ($slide['slide_status'] == 0) { ?>
-                            <a href="?act=btn_hien&slide_id=<?= $slide['slide_id'] ?>">Ẩn</a>
+                            <a href="?act=btn_hien&slide_id=<?= $slide['slide_id'] ?>" class="btn btn-danger">Ẩn</a>
                         <?php } else { ?>
-                            <a href="?act=btn_an&slide_id=<?= $slide['slide_id'] ?>">Hiện</a>
+                            <a href="?act=btn_an&slide_id=<?= $slide['slide_id'] ?>" class="btn btn-success">Hiện</a>
                         <?php } ?>
                     </td>
                     <td>
