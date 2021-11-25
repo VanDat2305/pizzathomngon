@@ -234,6 +234,20 @@ $("#form_insert_slider").validate({
     },
   },
 });
+$("#form_insert_logor").validate({
+  rules: {
+    logo_image: {
+      required: true,
+      extension: "jpg|jpeg|png|ico|bmp",
+    },
+  },
+  messages: {
+    logo_image: {
+      required: "Hãy chọn ảnh",
+      extension: "Vui lòng chọn đúng định dạng",
+    },
+  },
+});
 $("#form_insert_extra").validate({
   rules: {
     extra_name: {
