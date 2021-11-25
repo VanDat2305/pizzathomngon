@@ -2,12 +2,22 @@
 <div class="row">
     <div class="col-2 ml-2">
         <select name="status_order" id="status_order" class="form-control">
-            <option value="0">Tất cả</option>
+            <option value="0">-- Trạng thái --</option>
             <?php foreach ($list_status as $item) : ?>
                 <option value="<?= $item['status_id'] ?>"><?= $item['status_name'] ?></option>
             <?php endforeach ?>
         </select>
     </div>
+    <div class="col-2 ml-2">
+        <select name="date_order" id="date_order" class="form-control">
+            <option value="0">-- Thời gian --</option>
+            <option value="1">Hôm nay</option>
+            <option value="2">Tuần này</option>
+            <option value="3">Tháng này</option>
+            
+        </select>
+    </div>
+
     <div class="col-md-12 col-lg-12">
         <div class="card-body ">
             <table class="table table-hover text-center " id="dataTables-example" width="100%">
