@@ -9,7 +9,7 @@ require_once "../../dao/extra_topping.php";
 
 if (exist_param("gioi-thieu")) {
     $_SESSION['name_page'] = 'gioi_thieu';
-    $VIEW_NAME = "trang-chu/gioi-thieu.php";
+    $VIEW_NAME = "home/gioi-thieu.php";
     //
 } else if (exist_param("san-pham")) {
 
@@ -19,15 +19,15 @@ if (exist_param("gioi-thieu")) {
 
     $_SESSION['name_page'] = 'bai_viet';
 
-    $VIEW_NAME = "trang-chu/bai-viet.php";
+    $VIEW_NAME = "home/bai-viet.php";
     //
 } else if (exist_param("hoi-dap")) {
     $_SESSION['name_page'] = 'hoi_dap';
-    $VIEW_NAME = "trang-chu/hoi-dap.php";
+    $VIEW_NAME = "home/hoi-dap.php";
     //
 } else {
-    $_SESSION['name_page'] = 'trang_chu';
-    $VIEW_NAME = "trang-chu/trang-chu.php";
+    $_SESSION['name_page'] = 'home';
+    $VIEW_NAME = "home/home.php";
 }
 
 

@@ -3,7 +3,7 @@ require_once "pdo.php";
 /**
  * Them moi
  */
-function blog_insert($blog, $rate, $cmt_parent, $cmt_date, $user_id, $product_id)
+function blog_insert($blog, $user_id, $product_id)
 {
     $sql = "INSERT INTO tbl_blogs(`blog`,`rate`,`cmt_parent`,`cmt_date`,`user_id`,`product_id`) VALUES (?,?,?,?,?,?)";
     pdo_execute($sql, $blog, $rate, $cmt_parent, $cmt_date, $user_id, $product_id);

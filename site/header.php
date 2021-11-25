@@ -61,13 +61,19 @@
                         <div class="uk-navbar-right">
                             <div class="other-links">
                                 <ul class="other-links-list">
-                                    <li><a href="#modal-full" data-uk-toggle><span data-uk-icon="search"></span></a>
+                                    <li>
+                                        <a href="#modal-full" data-uk-toggle><span data-uk-icon="search"></span></a>
                                     </li>
-                                    <li><a href="#!"><span data-uk-icon="user"></span></a></li>
-                                    <li><a href="page-cart.html"><span data-uk-icon="cart"></span></a></li>
+                                    <!-- User -->
+                                    <li class="uk-inline">
+                                        <a href="<?= SITE_URL ?>account/"><span data-uk-icon="user"></span></a>
+                                    </li>
+
+                                    <li>
+                                        <a href="page-cart.html"><span data-uk-icon="cart"></span></a>
+                                    </li>
                                 </ul>
-                                <a class="uk-button" href="page-pizza-builder.html"> <span>Tạo bánh
-                                        pizza</span><img class="uk-margin-small-left" src="<?= CONTENT_URL ?>img/icons/pizza.png" alt="pizza"></a>
+                                <a class="uk-button" href="page-pizza-builder.html"> <span>Đặt bánh Pizza</span><img class="uk-margin-small-left" src="<?= CONTENT_URL ?>img/icons/pizza.png" alt="pizza"></a>
                             </div>
                         </div>
                     </div>
