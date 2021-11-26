@@ -1,3 +1,3 @@
 <?php
 
-header('location: ./site/trang-chu');
+header('location: ./site/home');

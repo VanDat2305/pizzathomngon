@@ -53,6 +53,7 @@ if (exist_param("form_insert")) {
     $category = category_select_all();
     $VIEW_NAME = "form_edit.php";
 } elseif (exist_param("btn_edit_product")) {
+    
     $up_image = save_file("image", "$IMAGE_DIR/products/");
     $image = strlen($up_image) > 0 ? $up_image : $image_old;
 
@@ -65,7 +66,7 @@ if (exist_param("form_insert")) {
         $VIEW_NAME = "form_edit.php";
     } else {
         try {
-            product_update($id, $category_id, $product_name, $description, $image,$discount, $created_at);
+            product_update($id, $category_id, $product_name, $description, $image ,$discount, $created_at);
             $MESSAGE = "Cập nhật thành công!";
         } catch (Exception $exc) {
             $MESSAGE = "Cập nhật thất bại!";

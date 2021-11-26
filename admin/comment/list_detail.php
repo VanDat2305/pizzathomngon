@@ -27,7 +27,7 @@
                             <td><?= number_format($rate,0,"","") ?> <strong>&#10032</strong> </td>
                             <td><?= $cmt_date ?></td>
                             <td><?= $username ?></td>
-                            <td><a href="?btn_delete&id=<?= $cmt_id ?>" onclick=" return confirm('Bạn có chắc chắn muốn xóa không ???')">Xóa</a></td>
+                            <td><a href="?btn_delete&id=<?= $cmt_id ?>" onclick=" return confirm('Bạn có chắc chắn muốn xóa không ???')"><i class="far fa-trash-alt"></i></a></td>
                         </tr>
                     <?php endforeach ?>
                 </tbody>`

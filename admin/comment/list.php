@@ -28,7 +28,7 @@
                             <td><?= number_format($rate,1,",",".") ?> <strong>&#10032</strong></td>
                             <td><?= $date_old ?></td>
                             <td><?= $date_new ?></td>
-                            <td><a href="?btn_info&id=<?= $product_id ?>">link</a></td>
+                            <td><a href="?btn_info&id=<?= $product_id ?>"><i class="fas fa-external-link-alt"></i></a></td>
                         </tr>
                     <?php endforeach ?>
                 </tbody>`

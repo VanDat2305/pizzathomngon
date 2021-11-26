@@ -13,7 +13,6 @@
                             <th>Tên đăng nhập</th>
                             <th>Sdt</th>
                             <th>Quyền</th>
-                            <th>Chi tiết</th>
                             <th><a href="?form_insert" class="btn btn-dark">Thêm mới</a></th>
                         </tr>
                     </thead>
@@ -26,9 +25,9 @@
                                 <td><?= $username ?></td>
                                 <td><?= $phoneNumber ?></td>
                                 <td><?= $role_name ?></td>
-                                <td><a href="?btn_info&id=<?= $user_id ?>">link</a></td>
-                                <td><a href="?form_edit&id=<?= $user_id ?>" class="btn">Sửa</a>
-                                    <a href="?btn_delete&id=<?= $user_id ?>" class="btn" onclick=" return confirm('Bạn có chắc chắn muốn xóa không ???')">Xóa</a>
+                                <td><a href="?btn_info&id=<?= $user_id ?>" class="btn"><i class="fas fa-external-link-alt"></i></a>
+                                <a href="?form_edit&id=<?= $user_id ?>" class="btn"><i class="far fa-edit"></i></a>
+                                    <a href="?btn_delete&id=<?= $user_id ?>" class="btn" onclick=" return confirm('Bạn có chắc chắn muốn xóa không ???')"><i class="far fa-trash-alt"></i></a>
                                 </td>
                             </tr>
                         <?php endforeach ?>

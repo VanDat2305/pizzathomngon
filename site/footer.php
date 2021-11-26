@@ -86,7 +86,9 @@
     </div>
     <div class="uk-modal-full uk-modal" id="modal-full" data-uk-modal>
         <div class="uk-modal-dialog uk-flex uk-flex-center uk-flex-middle" data-uk-height-viewport><button class="uk-modal-close-full" type="button" data-uk-close></button>
-            <form class="uk-search uk-search-large"><input class="uk-search-input uk-text-center" type="search" placeholder="Search..." autofocus></form>
+            <form class="uk-search uk-search-large">
+                <input class="uk-search-input uk-text-center" type="search" placeholder="Tìm kiếm..." autofocus>
+            </form>
         </div>
     </div>
 </footer>
