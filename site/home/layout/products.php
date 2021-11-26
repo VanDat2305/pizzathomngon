@@ -1,7 +1,7 @@
 <div class="section-special-deals">
     <div class="uk-section uk-container">
         <div class="section-title section-title--center wave french-fries">
-            <h3 class="uk-h3">Tất cả sản phẩm</h3>
+            <h3 class="uk-h3">Sản phẩm yêu thích</h3>
         </div>
         <div class="section-content">
             <ul class="uk-subnav uk-flex-center" data-uk-switcher="animation: uk-animation-slide-left-medium, uk-animation-slide-right-medium; swiping: false; active: 1">
@@ -32,7 +32,7 @@
                                                                 <div class="product-item__not-active">
                                                                     <div class="product-item__media">
                                                                         <div class="uk-inline-clip uk-transition-toggle uk-light" data-uk-lightbox="data-uk-lightbox">
-                                                                            <a href=""><img src="<?= CONTENT_URL ?>img/products/<?= $p['product_image'] ?>" alt="<?= $p['product_image'] ?>" />
+                                                                            <a href="<?= SITE_URL ?>product/quickview.php?product_id=<?= $p['product_id'] ?>"><img src="<?= CONTENT_URL ?>img/products/<?= $p['product_image'] ?>" alt="<?= $p['product_image'] ?>" />
                                                                                 <div class="uk-transition-fade uk-position-cover uk-overlay uk-overlay-primary">
                                                                                 </div>
                                                                                 <div class="uk-position-center"><span class="uk-transition-fade" data-uk-icon="icon: search;"></span>
@@ -45,13 +45,11 @@
                                                                             <i class="fas fa-info-circle"></i>
                                                                         </div>
                                                                     </div>
-                                                                    <div class="product-item__title"><a href=""><?= $p['product_name'] ?></a></div>
+                                                                    <div class="product-item__title"><a href="<?= SITE_URL ?>product/product_detail.php?product_id=<?= $p['product_id'] ?>"><?= $p['product_name'] ?></a></div>
                                                                     <div class="product-item__desc"><?= $p['description'] ?></div>
                                                                     <div class="product-item__select">
                                                                         <div class="select-box select-box--size">
                                                                             <ul>
-
-
                                                                                 <?php foreach ($options as $o) { ?>
                                                                                     <?php $index = 1 ?>
 
