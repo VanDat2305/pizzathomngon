@@ -99,11 +99,11 @@ function  postInput($string)
 function check_role()
 {
     if (isset($_SESSION['user'])) {
-        if ($_SESSION['user']['vai_tro'] == 1) {
+        if ($_SESSION['user']['role'] == 1) {
             return;
         }
     }
     $_SESSION['name_page'] = 'trang_chu';
-    header("location: " . SITE_URL . "tai_khoan/dang_nhap.php");
+    header("location: " . SITE_URL . "account/login.php");
     die;
 }

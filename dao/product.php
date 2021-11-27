@@ -102,12 +102,30 @@ function product_select_all()
 }
 
 /**
+ * truy van 10 mon an nhieu luot xem
+ */
+function product_select_top10()
+{
+    $sql = "SELECT * FROM tbl_products pro JOIN tbl_categories cate ON pro.category_id = cate.category_id order by pro.count_view LIMIT 10";
+    return pdo_query($sql);
+}
+
+
+/**
  * truy van tat ca mon an theo tung danh muc ra vỉew
  */
 function product_category_select_all()
 {
     $sql = "SELECT * FROM tbl_products pro JOIN tbl_categories cate ON pro.category_id = cate.category_id order by cate.category_id";
     return pdo_query($sql);
+}
+/**
+ * truy van tat ca mon an theo  danh muc ra ct mon an
+ */
+function product__select_all_by_category($category_id)
+{
+    $sql = "SELECT * FROM tbl_products WHERE category_id = ?";
+    return pdo_query($sql, $category_id);
 }
 /**
  * truy van 1 mon an bao gom cac option $row[0]
