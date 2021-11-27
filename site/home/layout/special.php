@@ -50,11 +50,8 @@
                                                                     <div class="product-item__select">
                                                                         <div class="select-box select-box--size">
                                                                             <ul>
-
-
                                                                                 <?php foreach ($options as $o) { ?>
                                                                                     <?php $index = 1 ?>
-
                                                                                     <?php if ($o['product_id'] == $p['product_id']) { ?>
                                                                                         <li>
                                                                                             <label>
@@ -64,13 +61,8 @@
                                                                                         </li>
                                                                                     <?php    } ?>
                                                                                     <?php $index++;  ?>
-
                                                                                 <?php    } ?>
-
-
                                                                             </ul>
-
-
                                                                         </div>
                                                                     </div>
                                                                 </div>
