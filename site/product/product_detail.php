@@ -32,6 +32,9 @@ $gallery_image = gallery_select_by_pro_id($product_id);
 
 $options = option_select_by_pro_id($product_id);
 
+
+
+
 $extras = extra_select_all($product['category_id']);
 
 

@@ -50,7 +50,7 @@
                                     <?php foreach ($options as $o) { ?>
                                         <li>
                                             <label>
-                                                <input <?= $index == 1 ? 'checked' : '' ?> type="radio" name="size" value="<?= $o['option_id'] ?>">
+                                                <input <?= $index == 1 ? 'checked' : '' ?> type="radio" name="size" value="<?= $o['option_price'] ?>" class="option_price">
                                                 <span><?= $o['option_name'] ?></span>
                                             </label>
                                         </li>
@@ -84,14 +84,13 @@
                             topping</span></button></div>
                 <div class="product-full-card__info">
 
-
-                    <?php foreach ($options as $o) { ?>
-
-                        <div class="product-item__price">
-                            <div class="product-full-card__price"> <span>Giá: </span><span class="value"><?= number_format($o['option_price'], 0, ",", ".") ?>đ</span></div>
+                    <!-- Format giá bằng jquery trong main.js -->
+                    <div class="product-item__price">
+                        <div class="product-full-card__price">
+                            <span>Giá: </span><span class="value"></span>
                         </div>
+                    </div>
 
-                    <?php    } ?>
                     <div class="product-full-card__btns"><span class="counter"><span class="minus">-</span><input type="text" value="1" /><span class="plus">+</span></span><a class="uk-button" href="#!">Thêm
                             vào giỏ hàng<span data-uk-icon="cart"></span></a></div>
                 </div>
@@ -228,7 +227,7 @@
                                                                     <?php if ($o_p_s['product_id'] == $p_s['product_id']) { ?>
                                                                         <li>
                                                                             <label>
-                                                                                <input type="radio" <?= $index == 1 ? 'checked' : '' ?> name="<?= $p_s['product_name'] ?>" />
+                                                                                <input type="radio" <?= $index == 1 ? 'checked' : '' ?> name="<?= $p_s['product_name'] ?>" value="<?= $o['option_price'] ?>" class="option_price" />
                                                                                 <span><?= $o_p_s['option_name'] ?></span>
                                                                             </label>
                                                                         </li>
@@ -267,7 +266,7 @@
                                                 <?php foreach ($option_product_same as $o) { ?>
                                                     <?php if ($o['product_id'] == $p_s['product_id']) { ?>
                                                         <div class="product-item__price">
-                                                            <span>Giá: </span><span class="value"><?= number_format($o['option_price'], 0, ",", ".") ?>đ</span>
+                                                            <span>Giá: </span><span class="value"></span>
                                                         </div>
                                                     <?php    } ?>
                                                 <?php    } ?>
