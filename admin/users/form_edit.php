@@ -11,6 +11,10 @@
             <input type="text" name="username" id="username" class="form-control" readonly value="<?= $username ?>" placeholder="">
         </div>
         <div class="form-group">
+            <label for="password">Mật khẩu cũ <span style="color: red;">(*)</span></label>
+            <input type="password" name="password_old" id="password_old" class="form-control" value="" placeholder="">
+        </div>
+        <div class="form-group">
             <label for="password">Mật khẩu <span style="color: red;">(*)</span></label>
             <input type="password" name="password" id="password" class="form-control" value="" placeholder="">
         </div>
