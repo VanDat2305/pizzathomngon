@@ -1,13 +1,17 @@
 <h3 class="alert alert-secondary">Thêm banner</h3>
-<form action="index.php" id="form_insert_slider" method="post" enctype="multipart/form-data" class="form">
+<form action="index.php" id="form_insert_slider" method="post" enctype="multipart/form-data" class="form col-4 m-3">
     <div class="form-group">
         <label for="">Slide</label>
-        <input type="file" name="slide_image" id="slide_image" class="form-control" aria-describedby="helpId">
+        <div class="custom-file">
+            <input type="file" class="custom-file-input" name="slide_image" id="slide_image">
+            <label class="custom-file-label" for="image">Chọn ảnh</label>
+        </div>
     </div>
     <div class="form-group">
         <button type="submit" name="btn_insert" class="btn btn-dark">Thêm </button>
     </div>
 </form>
+
 <h3 class="alert alert-secondary">Danh sách banner</h3>
 <div class="row">
     <div class="col-md-12 col-lg-12">
