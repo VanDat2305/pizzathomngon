@@ -227,7 +227,7 @@
                                                                     <?php if ($o_p_s['product_id'] == $p_s['product_id']) { ?>
                                                                         <li>
                                                                             <label>
-                                                                                <input type="radio" <?= $index == 1 ? 'checked' : '' ?> name="<?= $p_s['product_name'] ?>" value="<?= $o['option_price'] ?>" class="option_price" />
+                                                                                <input type="radio" <?= $index == 1 ? 'checked' : '' ?> name="<?= $p_s['product_name'] ?>" value="<?= $o['option_price'] ?>" class="product-item__price" />
                                                                                 <span><?= $o_p_s['option_name'] ?></span>
                                                                             </label>
                                                                         </li>
@@ -266,7 +266,7 @@
                                                 <?php foreach ($option_product_same as $o) { ?>
                                                     <?php if ($o['product_id'] == $p_s['product_id']) { ?>
                                                         <div class="product-item__price">
-                                                            <span>Giá: </span><span class="value"></span>
+                                                            <span>Giá: </span><span class="value product_value"></span>
                                                         </div>
                                                     <?php    } ?>
                                                 <?php    } ?>

@@ -57,7 +57,7 @@
                                                                         <?php if ($o['product_id'] == $p['product_id']) { ?>
                                                                             <li>
                                                                                 <label>
-                                                                                    <input type="radio" <?= $index == 1 ? 'checked' : '' ?> name="<?= $p['product_name'] ?>" />
+                                                                                    <input type="radio" <?= $index == 1 ? 'checked' : '' ?> name="<?= $p['product_name'] ?>" value="<?= $o['option_price'] ?>" class="option_price" />
                                                                                     <span><?= $o['option_name'] ?></span>
                                                                                 </label>
                                                                             </li>
@@ -93,13 +93,9 @@
                                                 <div class="product-item__toggle"> <button type="button">
                                                         <span>Thêm topping</span></button></div>
                                                 <div class="product-item__info">
-                                                    <?php foreach ($options as $o) { ?>
-                                                        <?php if ($o['product_id'] == $p['product_id']) { ?>
-                                                            <div class="product-item__price">
-                                                                <span>Giá: </span><span class="value"><?= number_format($o['option_price'], 0, ",", ".") ?>đ</span>
-                                                            </div>
-                                                        <?php    } ?>
-                                                    <?php    } ?>
+                                                    <div class="product-item__price">
+                                                        <span>Giá: </span><span class="value"></span>
+                                                    </div>
                                                     <div class="product-item__addcart"> <a class="uk-button uk-button-default" href="page-product.html">Thêm vào giỏ hàng<span data-uk-icon="cart"></span></a></div>
                                                 </div>
                                             </div>
