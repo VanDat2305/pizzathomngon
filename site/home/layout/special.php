@@ -14,6 +14,9 @@
                 <?php    } ?>
             </ul>
             <ul class="uk-switcher">
+                <!-- Tính class option_price theo cái này -->
+                <?php $number = 0 ?>
+                <?php $stt = 0 ?>
                 <?php foreach ($categories as $c) { ?>
 
                     <li>
@@ -25,6 +28,7 @@
                                         <?php foreach ($products as $p) { ?>
 
                                             <?php if ($c['category_id'] == $p['category_id']) { ?>
+
                                                 <li>
                                                     <div class="product-item">
                                                         <div class="product-item__box">
@@ -50,12 +54,13 @@
                                                                     <div class="product-item__select">
                                                                         <div class="select-box select-box--size">
                                                                             <ul>
+
                                                                                 <?php foreach ($options as $o) { ?>
                                                                                     <?php $index = 1 ?>
                                                                                     <?php if ($o['product_id'] == $p['product_id']) { ?>
                                                                                         <li>
                                                                                             <label>
-                                                                                                <input type="radio" <?= $index == 1 ? 'checked' : '' ?> name="<?= $p['product_name'] ?>" />
+                                                                                                <input type="radio" <?= $index == 1 ? 'checked' : '' ?> name="<?= $p['product_name'] ?>" value="<?= $o['option_price'] ?>" class="option_price option_price<?= $number++ ?> product_price<?= $stt ?>" />
                                                                                                 <span><?= $o['option_name'] ?></span>
                                                                                             </label>
                                                                                         </li>
@@ -86,13 +91,10 @@
                                                             <div class="product-item__toggle"> <button type="button">
                                                                     <span>Thêm topping</span></button></div>
                                                             <div class="product-item__info">
-                                                                <?php foreach ($options as $o) { ?>
-                                                                    <?php if ($o['product_id'] == $p['product_id']) { ?>
-                                                                        <div class="product-item__price">
-                                                                            <span>Giá: </span><span class="value"><?= number_format($o['option_price'], 0, ",", ".") ?>đ</span>
-                                                                        </div>
-                                                                    <?php    } ?>
-                                                                <?php    } ?>
+                                                                <div class="product-item__price">
+                                                                    <!-- Tính class price theo cái này -->
+                                                                    <span>Giá: </span><span class="value value<?= $stt++ ?>"></span>
+                                                                </div>
                                                                 <div class="product-item__addcart"> <a class="uk-button uk-button-default" href="page-product.html">Thêm vào giỏ hàng<span data-uk-icon="cart"></span></a></div>
                                                             </div>
                                                         </div>
@@ -100,6 +102,7 @@
                                                 </li>
 
                                             <?php    } ?>
+
 
 
                                         <?php    } ?>

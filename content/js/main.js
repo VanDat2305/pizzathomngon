@@ -93,25 +93,70 @@ function formatCash(str) {
             return (index % 3 ? next : next + ',') + prev;
         });
 }
-// Tính tiền theo từng option
+// Tính tiền theo từng option trang chi tiet san pham
 
 $(document).ready(function() {
     //Mặc định chưa chọn thì sẽ lấy cái này
-    val = $('.option_price:checked').val();
+    value = $('.product_price:checked').val();
 
-    val = parseInt(val) + '';
-    val_formated = val.replace(/\B(?=(\d{3})+(?!\d))/g, ',') + ' đ';
+    value = parseInt(value) + '';
+    value_formated = value.replace(/\B(?=(\d{3})+(?!\d))/g, ',') + ' đ';
 
-    $('.value').html(val_formated);
+    $('.product_value').html(value_formated);
 
-    $('.option_price').on('change', function() {
-        if ($(this).is(':checked')) {
-            var val = $(this).val();
+    // $('.product_price').on('change', function() {
+    //     if ($(this).is(':checked')) {
+    //         var val = $(this).val();
 
-            val = parseInt(val) + '';
-            val_formated = val.replace(/\B(?=(\d{3})+(?!\d))/g, ',') + ' đ';
+    //         val = parseInt(val) + '';
+    //         val_formated = val.replace(/\B(?=(\d{3})+(?!\d))/g, ',') + ' đ';
 
-            $('.value').html(val_formated);
+    //         $('.product_value').html(val_formated);
+    //     }
+    // });
+});
+
+// Tính tiền theo từng option trang show san pham
+$(document).ready(function() {
+    //Mặc định chưa chọn thì sẽ lấy cái này
+
+    // Mảng chứa giá ban đầu
+    var arrPrice = [];
+
+    var count_option = $('.option_price');
+    var val;
+    for (var i = 0; i < count_option.length; i++) {
+        val = $('.option_price' + i);
+
+        if (val[0].checked === true) {
+            result = val[0].defaultValue;
+            result = parseInt(result) + '';
+            result_formated =
+                result.replace(/\B(?=(\d{3})+(?!\d))/g, ',') + ' đ';
+
+            // Đẩy giá vào mảng chứa giá ban đầu
+            arrPrice.push(result_formated);
         }
-    });
+    }
+    // Hiển thị giá ra theo vòng lặp số sẳn phẩm
+    var count_product = $('.product-item__price');
+    var product_price;
+    for (let i = 0; i < count_product.length; i++) {
+        // Giá mặc định ban đầu
+        $('.value' + i).html(arrPrice[i]);
+
+        // Giá khi thay đổi trạng thái
+        product_price = $('.product_price' + i);
+        // console.dir(product_price);
+        product_price.on('change', function() {
+            if ($(this).is(':checked')) {
+                var val = $(this).val();
+
+                val = parseInt(val) + '';
+                val_formated = val.replace(/\B(?=(\d{3})+(?!\d))/g, ',') + ' đ';
+
+                $('.value' + i).html(val_formated);
+            }
+        });
+    }
 });

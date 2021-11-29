@@ -1,62 +1,7 @@
-@font-face {
-    font-display: swap;
-    src: url('../fonts/KaushanScript-Regular.woff') format('woff'), url('../fonts/KaushanScript-Regular.woff2') format('woff2');
-    font-family: 'KaushanScript';
-    font-style: normal;
-    font-weight: 400;
-}
-
-@font-face {
-    font-display: swap;
-    src: url('../fonts/OpenSans-Light.woff') format('woff'), url('../fonts/OpenSans-Light.woff2') format('woff2');
-    font-family: 'OpenSans';
-    font-style: normal;
-    font-weight: 300;
-}
-
-@font-face {
-    font-display: swap;
-    src: url('../fonts/OpenSans-Regular.woff') format('woff'), url('../fonts/OpenSans-Regular.woff2') format('woff2');
-    font-family: 'OpenSans';
-    font-style: normal;
-    font-weight: 400;
-}
-
-@font-face {
-    font-display: swap;
-    src: url('../fonts/OpenSans-Italic.woff') format('woff'), url('../fonts/OpenSans-Italic.woff2') format('woff2');
-    font-family: 'OpenSans';
-    font-style: italic;
-    font-weight: 400;
-}
-
-@font-face {
-    font-display: swap;
-    src: url('../fonts/OpenSans-SemiBold.woff') format('woff'), url('../fonts/OpenSans-SemiBold.woff2') format('woff2');
-    font-family: 'OpenSans';
-    font-style: normal;
-    font-weight: 600;
-}
-
-@font-face {
-    font-display: swap;
-    src: url('../fonts/OpenSans-Bold.woff') format('woff'), url('../fonts/OpenSans-Bold.woff2') format('woff2');
-    font-family: 'OpenSans';
-    font-style: normal;
-    font-weight: 700;
-}
-
-@font-face {
-    font-display: swap;
-    src: url('../fonts/OpenSans-ExtraBold.woff') format('woff'), url('../fonts/OpenSans-ExtraBold.woff2') format('woff2');
-    font-family: 'OpenSans';
-    font-style: normal;
-    font-weight: 800;
-}
-
+@import url('https://fonts.googleapis.com/css2?family=Raleway:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Sedgwick+Ave&display=swap');
 html,
 body {
-    font-family: OpenSans;
+    font-family: 'Raleway', sans-serif;
     font-size: 15px;
     font-style: normal;
     line-height: normal;
@@ -79,7 +24,7 @@ h3,
 h4,
 h5,
 h6 {
-    font-family: KaushanScript;
+    font-family: 'Sedgwick Ave', cursive;
     font-weight: 400;
 }
 
@@ -124,7 +69,7 @@ h6 {
     display: block;
     position: relative;
     margin: 0;
-    font-family: 'KaushanScript';
+    font-family: 'STIX Two Text', serif;
     font-size: 36px;
     font-style: normal;
     font-weight: 400;
@@ -520,7 +465,7 @@ blockquote::before {
 
 .price-item {
     color: #ffffff;
-    font-family: 'KaushanScript';
+    font-family: 'STIX Two Text', srif;
     font-size: 18px;
     font-style: normal;
     font-weight: 400;
@@ -1778,6 +1723,7 @@ body.dm-light .pan-loader .shadow {
     padding: 40px 20px 10px;
     font-size: 20px;
     font-weight: 700;
+    min-height: 54px;
 }
 
 .product-item__title a {
@@ -1914,7 +1860,7 @@ body.dm-light .pan-loader .shadow {
     content: '+';
 }
 
-.product-item__toggle.is-show {
+.product-ite__toggle.is-show {
     background-color: #222222;
 }
 
@@ -1928,7 +1874,7 @@ body.dm-light .pan-loader .shadow {
 
 .product-item__price {
     margin-bottom: 35px;
-    font-family: 'KaushanScript';
+    font-family: 'STIX Two Text', serif;
     font-size: 18px;
     font-style: normal;
     letter-spacing: normal;
@@ -1937,7 +1883,7 @@ body.dm-light .pan-loader .shadow {
 }
 
 .product-item__price .value {
-    font-family: 'KaushanScript';
+    font-family: 'STIX Two Text', serif;
     font-size: 26px;
     font-weight: 400;
 }
@@ -2084,7 +2030,7 @@ body.dm-light .pan-loader .shadow {
 .product-card__price {
     margin-bottom: 40px;
     color: #ffffff;
-    font-family: 'KaushanScript';
+    font-family: 'STIX Two Text', serif;
     font-size: 18px;
 }
 
@@ -2196,7 +2142,7 @@ body.dm-light .pan-loader .shadow {
 .first-screen__title {
     margin: 0;
     color: #ffffff !important;
-    font-family: 'KaushanScript';
+    font-family: 'STIX Two Text', serif;
     font-size: 80px;
     font-style: normal;
     font-weight: 400;
@@ -2476,7 +2422,7 @@ body.dm-light .pan-loader .shadow {
 .banner-card__category {
     -webkit-transition: 0.5s;
     -o-transition: 0.5s;
-    color: #6dc405;
+    colr: #6dc405;
     font-style: normal;
     font-weight: 400;
     letter-spacing: normal;
@@ -2495,7 +2441,7 @@ body.dm-light .pan-loader .shadow {
 .banner-card__title {
     margin: 15px 0 22px;
     color: #ffffff !important;
-    font-family: 'KaushanScript';
+    font-family: 'STIX Two Text', serif;
     font-size: 36px;
     font-weight: 400;
     line-height: 1.2;
@@ -2899,7 +2845,7 @@ body.dm-light .pan-loader .shadow {
 
 .featured-deal-item__price {
     color: #ffffff;
-    font-family: 'KaushanScript';
+    font-family: 'STIX Two Text', serif;
     font-size: 18px;
     font-style: normal;
     letter-spacing: normal;
@@ -3246,7 +3192,7 @@ body.dm-light .pan-loader .shadow {
 
 .recommend-list-item__price {
     color: #ffffff;
-    font-family: 'KaushanScript';
+    font-family: 'STIX Two Text', serif;
 }
 
 .recommend-list-item__price .value {
@@ -3558,7 +3504,7 @@ body.dm-light .pan-loader .shadow {
 }
 
 .product-full-card__toggle button span {
-    display: inline-block;
+    display: inlne-block;
     position: relative;
 }
 
@@ -3580,7 +3526,7 @@ body.dm-light .pan-loader .shadow {
 
 .product-full-card__price {
     margin-bottom: 35px;
-    font-family: 'KaushanScript';
+    font-family: 'STIX Two Text', serif;
     font-size: 18px;
     font-style: normal;
     letter-spacing: normal;
@@ -3588,7 +3534,7 @@ body.dm-light .pan-loader .shadow {
 }
 
 .product-full-card__price .value {
-    font-family: 'KaushanScript';
+    font-family: 'STIX Two Text', serif;
     font-size: 26px;
     font-weight: 400;
 }
@@ -3639,7 +3585,7 @@ body.dm-light .pan-loader .shadow {
 .product-full-card__share ul li a {
     -webkit-transition: 0.5s;
     -o-transition: 0.5s;
-    transition: 0.5s;
+    trnsition: 0.5s;
 }
 
 .product-full-card__tabs {
@@ -3660,7 +3606,7 @@ body.dm-light .pan-loader .shadow {
     display: block;
     position: relative;
     color: rgba(34, 34, 34, 0.4);
-    font-family: 'KaushanScript';
+    font-family: 'STIX Two Text', serif;
     font-size: 36px;
     font-style: normal;
     font-weight: 400;
@@ -4623,7 +4569,7 @@ body.dm-light .pan-loader .shadow {
 }
 
 .pizza-builder-order__title {
-    font-family: 'KaushanScript';
+    font-family: 'STIX Two Text', serif;
     font-size: 30px;
     font-weight: 400;
 }
@@ -4743,7 +4689,7 @@ body.dm-light .pan-loader .shadow {
     position: relative;
 }
 
-.pizza-builder-step+.pizza-builder-step {
+.piza-builder-step+.pizza-builder-step {
     margin-top: 60px;
     padding-top: 60px;
 }
@@ -4763,8 +4709,8 @@ body.dm-light .pan-loader .shadow {
 .pizza-builder-step__title .uk-h3 {
     margin: 0;
     color: #ffffff;
-    font-family: 'KaushanScript';
-    font-size: 30px;
+    font-family: 'STIX Two Text', serif;
+    fontsize: 30px;
     font-weight: 400;
     line-height: 1;
 }
@@ -4784,7 +4730,7 @@ body.dm-light .pan-loader .shadow {
     height: 65px;
     margin-right: 20px;
     color: #ff0000;
-    font-family: 'KaushanScript';
+    font-family: 'STIX Two Text', serif;
     font-size: 48px;
     font-weight: 400;
     line-height: 1;
@@ -4996,7 +4942,7 @@ body.dm-light .pan-loader .shadow {
     height: 100%;
     background-color: rgba(0, 0, 0, 0.7);
     background-image: url(../img/decor/check.png);
-    background-position: center;
+    background-position: cnter;
     background-repeat: no-repeat;
     content: '';
     opacity: 0;
@@ -5024,7 +4970,7 @@ body.dm-light .pan-loader .shadow {
 .sause-item__price {
     display: block;
     color: #6dc405;
-    font-family: 'KaushanScript';
+    font-family: 'STIX Two Text', serif;
     font-size: 18px;
     font-weight: 400;
     text-align: center;
@@ -5136,7 +5082,7 @@ body.dm-light .pan-loader .shadow {
     height: 40px;
 }
 
-.cheese-item__media .counter .input,
+.cheeseitem__media .counter .input,
 .cheese-item__media .counter input,
 .toppings-item__media .counter .input,
 .toppings-item__media .counter input {
@@ -5172,7 +5118,7 @@ body.dm-light .pan-loader .shadow {
 .toppings-item__price {
     display: block;
     color: #6dc405;
-    font-family: 'KaushanScript';
+    font-family: 'STIX Two Text', serif;
     font-size: 18px;
     font-weight: 400;
     text-align: center;
