@@ -60,8 +60,12 @@
                                                                                     <?php if ($o['product_id'] == $p['product_id']) { ?>
                                                                                         <li>
                                                                                             <label>
-                                                                                                <input type="radio" <?= $index == 1 ? 'checked' : '' ?> name="<?= $p['product_name'] ?>" value="<?= $o['option_price'] ?>" class="option_price option_price<?= $number++ ?> product_price<?= $stt ?>" />
-                                                                                                <span><?= $o['option_name'] ?></span>
+                                                                                                <?php
+                                                                                                $new_price = $o['option_price'] - ($o['option_price'] * ($p['discount'] / 100));
+                                                                                                ?>
+                                                                                                <input type="radio" <?= $index == 1 ? 'checked' : '' ?> name="<?= $p['product_name'] ?>" value="<?= $new_price ?>" class="option_price option_price<?= $number++ ?> product_price<?= $stt ?>" />
+                                                                                                <span><?= $o['option_name'] ?> | <?= $p['discount'] ?></span>
+                                                                                                <input type="hidden" name="" class="discount" value="<?= $p['discount'] ?>">
                                                                                             </label>
                                                                                         </li>
                                                                                     <?php    } ?>
@@ -92,8 +96,13 @@
                                                                     <span>Thêm topping</span></button></div>
                                                             <div class="product-item__info">
                                                                 <div class="product-item__price">
+                                                                    <div>
+                                                                        <span>Giá: </span><del class="old_value">100</del>
+                                                                    </div>
                                                                     <!-- Tính class price theo cái này -->
-                                                                    <span>Giá: </span><span class="value value<?= $stt++ ?>"></span>
+                                                                    <div>
+                                                                        <span>Giá: </span><span class="value value<?= $stt++ ?>"></span>
+                                                                    </div>
                                                                 </div>
                                                                 <div class="product-item__addcart"> <a class="uk-button uk-button-default" href="page-product.html">Thêm vào giỏ hàng<span data-uk-icon="cart"></span></a></div>
                                                             </div>
