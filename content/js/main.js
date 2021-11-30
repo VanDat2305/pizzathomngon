@@ -93,27 +93,27 @@ function formatCash(str) {
             return (index % 3 ? next : next + ',') + prev;
         });
 }
+
 // Tính tiền theo từng option trang chi tiet san pham
 
 $(document).ready(function() {
     //Mặc định chưa chọn thì sẽ lấy cái này
-    value = $('.product_price:checked').val();
-
+    var value = $('.product-item__price:checked').val();
     value = parseInt(value) + '';
     value_formated = value.replace(/\B(?=(\d{3})+(?!\d))/g, ',') + ' đ';
 
-    $('.product_value').html(value_formated);
+    $('.product-item__value').html(value_formated);
 
-    // $('.product_price').on('change', function() {
-    //     if ($(this).is(':checked')) {
-    //         var val = $(this).val();
+    $('.product-item__price').on('change', function() {
+        if ($(this).is(':checked')) {
+            var val = $(this).val();
 
-    //         val = parseInt(val) + '';
-    //         val_formated = val.replace(/\B(?=(\d{3})+(?!\d))/g, ',') + ' đ';
+            val = parseInt(val) + '';
+            val_formated = val.replace(/\B(?=(\d{3})+(?!\d))/g, ',') + ' đ';
 
-    //         $('.product_value').html(val_formated);
-    //     }
-    // });
+            $('.product-item__value').html(val_formated);
+        }
+    });
 });
 
 // Tính tiền theo từng option trang show san pham
@@ -125,11 +125,21 @@ $(document).ready(function() {
 
     var count_option = $('.option_price');
     var val;
+    // Lặp qua số lượng option lấy value
+    var discount;
+    var old_price;
+
     for (var i = 0; i < count_option.length; i++) {
         val = $('.option_price' + i);
 
         if (val[0].checked === true) {
             result = val[0].defaultValue;
+            // Tính giá ban đầu theo % discount
+            discount = $('.discount')[i].value;
+
+            old_price = (result * (100 - discount)) / 100;
+            console.log(old_price);
+
             result = parseInt(result) + '';
             result_formated =
                 result.replace(/\B(?=(\d{3})+(?!\d))/g, ',') + ' đ';
@@ -141,6 +151,8 @@ $(document).ready(function() {
     // Hiển thị giá ra theo vòng lặp số sẳn phẩm
     var count_product = $('.product-item__price');
     var product_price;
+
+    // Lặp qua số lượng sp đổ giá ra
     for (let i = 0; i < count_product.length; i++) {
         // Giá mặc định ban đầu
         $('.value' + i).html(arrPrice[i]);
