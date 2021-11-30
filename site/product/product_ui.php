@@ -21,6 +21,8 @@
                         </select>
                     </div>
                     <ul class="js-filter uk-grid uk-grid-small uk-child-width-1-2@s uk-child-width-1-3@m uk-child-width-1-3@l" data-uk-grid>
+                        <?php $number = 0 ?>
+                        <?php $stt = 0 ?>
                         <?php foreach ($categories as $c) { ?>
                             <?php foreach ($products as $p) { ?>
                                 <?php if ($c['category_id'] == $p['category_id']) { ?>
@@ -57,7 +59,7 @@
                                                                         <?php if ($o['product_id'] == $p['product_id']) { ?>
                                                                             <li>
                                                                                 <label>
-                                                                                    <input type="radio" <?= $index == 1 ? 'checked' : '' ?> name="<?= $p['product_name'] ?>" value="<?= $o['option_price'] ?>" class="option_price" />
+                                                                                    <input type="radio" <?= $index == 1 ? 'checked' : '' ?> name="<?= $p['product_name'] ?>" value="<?= $o['option_price'] ?>" class="option_price option_price<?= $number++ ?> product_price<?= $stt ?>" />
                                                                                     <span><?= $o['option_name'] ?></span>
                                                                                 </label>
                                                                             </li>
@@ -94,7 +96,7 @@
                                                         <span>Thêm topping</span></button></div>
                                                 <div class="product-item__info">
                                                     <div class="product-item__price">
-                                                        <span>Giá: </span><span class="value"></span>
+                                                        <span>Giá: </span><span class="value value<?= $stt++ ?>"></span>
                                                     </div>
                                                     <div class="product-item__addcart"> <a class="uk-button uk-button-default" href="page-product.html">Thêm vào giỏ hàng<span data-uk-icon="cart"></span></a></div>
                                                 </div>
@@ -119,60 +121,8 @@
                 <aside>
                     <div class="sidebar">
                         <div class="widjet widjet-filter">
-                            <ul data-uk-accordion="multiple: true">
-                                <li><a class="uk-accordion-title" href="#">Kích cỡ</a>
-                                    <div class="uk-accordion-content">
-                                        <ul class="uk-list">
-                                            <li><label><input class="uk-radio" type="radio" name="size" checked><span>S</span></label>
-                                            </li>
-                                            <li><label><input class="uk-radio" type="radio" name="size"><span>M</span></label></li>
-                                            <li><label><input class="uk-radio" type="radio" name="size"><span>L</span></label></li>
-                                        </ul>
-                                    </div>
-                                </li>
-                                <li><a class="uk-accordion-title" href="#">PHÔ MAI</a>
-                                    <div class="uk-accordion-content">
-                                        <ul class="uk-list">
-                                            <li><label><input class="uk-checkbox" type="checkbox" checked><span>phô mai
-                                                        Mozzarella</span></label></li>
-                                            <li><label><input class="uk-checkbox" type="checkbox"><span>Pho
-                                                        mát dê</span></label></li>
-                                            <li><label><input class="uk-checkbox" type="checkbox"><span>Phô
-                                                        mai mascarpone
-                                                    </span></label></li>
-                                            <li><label><input class="uk-checkbox" type="checkbox" checked><span>Phô mai
-                                                        Feta</span></label></li>
-                                        </ul>
-                                    </div>
-                                </li>
-                                <li><a class="uk-accordion-title" href="#">Thịt</a>
-                                    <div class="uk-accordion-content">
-                                        <ul class="uk-list">
-                                            <li><label><input class="uk-radio" type="radio" name="meat" checked><span>Small</span></label></li>
-                                            <li><label><input class="uk-radio" type="radio" name="meat"><span>S</span></label></li>
-                                            <li><label><input class="uk-radio" type="radio" name="meat"><span>M</span></label></li>
-                                            <li><label><input class="uk-radio" type="radio" name="meat"><span>L</span></label>
-                                            </li>
-                                        </ul>
-                                    </div>
-                                </li>
-                                <li><a class="uk-accordion-title" href="#">Rau</a>
-                                    <div class="uk-accordion-content">
-                                        <ul class="uk-list">
-                                            <li><label><input class="uk-checkbox" type="checkbox"><span>Rau
-                                                        cải</span></label></li>
-                                            <li><label><input class="uk-checkbox" type="checkbox"><span>Rau
-                                                        abc</span></label></li>
-                                            <li><label><input class="uk-checkbox" type="checkbox"><span>Rau
-                                                        abc</span></label></li>
-                                            <li><label><input class="uk-checkbox" type="checkbox"><span>Rau
-                                                        abc</span></label></li>
-                                            <li><label><input class="uk-checkbox" type="checkbox"><span>Rau
-                                                        abc</span></label></li>
-                                        </ul>
-                                    </div>
-                                </li>
-                            </ul>
+                            <!-- Lọc theo input range -->
+                            <input type="range" name="" id="">
                         </div>
 
                         <div class="widjet widjet-recommend uk-margin-large-top">
@@ -183,7 +133,7 @@
                                         <div class="recommend-list-item">
                                             <img class="recommend-list-item__img" src="<?= CONTENT_URL ?>img/products/<?= $top10['product_image'] ?>" alt="<?= $top10['product_image'] ?>">
                                             <div class="recommend-list-item__desc">
-                                                <div class="recommend-list-item__title"><a href="page-product.html"><?= $top10['product_name'] ?></a>
+                                                <div class="recommend-list-item__title"><a href="<?= SITE_URL ?>product/product_detail.php?product_id=<?= $top10['product_id'] ?>"><?= $top10['product_name'] ?></a>
                                                 </div>
                                                 <div class="recommend-list-item__intro"><?= $top10['description'] ?>
                                                 </div>
