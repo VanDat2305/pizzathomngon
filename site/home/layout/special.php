@@ -65,7 +65,7 @@
                                                                                                 ?>
                                                                                                 <input type="radio" <?= $index == 1 ? 'checked' : '' ?> name="<?= $p['product_name'] ?>" value="<?= $new_price ?>" class="option_price option_price<?= $number++ ?> product_price<?= $stt ?>" />
                                                                                                 <span><?= $o['option_name'] ?> | <?= $p['discount'] ?></span>
-                                                                                                <input type="hidden" name="" class="discount" value="<?= $p['discount'] ?>">
+                                                                                                <input type="hidden" name="" class="discount discount<?= $stt ?>" value="<?= $p['discount'] ?>">
                                                                                             </label>
                                                                                         </li>
                                                                                     <?php    } ?>
@@ -96,8 +96,9 @@
                                                                     <span>Thêm topping</span></button></div>
                                                             <div class="product-item__info">
                                                                 <div class="product-item__price">
+                                                                    <!-- Nêu sản phẩm có giảm giá thì mới hiện -->
                                                                     <div>
-                                                                        <span>Giá: </span><del class="old_value">100</del>
+                                                                        <span>Giá: </span><del class="old_value<?= $stt ?>"></del>
                                                                     </div>
                                                                     <!-- Tính class price theo cái này -->
                                                                     <div>

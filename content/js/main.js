@@ -121,12 +121,13 @@ $(document).ready(function() {
     //Mặc định chưa chọn thì sẽ lấy cái này
 
     // Mảng chứa giá ban đầu
-    var arrPrice = [];
+    var arrNewPrice = [];
+    var arrOldPrice = [];
 
     var count_option = $('.option_price');
     var val;
     // Lặp qua số lượng option lấy value
-    var discount;
+
     var old_price;
 
     for (var i = 0; i < count_option.length; i++) {
@@ -134,40 +135,59 @@ $(document).ready(function() {
 
         if (val[0].checked === true) {
             result = val[0].defaultValue;
-            // Tính giá ban đầu theo % discount
-            discount = $('.discount')[i].value;
 
-            old_price = (result * (100 - discount)) / 100;
-            console.log(old_price);
-
+            // Giá mới
             result = parseInt(result) + '';
             result_formated =
                 result.replace(/\B(?=(\d{3})+(?!\d))/g, ',') + ' đ';
 
             // Đẩy giá vào mảng chứa giá ban đầu
-            arrPrice.push(result_formated);
+            arrNewPrice.push(result_formated);
         }
     }
     // Hiển thị giá ra theo vòng lặp số sẳn phẩm
     var count_product = $('.product-item__price');
     var product_price;
-
+    var discount;
     // Lặp qua số lượng sp đổ giá ra
     for (let i = 0; i < count_product.length; i++) {
         // Giá mặc định ban đầu
-        $('.value' + i).html(arrPrice[i]);
+        $('.value' + i).html(arrNewPrice[i]);
 
         // Giá khi thay đổi trạng thái
         product_price = $('.product_price' + i);
         // console.dir(product_price);
+
+        discount = $('.discount' + i).val();
+        console.log(discount);
+
+        // Tính giá ban đầu theo % discount
+
+        old_price = (result * 100) / (100 - discount);
+        old_price = parseInt(old_price) + '';
+        old_price_formated =
+            old_price.replace(/\B(?=(\d{3})+(?!\d))/g, ',') + ' đ';
+
+        arrOldPrice.push(old_price_formated);
+        $('.old_value' + i).html(arrOldPrice[i]);
+
         product_price.on('change', function() {
             if ($(this).is(':checked')) {
+                // Giá mới
                 var val = $(this).val();
 
                 val = parseInt(val) + '';
                 val_formated = val.replace(/\B(?=(\d{3})+(?!\d))/g, ',') + ' đ';
 
                 $('.value' + i).html(val_formated);
+                // Giá cũ
+                // Đang làm đến đấy Discount chưa cộng i vào nên bị lỗi
+                discount = $('.discount' + i).val();
+                old_price = (val * 100) / (100 - discount);
+                old_price = parseInt(old_price) + '';
+                old_price_formated =
+                    old_price.replace(/\B(?=(\d{3})+(?!\d))/g, ',') + ' đ';
+                $('.old_value' + i).html(old_price_formated);
             }
         });
     }
