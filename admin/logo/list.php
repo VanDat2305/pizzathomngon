@@ -31,9 +31,9 @@
                     <td><img src="<?= CONTENT_URL . 'img/logos/' . $logo['logo_image'] ?>" width="200rem" height="100rem" alt=""></td>
                     <td>
                         <?php if ($logo['logo_status'] == 0) { ?>
-                            <a href="?act=btn_hien&logo_id=<?= $logo['logo_id'] ?>">Ẩn</a>
+                            <a href="?act=btn_hien&logo_id=<?= $logo['logo_id'] ?> " class="btn btn-danger" >Ẩn</a>
                         <?php } else { ?>
-                            <a href="?act=btn_an&logo_id=<?= $logo['logo_id'] ?>">Hiện</a>
+                            <a href="?act=btn_an&logo_id=<?= $logo['logo_id'] ?>" class="btn btn-success" >Hiện</a>
                         <?php } ?>
                     </td>
                     <td>

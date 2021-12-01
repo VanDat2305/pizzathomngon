@@ -391,5 +391,112 @@ $("#form_edit_contact").validate({
     },   
   },
 });
-
+$("#form_insert_coupon").validate({
+  rules: {
+    coupon_name: {
+      required: true,
+      minlength: 3,
+    },
+    coupon_code: {
+      required: true,
+      minlength: 3,
+    },
+    coupon_count: {
+      required: true,
+      minlength: 1,
+    },
+    coupon_price: {
+      required: true,
+      minlength: 1,
+    },
+    start_date: {
+      required: true,
+      minlength: 1,
+    },
+    end_date: {
+      required: true,
+      minlength: 3,
+    },
+  },
+  messages: {
+    coupon_name: {
+      required: "Vui lòng điền tên",
+      minlength: "Hãy nhập ít nhất 3 ký tự",
+    },
+    coupon_code: {
+      required: "Vui lòng điền mã",
+      minlength: "Hãy nhập ít nhất 3 ký tự",
+    },
+    coupon_count: {
+      required: "Vui lòng điền số lượt",
+      minlength: "Hãy nhập đúng số lượng",
+    },
+    coupon_price: {
+      required: "Vui lòng điền số tiền",
+      minlength: "Hãy nhập đúng số tiền",
+    },
+    start_date: {
+      required: "Vui lòng điền ngày bắt đầu",
+      minlength: "Hãy nhập đúng ngày",
+    },
+    end_date: {
+      required: "Vui lòng điền ngày kết thúc",
+      minlength: "Hãy nhập đúng ngày",
+    },
+  },
+});
+$("#form_edit_coupon").validate({
+  rules: {
+    coupon_name: {
+      required: true,
+      minlength: 3,
+    },
+    coupon_code: {
+      required: true,
+      minlength: 3,
+    },
+    coupon_count: {
+      required: true,
+      minlength: 1,
+    },
+    coupon_price: {
+      required: true,
+      minlength: 1,
+    },
+    start_date: {
+      required: true,
+      minlength: 1,
+    },
+    end_date: {
+      required: true,
+      minlength: 3,
+    },
+  },
+  messages: {
+    coupon_name: {
+      required: "Vui lòng điền tên",
+      minlength: "Hãy nhập ít nhất 3 ký tự",
+    },
+    coupon_code: {
+      required: "Vui lòng điền mã",
+      minlength: "Hãy nhập ít nhất 3 ký tự",
+    },
+    coupon_count: {
+      required: "Vui lòng điền số lượt",
+      minlength: "Hãy nhập đúng số lượng",
+    },
+    coupon_price: {
+      required: "Vui lòng điền số tiền",
+      minlength: "Hãy nhập đúng số tiền",
+    },
+    start_date: {
+      required: "Vui lòng điền ngày bắt đầu",
+      minlength: "Hãy nhập đúng ngày",
+    },
+    end_date: {
+      required: "Vui lòng điền ngày kết thúc",
+      minlength: "Hãy nhập đúng ngày",
+    },
+  },
+});
 
