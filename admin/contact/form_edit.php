@@ -12,7 +12,7 @@
             </div>
             <div class="form-group">
                 <label for="">Số điện thoại</label>
-                <input type="number" name="contact_phone" id="contact_phone" id="" value="<?= isset($items['contact_phone']) ? $items['contact_phone'] : "" ?>" class="form-control" placeholder="" aria-describedby="helpId">
+                <input type="text" name="contact_phone" id="contact_phone" id="" value="<?= isset($items['contact_phone']) ? $items['contact_phone'] : "" ?>" class="form-control" placeholder="" aria-describedby="helpId">
             </div>
             <div class="form-group">
                 <label for="">Địa chỉ</label>

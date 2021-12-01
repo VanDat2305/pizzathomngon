@@ -3,6 +3,7 @@
 <div class="row">
     <div class="col-md-12 col-lg-12">
         <div class="card-body ">
+        <form action="?btn_delete_all" method="post" class="table-responsive">
             <table class="table table-hover text-center " id="dataTables-example" width="100%">
                 <thead>
                     <?php $index = 1;
@@ -40,6 +41,7 @@
                     <?php
                     }
                     ?>
+                    </form>
                 </tbody>
                 <tfoot>
                     <tr>
@@ -49,6 +51,7 @@
                     </tr>
                 </tfoot>
             </table>
+            </form>
         </div>
     </div>
 </div>
