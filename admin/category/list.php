@@ -1,7 +1,7 @@
 <h3 class="alert alert-secondary">Thêm loại món</h3>
 <form action="index.php" method="post" id="form_insert_category" class="form m-b-2">
     <div class="form-group">
-        <label for="">Tên loại hàng</label>
+        <label for="">Tên loại món</label>
         <input type="text" name="category_name" id='category_name' class="form-control" aria-describedby="helpId">
     </div>
     <div class="form-group">

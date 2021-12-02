@@ -11,7 +11,6 @@
                         echo "<tr>" . $MESSAGE . "</tr>";
                     } ?>
                     <tr>
-                        <th></th>
                         <th>STT</th>
                         <th>Họ tên </th>
                         <th>Email</th>
@@ -27,7 +26,6 @@
                         extract($item);
                     ?>
                         <tr>
-                            <th><input type="checkbox" class="check-one" name="feedback_id" id="" value="<?= $feedback_id ?>"></th>
                             <td><?= $index++ ?></td>
                             <td><?= $feedback_name ?></td>
                             <td><?= $feedback_email  ?></td>
@@ -35,7 +33,7 @@
                             <td><?= $feedback_status ?></td>
                             <td><?= $sent_date ?></td>
                             <td>
-                                <a href="?btn_delete&feedback_id=<?= $feedback_id ?>" onclick=" return confirm('Bạn có chắc chắn muốn xóa không ???')" class="text-dark">Xóa</a>
+                                <a href="?btn_delete&feedback_id=<?= $feedback_id ?>" onclick=" return confirm('Bạn có chắc chắn muốn xóa không ???')" class="text-dark"><i class="far fa-trash-alt"></i></a>
                             </td>
                         </tr>
                     <?php
@@ -43,13 +41,7 @@
                     ?>
                     </form>
                 </tbody>
-                <tfoot>
-                    <tr>
-                        <td colspan="3"><button type="button" onclick="checkAll()" class="btn btn-dark">Chọn tất cả</button></td>
-                        <td colspan="2"><button type="button" onclick="clearAll()" class="btn btn-dark" ">Bỏ chọn tất cả</button></td>
-                        <td colspan=" 2"><button onclick="return confirm('Bạn có chắc chắn muốn xóa không ???')" type="submit" class="btn btn-dark" id="deleteAll">Xóa các mục đã chọn</button></td>
-                    </tr>
-                </tfoot>
+               
             </table>
             </form>
         </div>
