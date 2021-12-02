@@ -20,10 +20,10 @@ function user_insert_view($username, $password, $fullname, $email, $created_at, 
 /**
  * Cap nhat 
  */
-function user_update($user_id, $username, $user_image, $password, $fullname, $phoneNumber, $email, $address, $birthdate, $update_at, $role_id)
+function user_update($user_id, $username, $user_image, $password, $fullname, $phoneNumber, $email, $address, $birthdate,  $role_id)
 {
-    $sql = "UPDATE tbl_users SET `username` = ?,`user_image` = ?,`password` = ?,`fullname` = ?,`phoneNumber` = ?,`email` = ?,`address` = ?,`birthdate` = ?,`update_at` = ?,`role_id` = ? WHERE `user_id` = ?";
-    pdo_execute($sql, $username, $user_image, $password, $fullname, $phoneNumber, $email, $address, $birthdate, $update_at, $role_id, $user_id);
+    $sql = "UPDATE tbl_users SET `username` = ?,`user_image` = ?,`password` = ?,`fullname` = ?,`phoneNumber` = ?,`email` = ?,`address` = ?,`birthdate` = ?,`role_id` = ? WHERE `user_id` = ?";
+    pdo_execute($sql, $username, $user_image, $password, $fullname, $phoneNumber, $email, $address, $birthdate,  $role_id, $user_id);
 }
 /**
  * Xoa 1 hoac nhieu ma 

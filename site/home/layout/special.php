@@ -141,13 +141,8 @@
                                                         </div>
                                                     </div>
                                                 </li>
-
                                             <?php    } ?>
-
-
-
                                         <?php    } ?>
-
                                     </ul>
                                 </div>
                                 <div class="uk-visible@l">

@@ -49,7 +49,7 @@ function comment_select_product()
  */
 function comment_select_all()
 {
-    $sql = "SELECT * FROM tbl_comments order by comment_id";
+    $sql = "SELECT * FROM tbl_comments ";
     return pdo_query($sql);
 }
 
