@@ -201,14 +201,14 @@ $(document).ready(function() {
     // Lặp qua số lượng sp đổ giá ra
     for (let i = 0; i < count_product.length; i++) {
         $('.product_price' + i).on('click', function() {
-            $('.product_id' + i).removeAttr('checked');
+            $('.product_stt' + i).removeAttr('checked');
         });
     }
     option_length = $('.option_price');
     for (let j = 0; j < option_length.length; j++) {
         $('.option_price' + j).on('click', function() {
             // console.log($('.option_id' + j));
-            $('.option_id' + j).attr('checked', 'true');
+            $('.option_stt' + j).attr('checked', 'true');
         });
     }
 });

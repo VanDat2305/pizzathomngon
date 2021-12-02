@@ -135,14 +135,19 @@
                                                                     </div>
                                                                 </div>
                                                                 <div class="product-item__addcart">
-                                                                    <button class="uk-button uk-button-default add-to-cart">Thêm vào giỏ hàng<span data-uk-icon="cart"></span></button>
+                                                                    <button class="uk-button uk-button-default add-to-cart" href="page-product.html">Thêm vào giỏ hàng<span data-uk-icon="cart"></span></button>
                                                                 </div>
                                                             </div>
                                                         </div>
                                                     </div>
                                                 </li>
+
                                             <?php    } ?>
+
+
+
                                         <?php    } ?>
+
                                     </ul>
                                 </div>
                                 <div class="uk-visible@l">
