@@ -94,7 +94,7 @@ function formatCash(str) {
         });
 }
 
-// Tính tiền theo từng option trang chi tiet san pham
+//======================================= Tính tiền theo từng option trang chi tiet san pham
 
 $(document).ready(function() {
     //Mặc định chưa chọn thì sẽ lấy cái này
@@ -123,19 +123,23 @@ $(document).ready(function() {
     // Mảng chứa giá ban đầu
     var arrNewPrice = [];
     var arrOldPrice = [];
+    // Mảng chưa format
+    var arrOriginNewPrice = [];
 
     var count_option = $('.option_price');
     var val;
     // Lặp qua số lượng option lấy value
 
     var old_price;
+    var discount;
 
     for (var i = 0; i < count_option.length; i++) {
         val = $('.option_price' + i);
-
         if (val[0].checked === true) {
+            var result;
             result = val[0].defaultValue;
 
+            arrOriginNewPrice.push(Number(result));
             // Giá mới
             result = parseInt(result) + '';
             result_formated =
@@ -145,10 +149,11 @@ $(document).ready(function() {
             arrNewPrice.push(result_formated);
         }
     }
+
     // Hiển thị giá ra theo vòng lặp số sẳn phẩm
     var count_product = $('.product-item__price');
     var product_price;
-    var discount;
+
     // Lặp qua số lượng sp đổ giá ra
     for (let i = 0; i < count_product.length; i++) {
         // Giá mặc định ban đầu
@@ -156,19 +161,16 @@ $(document).ready(function() {
 
         // Giá khi thay đổi trạng thái
         product_price = $('.product_price' + i);
-        // console.dir(product_price);
-
-        discount = $('.discount' + i).val();
-        console.log(discount);
 
         // Tính giá ban đầu theo % discount
-
-        old_price = (result * 100) / (100 - discount);
+        discount = $('.discount' + i).val();
+        old_price = (arrOriginNewPrice[i] * 100) / (100 - discount);
         old_price = parseInt(old_price) + '';
         old_price_formated =
             old_price.replace(/\B(?=(\d{3})+(?!\d))/g, ',') + ' đ';
 
         arrOldPrice.push(old_price_formated);
+
         $('.old_value' + i).html(arrOldPrice[i]);
 
         product_price.on('change', function() {
@@ -189,6 +191,24 @@ $(document).ready(function() {
                     old_price.replace(/\B(?=(\d{3})+(?!\d))/g, ',') + ' đ';
                 $('.old_value' + i).html(old_price_formated);
             }
+        });
+    }
+
+    var count_product = $('.product-item__price');
+
+    var product_price;
+    var option_length;
+    // Lặp qua số lượng sp đổ giá ra
+    for (let i = 0; i < count_product.length; i++) {
+        $('.product_price' + i).on('click', function() {
+            $('.product_id' + i).removeAttr('checked');
+        });
+    }
+    option_length = $('.option_price');
+    for (let j = 0; j < option_length.length; j++) {
+        $('.option_price' + j).on('click', function() {
+            // console.log($('.option_id' + j));
+            $('.option_id' + j).attr('checked', 'true');
         });
     }
 });

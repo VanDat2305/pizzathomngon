@@ -1606,6 +1606,41 @@ body.dm-light .pan-loader .shadow {
     position: relative;
 }
 
+.product-item__discount {
+    position: absolute;
+    top: 7px;
+    left: 7px;
+    z-index: 100;
+    display: inline-block;
+    background: #ff6600;
+    color: #ffffff;
+    height: 2.5rem;
+    width: 2.5rem;
+    text-align: center;
+    vertical-align: middle;
+    line-height: 2.5rem;
+    transform: rotate(-20deg);
+    font-weight: bold;
+    font-size: 16px;
+}
+
+.product-item__discount:before,
+.product-item__discount:after {
+    content: '';
+    position: absolute;
+    background: inherit;
+    height: inherit;
+    width: inherit;
+    top: 0;
+    left: 0;
+    z-index: -1;
+    transform: rotate(30deg);
+}
+
+.product-item__discount:after {
+    transform: rotate(60deg);
+}
+
 .product-item__not-active {
     display: block;
     position: relative;

@@ -15,8 +15,9 @@
             </ul>
             <ul class="uk-switcher">
                 <!-- Tính class option_price theo cái này -->
-                <?php $number = 0 ?>
-                <?php $stt = 0 ?>
+                <?php $stt_option1 = 0 ?>
+                <?php $stt_option2 = 0 ?>
+                <?php $stt_product = 0 ?>
                 <?php foreach ($categories as $c) { ?>
 
                     <li>
@@ -29,10 +30,19 @@
 
                                             <?php if ($c['category_id'] == $p['category_id']) { ?>
 
+                                                <!-- Đặt index để tự chọn option đầu tiên -->
+                                                <?php $index = 1 ?>
+                                                <?php $index2 = 1 ?>
+
                                                 <li>
                                                     <div class="product-item">
                                                         <div class="product-item__box">
                                                             <div class="product-item__intro">
+
+                                                                <?php if ($p['discount'] > 0) { ?>
+                                                                    <div class="product-item__discount"><?= $p['discount'] ?> %</div>
+                                                                <?php } ?>
+
                                                                 <div class="product-item__not-active">
                                                                     <div class="product-item__media">
                                                                         <div class="uk-inline-clip uk-transition-toggle uk-light" data-uk-lightbox="data-uk-lightbox">
@@ -54,25 +64,42 @@
                                                                     <div class="product-item__select">
                                                                         <div class="select-box select-box--size">
                                                                             <ul>
-
                                                                                 <?php foreach ($options as $o) { ?>
-                                                                                    <?php $index = 1 ?>
                                                                                     <?php if ($o['product_id'] == $p['product_id']) { ?>
+
                                                                                         <li>
                                                                                             <label>
                                                                                                 <?php
                                                                                                 $new_price = $o['option_price'] - ($o['option_price'] * ($p['discount'] / 100));
                                                                                                 ?>
-                                                                                                <input type="radio" <?= $index == 1 ? 'checked' : '' ?> name="<?= $p['product_name'] ?>" value="<?= $new_price ?>" class="option_price option_price<?= $number++ ?> product_price<?= $stt ?>" />
-                                                                                                <span><?= $o['option_name'] ?> | <?= $p['discount'] ?></span>
-                                                                                                <input type="hidden" name="" class="discount discount<?= $stt ?>" value="<?= $p['discount'] ?>">
+                                                                                                <input type="radio" <?= $index == 1 ? 'checked' : '' ?> name="<?= $p['product_name'] ?>" value="<?= $new_price ?>" class="option_price option_price<?= $stt_option1++ ?> product_price<?= $stt_product ?>" />
+                                                                                                <span><?= $o['option_name'] ?></span>
                                                                                             </label>
                                                                                         </li>
+                                                                                        <?php $index++;  ?>
                                                                                     <?php    } ?>
-                                                                                    <?php $index++;  ?>
                                                                                 <?php    } ?>
+
+
+
+                                                                                <input type="hidden" name="" class="discount discount<?= $stt_product ?>" value="<?= $p['discount'] ?>">
                                                                             </ul>
                                                                         </div>
+                                                                    </div>
+                                                                    <div>
+                                                                        <?php foreach ($options as $o) { ?>
+
+                                                                            <?php if ($o['product_id'] == $p['product_id']) { ?>
+
+
+                                                                                <input class="option_stt<?= $stt_option2++ ?> product_stt<?= $stt_product ?>" type="radio" <?= $index2 == 1 ? 'checked' : '' ?> name="option_by_pro<?= $stt_product ?>" value="<?= $o['option_id'] ?>">
+
+
+
+                                                                                <?php $index2++;  ?>
+                                                                            <?php    } ?>
+                                                                        <?php    } ?>
+
                                                                     </div>
                                                                 </div>
                                                                 <div class="product-item__active">
@@ -97,15 +124,19 @@
                                                             <div class="product-item__info">
                                                                 <div class="product-item__price">
                                                                     <!-- Nêu sản phẩm có giảm giá thì mới hiện -->
-                                                                    <div>
-                                                                        <span>Giá: </span><del class="old_value<?= $stt ?>"></del>
-                                                                    </div>
+                                                                    <?php if ($p['discount'] > 0) { ?>
+                                                                        <div>
+                                                                            <span></span><del class="old_value<?= $stt_product ?>"></del>
+                                                                        </div>
+                                                                    <?php } ?>
                                                                     <!-- Tính class price theo cái này -->
                                                                     <div>
-                                                                        <span>Giá: </span><span class="value value<?= $stt++ ?>"></span>
+                                                                        <span>Giá: </span><span class="value value<?= $stt_product++ ?>"></span>
                                                                     </div>
                                                                 </div>
-                                                                <div class="product-item__addcart"> <a class="uk-button uk-button-default" href="page-product.html">Thêm vào giỏ hàng<span data-uk-icon="cart"></span></a></div>
+                                                                <div class="product-item__addcart">
+                                                                    <button class="uk-button uk-button-default add-to-cart">Thêm vào giỏ hàng<span data-uk-icon="cart"></span></button>
+                                                                </div>
                                                             </div>
                                                         </div>
                                                     </div>
