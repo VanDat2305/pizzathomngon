@@ -84,39 +84,52 @@ function handleTabletChange(e) {
 mediaQueryTablet.addListener(handleTabletChange);
 handleTabletChange(mediaQueryTablet);
 
-// format tiền bằng
-function formatCash(str) {
-    return str
-        .split('')
-        .reverse()
-        .reduce((prev, next, index) => {
-            return (index % 3 ? next : next + ',') + prev;
-        });
-}
-
 //======================================= Tính tiền theo từng option trang chi tiet san pham
 
+// =============Hàm format giá tiền
+function formatPrice(param) {
+    param = parseInt(param);
+    return param.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ',') + ' đ';
+}
+
+// Xử lý trang chi tiết sản phẩm
 $(document).ready(function() {
-    //Mặc định chưa chọn thì sẽ lấy cái này
-    var value = $('.product-item__price:checked').val();
-    value = parseInt(value) + '';
-    value_formated = value.replace(/\B(?=(\d{3})+(?!\d))/g, ',') + ' đ';
+    //Mặc định chưa chọn thì sẽ 1 cai mac dinh
+    var new_value = $('.product_option_price:checked').val();
+    new_value = parseInt(new_value) + '';
+    var discount_value = $('#discount_value').val();
+    var old_value = (new_value * 100) / (100 - discount_value);
 
-    $('.product-item__value').html(value_formated);
+    new_value_formated = formatPrice(new_value);
+    old_value_formated = formatPrice(old_value);
 
-    $('.product-item__price').on('change', function() {
+    $('.product_detail_new_value').html(new_value_formated);
+    $('.product_detail_old_value').html(old_value_formated);
+
+    // Khi thay doi option
+    $('.product_option_price').on('change', function() {
         if ($(this).is(':checked')) {
-            var val = $(this).val();
+            var new_val = $(this).val();
+            var old_val = (new_val * 100) / (100 - discount_value);
+            new_val_formated = formatPrice(new_val);
+            old_val_formated = formatPrice(old_val);
 
-            val = parseInt(val) + '';
-            val_formated = val.replace(/\B(?=(\d{3})+(?!\d))/g, ',') + ' đ';
-
-            $('.product-item__value').html(val_formated);
+            $('.product_detail_new_value').html(new_val_formated);
+            $('.product_detail_old_value').html(old_val_formated);
         }
     });
+
+    var option_detail = $('.product_option_price');
+    for (let i = 0; i < option_detail.length; i++) {
+        $('.option_detail_price' + i).on('click', function() {
+            $('.option_detail').removeAttr('checked');
+            $('.option_detail_id' + i).attr('checked', 'true');
+        });
+    }
 });
 
-// Tính tiền theo từng option trang show san pham
+// // Xử lý trang show sản phẩm
+
 $(document).ready(function() {
     //Mặc định chưa chọn thì sẽ lấy cái này
 
@@ -141,9 +154,7 @@ $(document).ready(function() {
 
             arrOriginNewPrice.push(Number(result));
             // Giá mới
-            result = parseInt(result) + '';
-            result_formated =
-                result.replace(/\B(?=(\d{3})+(?!\d))/g, ',') + ' đ';
+            result_formated = formatPrice(result);
 
             // Đẩy giá vào mảng chứa giá ban đầu
             arrNewPrice.push(result_formated);
@@ -165,9 +176,8 @@ $(document).ready(function() {
         // Tính giá ban đầu theo % discount
         discount = $('.discount' + i).val();
         old_price = (arrOriginNewPrice[i] * 100) / (100 - discount);
-        old_price = parseInt(old_price) + '';
-        old_price_formated =
-            old_price.replace(/\B(?=(\d{3})+(?!\d))/g, ',') + ' đ';
+
+        old_price_formated = formatPrice(old_price);
 
         arrOldPrice.push(old_price_formated);
 
@@ -177,18 +187,15 @@ $(document).ready(function() {
             if ($(this).is(':checked')) {
                 // Giá mới
                 var val = $(this).val();
-
-                val = parseInt(val) + '';
-                val_formated = val.replace(/\B(?=(\d{3})+(?!\d))/g, ',') + ' đ';
+                val_formated = formatPrice(val);
 
                 $('.value' + i).html(val_formated);
                 // Giá cũ
                 // Đang làm đến đấy Discount chưa cộng i vào nên bị lỗi
                 discount = $('.discount' + i).val();
                 old_price = (val * 100) / (100 - discount);
-                old_price = parseInt(old_price) + '';
-                old_price_formated =
-                    old_price.replace(/\B(?=(\d{3})+(?!\d))/g, ',') + ' đ';
+
+                old_price_formated = formatPrice(old_price);
                 $('.old_value' + i).html(old_price_formated);
             }
         });
@@ -207,7 +214,6 @@ $(document).ready(function() {
     option_length = $('.option_price');
     for (let j = 0; j < option_length.length; j++) {
         $('.option_price' + j).on('click', function() {
-            // console.log($('.option_id' + j));
             $('.option_stt' + j).attr('checked', 'true');
         });
     }
