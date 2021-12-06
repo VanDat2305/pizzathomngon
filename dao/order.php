@@ -1,14 +1,30 @@
 <?php
 require_once "pdo.php";
+define("TAX", 0.0005);
 /**
- * Them moi
+ * Them moi tbl order
  */
-function order_insert($order_name)
+function order_insert($user_id,$fullname,$phoneNumber,$note,$address,$coupon_discount,$status_id=1,$created_at)
 {
-    $sql = "INSERT INTO tbl_orders(order_name) VALUES (?)";
-    pdo_execute($sql, $order_name);
+    $sql = "INSERT INTO tbl_orders(`user_id`,`fullname`,`phoneNumber`,`note`,`address`,'coupon_discount',`status_id`,`created_at`) VALUES (?,?,?,?,?,?,?,?)";
+    pdo_execute_return_id($sql,$user_id,$fullname,$phoneNumber,$note,$address,$coupon_discount,$status_id,$created_at);
 }
-
+/**
+ * Them moi tbl order_detail
+ */
+function order_detail_insert($option_id,$quantity,$order_id)
+{
+    $sql = "INSERT INTO tbl_order_details(`option_id`,`quantity`,`order_id`) VALUES (?,?,?)";
+    pdo_execute_return_id($sql,$option_id,$quantity,$order_id);
+}
+/**
+ * Them moi tbl extral_detail
+ */
+function extral_detail_insert($extral_id,$order_detail_id)
+{
+    $sql = "INSERT INTO tbl_extral_details(`extral_id`,order_detail_id) VALUES (?,?)";
+    pdo_execute($sql,$extral_id,$order_detail_id);
+}
 /**
  * Cap nhat 
  */
@@ -87,9 +103,11 @@ function order_exist_name_id($order_id, $order_name)
 function order_select_by_id_status($status_id)
 {
     $sql = "SELECT
-                ord.order_id, ord.user_id,ord.fullname, ord.phoneNumber ,ord.note,ord.address,
-                sta.status_name,sta.status_id,ord.created_at,
-                SUM(distinct tbl_total.total) as total_money
+                ord.order_id, ord.user_id,ord.fullname, ord.phoneNumber ,ord.note,ord.address, ord.coupon_discount,
+                sta.status_id,sta.status_name,ord.created_at,
+                SUM(distinct tbl_total.total)* ".TAX." as tax,
+                SUM(distinct tbl_total.total) as money_pro,
+                SUM(distinct tbl_total.total)-ord.coupon_discount + SUM(distinct tbl_total.total)* ".TAX." as total_money
             FROM(
                 SELECT
                 total_option.order_id,
@@ -135,9 +153,11 @@ function order_select_by_id_status($status_id)
 function order_select_by_date($start_date,$end_date)
 {
     $sql = "SELECT
-                ord.order_id, ord.user_id,ord.fullname, ord.phoneNumber ,ord.note,ord.address,
-                sta.status_name,sta.status_id,ord.created_at,
-                SUM(distinct tbl_total.total) as total_money
+                ord.order_id, ord.user_id,ord.fullname, ord.phoneNumber ,ord.note,ord.address, ord.coupon_discount,
+                sta.status_id,sta.status_name,ord.created_at,
+                SUM(distinct tbl_total.total)* ".TAX." as tax,
+                SUM(distinct tbl_total.total) as money_pro,
+                SUM(distinct tbl_total.total)-ord.coupon_discount + SUM(distinct tbl_total.total)* ".TAX." as total_money
             FROM(
                 SELECT
                 total_option.order_id,
@@ -184,9 +204,11 @@ function order_select_by_date($start_date,$end_date)
 function order_select_list()
 {
     $sql = "SELECT
-                ord.order_id, ord.user_id,ord.fullname, ord.phoneNumber ,ord.note,ord.address,
+                ord.order_id, ord.user_id,ord.fullname, ord.phoneNumber ,ord.note,ord.address, ord.coupon_discount,
                 sta.status_id,sta.status_name,ord.created_at,
-                SUM(distinct tbl_total.total) as total_money
+                SUM(distinct tbl_total.total)* ".TAX." as tax,
+                SUM(distinct tbl_total.total) as money_pro,
+                SUM(distinct tbl_total.total)-ord.coupon_discount + SUM(distinct tbl_total.total)* ".TAX." as total_money
             FROM(
                 SELECT
                 total_option.order_id,
@@ -228,9 +250,11 @@ function order_select_list()
 function order_select_by_id($order_id)
 {
     $sql = "SELECT
-                ord.order_id, ord.user_id,ord.fullname, ord.phoneNumber ,ord.note,ord.address
-                ,sta.status_id,sta.status_name,ord.created_at,
-                SUM(distinct tbl_total.total) as total_money
+                ord.order_id, ord.user_id,ord.fullname, ord.phoneNumber ,ord.note,ord.address, ord.coupon_discount,
+                sta.status_id,sta.status_name,ord.created_at,
+                SUM(distinct tbl_total.total)* ".TAX." as tax,
+                SUM(distinct tbl_total.total) as money_pro,
+                SUM(distinct tbl_total.total)-ord.coupon_discount + SUM(distinct tbl_total.total)* ".TAX." as total_money
             FROM(
                 SELECT
                 total_option.order_id,

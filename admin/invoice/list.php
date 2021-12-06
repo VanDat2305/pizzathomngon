@@ -29,7 +29,7 @@
                     <tr>
                         <th>ID</th>
                         <th>Người nhận</th>
-                        <th>Tổng tiền</th>
+                        <th>Tổng thanh toán</th>
                         <th>Thời gian đặt</th>
                         <th>Trạng thái </th>
                         <th>Chi tiết</th>
