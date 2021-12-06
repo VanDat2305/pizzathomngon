@@ -28,18 +28,6 @@
     </div>
     <div class="page-footer__middle">
         <div class="uk-container">
-            <ul class="uk-navbar-nav">
-                <li><a href="/">Trang chủ</a></li>
-                <li><a href="page-catalog-sidebar.html">Thực đơn</a></li>
-                <li><a href="#">Ưu đãi</a></li>
-                <li><a href="page-wishlist.html">Danh sách yêu thích</a></li>
-                <li><a href="page-blog.html">Tin tức</a></li>
-                <li><a href="page-contacts.html">Liên hệ</a></li>
-            </ul>
-        </div>
-    </div>
-    <div class="page-footer__bottom">
-        <div class="uk-container">
             <div class="page-footer__social">
                 <ul class="social">
                     <li class="social-item"><a class="social-link" href="#!"><i class="fab fa-twitter"></i></a>
@@ -98,6 +86,7 @@
 <script src="<?= CONTENT_URL ?>js/uikit.min.js"></script>
 <script src="<?= CONTENT_URL ?>js/uikit-icons.min.js"></script>
 <script src="<?= CONTENT_URL ?>js/main.js"></script>
+<script src="<?= CONTENT_URL ?>js/cart.js"></script>
 <script src="<?= CONTENT_URL ?>js/fontawesome.all.min.js"></script>
 
 </body>

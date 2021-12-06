@@ -70,8 +70,10 @@
                                     <li class="uk-inline">
                                         <a href="<?= SITE_URL ?>account/"><span data-uk-icon="user"></span></a>
                                     </li>
+                                    <!-- Cart -->
+                                    <li class="uk-cart-box">
+                                        <span class="uk-cart-quantity">3</span>
 
-                                    <li>
                                         <a href="<?= SITE_URL ?>cart/"><span data-uk-icon="cart"></span></a>
                                     </li>
                                 </ul>

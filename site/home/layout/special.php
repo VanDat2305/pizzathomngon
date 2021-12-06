@@ -1,7 +1,7 @@
 <div class="section-special-deals">
     <div class="uk-section uk-container">
         <div class="section-title section-title--center wave french-fries">
-            <h3 class="uk-h3">Sản phẩm yêu thích</h3>
+            <h3 class="uk-h3">Sản phẩm đang khuyến mãi</h3>
         </div>
         <div class="section-content">
             <ul class="uk-subnav uk-flex-center" data-uk-switcher="animation: uk-animation-slide-left-medium, uk-animation-slide-right-medium; swiping: false; active: 1">
@@ -86,21 +86,6 @@
                                                                             </ul>
                                                                         </div>
                                                                     </div>
-                                                                    <div>
-                                                                        <?php foreach ($options as $o) { ?>
-
-                                                                            <?php if ($o['product_id'] == $p['product_id']) { ?>
-
-
-                                                                                <input class="option_stt<?= $stt_option2++ ?> product_stt<?= $stt_product ?>" type="radio" <?= $index2 == 1 ? 'checked' : '' ?> name="option_by_pro<?= $stt_product ?>" value="<?= $o['option_id'] ?>">
-
-
-
-                                                                                <?php $index2++;  ?>
-                                                                            <?php    } ?>
-                                                                        <?php    } ?>
-
-                                                                    </div>
                                                                 </div>
                                                                 <div class="product-item__active">
                                                                     <div class="title">Thêm topping</div>
@@ -108,7 +93,7 @@
                                                                         <?php if ($e['category_id'] == $p['category_id']) { ?>
                                                                             <div class="row">
                                                                                 <label>
-                                                                                    <input class="uk-checkbox" type="checkbox">
+                                                                                    <input class="uk-checkbox extra_id" type="checkbox" name="topping_id[]" value="<?= $e['extra_id'] ?>">
                                                                                     <span class="uk-padding-small"><?= $e['extra_name'] ?> </span>
                                                                                     <span class="uk-padding-small"><?= number_format($e['extra_price']) ?> đ</span>
                                                                                 </label>
@@ -131,11 +116,24 @@
                                                                     <?php } ?>
                                                                     <!-- Tính class price theo cái này -->
                                                                     <div>
-                                                                        <span>Giá: </span><span class="value value<?= $stt_product++ ?>"></span>
+                                                                        <span>Giá: </span><span class="value value<?= $stt_product ?>"></span>
                                                                     </div>
                                                                 </div>
                                                                 <div class="product-item__addcart">
+                                                                    <?php foreach ($options as $o) { ?>
+
+                                                                        <?php if ($o['product_id'] == $p['product_id']) { ?>
+
+
+                                                                            <input class="option_ajax option_stt<?= $stt_option2++ ?> product_stt<?= $stt_product ?>" type="radio" <?= $index2 == 1 ? 'checked' : '' ?> name="option_by_pro<?= $stt_product ?>" value="<?= $o['option_id'] ?>">
+
+
+
+                                                                            <?php $index2++;  ?>
+                                                                        <?php    } ?>
+                                                                    <?php    } ?>
                                                                     <button class="uk-button uk-button-default add-to-cart" href="page-product.html">Thêm vào giỏ hàng<span data-uk-icon="cart"></span></button>
+                                                                    <?php $stt_product++ ?>
                                                                 </div>
                                                             </div>
                                                         </div>

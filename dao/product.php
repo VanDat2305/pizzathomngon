@@ -122,10 +122,13 @@ function product_category_select_all()
 /**
  * truy van tat ca mon an theo  danh muc ra ct mon an
  */
-function product__select_all_by_category($category_id)
+function product__select_all_by_category($category_id, $product_id = 0)
 {
     $sql = "SELECT * FROM tbl_products WHERE category_id = ?";
-    return pdo_query($sql, $category_id);
+    if (isset($product_id) && $product_id > 0) {
+        $sql .= " AND product_id != ?";
+    }
+    return pdo_query($sql, $category_id, $product_id);
 }
 /**
  * truy van 1 mon an bao gom cac option $row[0]
@@ -143,6 +146,14 @@ function option_select_by_pro_id($product_id)
 {
     $sql = "SELECT * FROM tbl_options WHERE product_id = ?";
     return pdo_query($sql, $product_id);
+}
+/**
+ * truy van san pham theo option
+ */
+function product_select_by_option_id($option_id)
+{
+    $sql = "SELECT * FROM tbl_options op JOIN tbl_products p ON op.product_id = p.product_id WHERE option_id = ?";
+    return pdo_query_one($sql, $option_id);
 }
 /**
  * truy van tat ca option
