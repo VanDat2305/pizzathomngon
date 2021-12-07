@@ -72,8 +72,7 @@
                                     </li>
                                     <!-- Cart -->
                                     <li class="uk-cart-box">
-                                        <span class="uk-cart-quantity">3</span>
-
+                                        <span class="uk-cart-quantity">2</span>
                                         <a href="<?= SITE_URL ?>cart/"><span data-uk-icon="cart"></span></a>
                                     </li>
                                 </ul>
