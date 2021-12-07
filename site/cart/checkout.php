@@ -4,10 +4,9 @@ require '../../dao/product.php';
 require '../../dao/extra_topping.php';
 require '../../dao/user.php';
 require '../../dao/order.php';
-// $tong_tien = 0;
-// foreach ($_SESSION['cart'] as $key => $value) {
-//     $tong_tien +=  ($value['don_gia'] * $value['sl']) - ($value['don_gia'] * $value['sl'] * ($value['giam_gia'] / 100));
-// }
+require '../../dao/coupon.php';
+
+
 
 extract($_REQUEST);
 
@@ -48,15 +47,21 @@ if (exist_param("btn_checkout")) {
     }
     echo "<script>alert('" . $MESSAGE . "'); location.href='" . SITE_URL . "cart/index.php'</script>";
 } elseif (exist_param("form_checkout")) {
-    extract($_SESSION['user']);
-    $VIEW_NAME = 'checkout_ui.php';
+    if (!isset($_SESSION['user'])) {
+        header("Location:" . SITE_URL . "account");
+    } else {
+        extract($_SESSION['user']);
+
+        // Lấy coupon 
+        $coupons = coupon_select_all();
+        // echo "<pre>";
+        // var_dump($coupons);
+        // die;
+        $VIEW_NAME = 'checkout_ui.php';
+    }
 }
 
 
 
 
 require '../layout.php';
-
-
-// echo "<script>alert('" . $MESSAGE . "'); location.href='" . SITE_URL . "cart/list_cart.php'</script>";
-// header("location:" . SITE_URL . "cart/list_cart.php");
