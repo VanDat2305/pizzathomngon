@@ -87,6 +87,7 @@
 <script src="<?= CONTENT_URL ?>js/uikit-icons.min.js"></script>
 <script src="<?= CONTENT_URL ?>js/main.js"></script>
 <script src="<?= CONTENT_URL ?>js/cart.js"></script>
+<script src="<?= CONTENT_URL ?>js/ajax-checkout.js"></script>
 <script src="<?= CONTENT_URL ?>js/fontawesome.all.min.js"></script>
 
 </body>

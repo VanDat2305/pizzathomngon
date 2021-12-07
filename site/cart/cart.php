@@ -90,7 +90,7 @@
                         <div class="uk-width-1-2 uk-text-danger uk-text-lead uk-text-bolder" id="finished_total"></div>
                     </div>
                     <div class="cart-button-group" uk-margin>
-                        <a class="uk-button uk-button-danger" href="<?= SITE_URL ?>cart/checkout.php?btn_checkout">Thanh toán</a>
+                        <a class="uk-button uk-button-danger" href="<?= SITE_URL ?>cart/checkout.php?form_checkout">Thanh toán</a>
 
                         <a class="uk-button uk-button-default" href="<?= BASE_URL ?>">Tiếp tục đặt món</a>
                     </div>
