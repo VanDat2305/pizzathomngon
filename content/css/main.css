@@ -976,7 +976,7 @@ body.dm-light .pan-loader .shadow {
 }
 
 .page-header__top {
-    margin: 20px 0 30px;
+    margin: 10px 0 30px;
     background-color: #333230;
 }
 
@@ -1043,7 +1043,7 @@ body.dm-light .pan-loader .shadow {
 }
 
 .page-header__bottom {
-    margin: 30px 0;
+    margin: 15px 0;
 }
 
 .other-links {

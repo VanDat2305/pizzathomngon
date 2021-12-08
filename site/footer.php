@@ -85,9 +85,11 @@
 <script src="<?= CONTENT_URL ?>js/jquery-3.6.0.min.js"></script>
 <script src="<?= CONTENT_URL ?>js/uikit.min.js"></script>
 <script src="<?= CONTENT_URL ?>js/uikit-icons.min.js"></script>
+<script src="<?= CONTENT_URL ?>js/jquery.validate.js"></script>
 <script src="<?= CONTENT_URL ?>js/main.js"></script>
 <script src="<?= CONTENT_URL ?>js/cart.js"></script>
 <script src="<?= CONTENT_URL ?>js/ajax-checkout.js"></script>
+<script src="<?= CONTENT_URL ?>js/ajax-comment.js"></script>
 <script src="<?= CONTENT_URL ?>js/fontawesome.all.min.js"></script>
 
 </body>

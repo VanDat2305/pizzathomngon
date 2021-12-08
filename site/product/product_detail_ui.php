@@ -181,27 +181,26 @@
                             <div class="uk-h2">Đánh giá món ăn</div>
                         </div>
                         <div class="section-content">
-                            <form action="#!">
+                            <form id="form_comment">
                                 <div class="uk-grid uk-grid-small uk-child-width-1-2@s" data-uk-grid>
                                     <div class="uk-width-1-1">
                                         <div class="rating">
-                                            <input type="radio" name="rating" value="5" id="5" checked>
+                                            <input type="radio" name="rating_value" class="rating_value" value="5" id="5" checked>
                                             <label for="5">☆</label>
-                                            <input type="radio" name="rating" value="4" id="4">
+                                            <input type="radio" name="rating_value" class="rating_value" value="4" id="4">
                                             <label for="4">☆</label>
-                                            <input type="radio" name="rating" value="3" id="3">
+                                            <input type="radio" name="rating_value" class="rating_value" value="3" id="3">
                                             <label for="3">☆</label>
-                                            <input type="radio" name="rating" value="2" id="2">
+                                            <input type="radio" name="rating_value" class="rating_value" value="2" id="2">
                                             <label for="2">☆</label>
-                                            <input type="radio" name="rating" value="1" id="1">
+                                            <input type="radio" name="rating_value" class="rating_value" value="1" id="1">
                                             <label for="1">☆</label>
                                         </div>
-                                        <textarea class="uk-textarea uk-form-large" placeholder="Đánh giá *"></textarea>
+                                        <div class="rating_message" style="color:red"></div>
+                                        <textarea class="uk-textarea uk-form-large" id="rating_content" placeholder="Vui lòng nhập đánh giá"></textarea>
                                     </div>
                                     <div>
-                                        <button class="uk-button uk-button-large" type="submit">Đăng
-                                            bình luận
-                                        </button>
+                                        <button class="uk-button uk-button-large" id="btn_comment">Đăng bình luận</button>
                                     </div>
                                 </div>
                             </form>

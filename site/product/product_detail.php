@@ -13,11 +13,6 @@ extract($_REQUEST);
 // Tăng số lượt xem lên 1
 product_update_view($product_id);
 
-if (exist_param("noi_dung")) {
-    $ma_kh = $_SESSION['user']['ma_kh'];
-    $ngay_bl = date_format(date_create(), 'Y-m-d');
-    // binh_luan_insert($ma_kh, $ma_hh, $noi_dung, $ngay_bl, $rating);
-}
 
 
 
@@ -31,10 +26,7 @@ $gallery_image = gallery_select_by_pro_id($product_id);
 $options = option_select_by_pro_id($product_id);
 
 
-
-
 $extras = extra_select_all($product['category_id']);
-
 
 
 // hàng cùng loại

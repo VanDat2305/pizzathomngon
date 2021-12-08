@@ -41,8 +41,8 @@
                                 <img class="uk-margin-small-left" src="<?= CONTENT_URL ?>img/icons/pizza.png" alt="pizza">
                             </a>
                             <ul class="uk-navbar-nav">
-                                <li><a href="<?= SITE_URL ?>home/index.php?blog">Blog</a></li>
-                                <li><a href="<?= SITE_URL ?>home/index.php?contact">Liên hệ</a></li>
+                                <li><a href="<?= SITE_URL ?>post/index.php?blog">Blog</a></li>
+                                <li><a href="<?= SITE_URL ?>contact/index.php?contact">Liên hệ</a></li>
                             </ul>
                         </div>
                     </nav>
@@ -56,6 +56,12 @@
                                 <div class="block-with-phone"><img src="<?= CONTENT_URL ?>img/icons/delivery.svg" alt="delivery" data-uk-svg>
                                     <div> <span>Vận chuyển, SDT</span><a href="tel:13205448749">0987654321</a>
                                     </div>
+                                </div>
+                                <div class="uk-margin uk-align-right">
+                                    <form class="uk-search uk-search-default">
+                                        <a href="" uk-search-icon></a>
+                                        <input class="uk-search-input" type="search" placeholder="Search">
+                                    </form>
                                 </div>
                             </div>
                         </div>
