@@ -4,6 +4,7 @@ require_once "pdo.php";
  * Them moi
  */
 <<<<<<< HEAD
+<<<<<<< HEAD
 function coupon_insert($coupon_code, $coupon_name, $coupon_count, $coupon_used, $coupon_price, $coupon_type, $coupon_status, $start_date, $end_date)
 {
     $sql = "INSERT INTO tbl_coupons(`coupon_code`,`coupon_name`,`coupon_count`,`coupon_used`,`coupon_price`,`coupon_type`,`coupon_status`,`start_date`,`end_date`) VALUES (?,?,?,?,?,?,?,?,?)";
@@ -13,11 +14,18 @@ function coupon_insert($coupon_code,$coupon_name,$coupon_count,$coupon_used,$cou
     $sql = "INSERT INTO tbl_coupons(`coupon_code`,`coupon_name`,`coupon_count`,`coupon_used`,`coupon_price`,`coupon_type`,`coupon_limit`,`coupon_status`,`start_date`,`end_date`) VALUES (?,?,?,?,?,?,?,?,?,?)";
     pdo_execute($sql,$coupon_code,$coupon_name,$coupon_count,$coupon_used,$coupon_price,$coupon_type,$coupon_limit,$coupon_status,$start_date,$end_date);
 >>>>>>> main
+=======
+
+function coupon_insert($coupon_code,$coupon_name,$coupon_count,$coupon_used,$coupon_price,$coupon_type,$coupon_limit,$coupon_status,$start_date,$end_date){
+    $sql = "INSERT INTO tbl_coupons(`coupon_code`,`coupon_name`,`coupon_count`,`coupon_used`,`coupon_price`,`coupon_type`,`coupon_limit`,`coupon_status`,`start_date`,`end_date`) VALUES (?,?,?,?,?,?,?,?,?,?)";
+    pdo_execute($sql,$coupon_code,$coupon_name,$coupon_count,$coupon_used,$coupon_price,$coupon_type,$coupon_limit,$coupon_status,$start_date,$end_date);
+>>>>>>> 0226a2be7c102e4ef8f9cf20b704392105c1fcc2
 }
 
 /**
  * Cap nhat 
  */
+<<<<<<< HEAD
 <<<<<<< HEAD
 function coupon_update($coupon_id, $coupon_code, $coupon_name, $coupon_count, $coupon_price, $coupon_type, $coupon_status, $start_date, $end_date)
 {
@@ -28,6 +36,11 @@ function coupon_update($coupon_id,$coupon_code,$coupon_name,$coupon_count,$coupo
     $sql = "UPDATE tbl_coupons SET `coupon_code` = ?,`coupon_name` = ?,`coupon_count` = ?,`coupon_price`  = ?,`coupon_type` = ?,`coupon_limit` = ?,`coupon_status`= ?,`start_date` = ?,`end_date`= ? WHERE coupon_id = ?";
     pdo_execute($sql,$coupon_code,$coupon_name,$coupon_count,$coupon_price,$coupon_type,$coupon_limit,$coupon_status,$start_date,$end_date,$coupon_id);
 >>>>>>> main
+=======
+function coupon_update($coupon_id,$coupon_code,$coupon_name,$coupon_count,$coupon_price,$coupon_type,$coupon_limit,$coupon_status,$start_date,$end_date){
+    $sql = "UPDATE tbl_coupons SET `coupon_code` = ?,`coupon_name` = ?,`coupon_count` = ?,`coupon_price`  = ?,`coupon_type` = ?,`coupon_limit` = ?,`coupon_status`= ?,`start_date` = ?,`end_date`= ? WHERE coupon_id = ?";
+    pdo_execute($sql,$coupon_code,$coupon_name,$coupon_count,$coupon_price,$coupon_type,$coupon_limit,$coupon_status,$start_date,$end_date,$coupon_id);
+>>>>>>> 0226a2be7c102e4ef8f9cf20b704392105c1fcc2
 }
 /**
  * update status
