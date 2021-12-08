@@ -44,7 +44,7 @@ $array_url =  explode('/', $_SERVER['REQUEST_URI']);
                 <span class="fas fa-comments"></span><span>Quản lý bình luận</span></a>
         </li>
         <li>
-            <a href="<?= ADMIN_URL ?>post/" class="list <?= in_array("post", $array_url) ? "active" : "" ?>">
+            <a href="<?= ADMIN_URL ?>blog/" class="list <?= in_array("blog", $array_url) ? "active" : "" ?>">
                 <span class="fas fa-book-open"></span><span>Quản lý bài viết</span></a>
         </li>
         <li>

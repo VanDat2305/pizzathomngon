@@ -3,26 +3,27 @@ require_once "pdo.php";
 /**
  * Them moi
  */
-function blog_insert($blog, $user_id, $product_id)
+function blog_insert($blog_title, $blog_content, $blog_image, $create_at, $status)
 {
-    $sql = "INSERT INTO tbl_blogs(`blog`,`rate`,`cmt_parent`,`cmt_date`,`user_id`,`product_id`) VALUES (?,?,?,?,?,?)";
-    pdo_execute($sql, $blog, $rate, $cmt_parent, $cmt_date, $user_id, $product_id);
+    $status = 0;
+    $sql = "INSERT INTO tbl_blog( `blog_title`, `blog_content`, `blog_image`, `create_at`, `status`) VALUES (?,?,?,?,b?)";
+    pdo_execute($sql, $blog_title, $blog_content, $blog_image, $create_at, $status);
 }
 
 /**
  * Cap nhat 
  */
-function blog_update($blog_id, $blog, $rate, $cmt_parent, $cmt_date, $user_id, $product_id)
+function blog_update($blog_id, $blog_title, $blog_content, $blog_image)
 {
-    $sql = "UPDATE tbl_blogs SET `blog` = ?,`rate` = ?,`cmt_parent` = ?,`cmt_date` = ?,`user_id` = ?,`product_id`= ? WHERE blog_id = ?";
-    pdo_execute($sql, $blog, $rate, $cmt_parent, $cmt_date, $user_id, $product_id, $blog_id);
+    $sql = "UPDATE tbl_blog SET blog_title = ?, blog_content = ?, blog_image = ? WHERE blog_id = ?";
+    pdo_execute($sql, $blog_title, $blog_content, $blog_image, $blog_id);
 }
 /**
  * Xoa 1 hoac nhieu ma 
  */
 function blog_delete($blog_id)
 {
-    $sql = "DELETE FROM tbl_blogs WHERE blog_id = ?";
+    $sql = "DELETE FROM tbl_blog WHERE blog_id = ?";
     if (is_array($blog_id)) {
         foreach ($blog_id as $id) {
             pdo_execute($sql, $id);
@@ -32,57 +33,32 @@ function blog_delete($blog_id)
     }
 }
 /**
- * truy van tat ca mon an có binh luân
- */
-function blog_select_product()
-{
-    $sql = "SELECT pro.product_id, pro.product_name,AVG( cmt.rate) rate , COUNT(*) amount, MIN(cmt.cmt_date) date_old, MAX(cmt.cmt_date) date_new
-     FROM tbl_blogs cmt 
-     JOIN tbl_products pro ON pro.product_id = cmt.product_id
-     GROUP BY pro.product_id, pro.product_name
-     HAVING amount > 0";
-
-    return pdo_query($sql);
-}
-/**
  * truy van tat ca 
  */
 function blog_select_all()
 {
-    $sql = "SELECT * FROM tbl_blogs order by blog_id";
+    $sql = "SELECT * FROM tbl_blog order by blog_id";
     return pdo_query($sql);
 }
-
-/**
- * truy van theo blog cha
- */
-function blog_select_by_id_parent($product_id)
-{
-    $sql = "SELECT * FROM tbl_blogs WHERE product_id = ?";
-    return pdo_query($sql, $product_id);
-}
-/**
- * truy van theo hang hoa
- */
-function blog_select_by_id_product($product_id)
-{
-    $sql = "SELECT * FROM tbl_blogs cmt JOIN tbl_products pro ON cmt.product_id = pro.product_id JOIN tbl_users us ON us.user_id = cmt.user_id WHERE cmt.product_id = ?";
-    return pdo_query($sql, $product_id);
-}
-
 /**
  * Kiem tra su ton tai theo id
  */
 function blog_exist($blog_id)
 {
-    $sql = "SELECT count(*) FROM tbl_blogs WHERE blog_id = ?";
+    $sql = "SELECT count(*) FROM tbl_blog WHERE blog_id = ?";
     return pdo_query_value($sql, $blog_id) > 0;
 }
-/**
- * Kiem tra su ton tai theo parent id
- */
-function blog_exist_parent($parent_id)
+
+function blog_select_by_id($blog_id)
 {
-    $sql = "SELECT count(*) FROM tbl_blogs WHERE parent_id = ?";
-    return pdo_query_value($sql, $parent_id) > 0;
+    $sql = "SELECT * FROM tbl_blog WHERE blog_id=?";
+    return pdo_query_one($sql, $blog_id);
+}
+/*
+*an va hien
+*/
+function blog_status_update($blog_id, $status)
+{
+    $sql = "UPDATE tbl_blog SET status=b? WHERE blog_id=?";
+    pdo_execute($sql, $status, $blog_id);
 }
