@@ -4,7 +4,6 @@ require '../../dao/product.php';
 require '../../dao/user.php';
 //-------------------------------//
 extract($_REQUEST);
-
 if (exist_param("form_invoice")) {
     // if (isset($_SESSION['user'])) {
     //     $id = $_SESSION['user'];

@@ -218,3 +218,11 @@ $(document).ready(function() {
         });
     }
 });
+
+// // =====================click vào add to cart hiển thị ra popup
+// $(document).ready(function() {
+//     $('.add-to-cart').click(function(e) {
+//         e.preventDefault();
+//         console.log(window);
+//     });
+// });

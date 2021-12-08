@@ -7,16 +7,19 @@ require '../../dao/order.php';
 require '../../dao/coupon.php';
 
 
-
 extract($_REQUEST);
 
-
-
+// echo "<pre>";
+//     var_dump($coupon_code);
+//     die;
 if (exist_param("btn_checkout")) {
-    $created_at = date_format(date_create(), 'Y-m-d h:i:s');
-    $coupon_discount = 0;
+    $created_at = date_format(date_create(), 'Y-m-d H:i:s');
     $status_id = 1;
     $user_id = $_SESSION['user']['user_id'];
+
+    $coupon_discount = $discount_price_value == '' ? 0 : $discount_price_value;
+    $coupon_code = $card_coupon_code;
+
 
     try {
         $order_id  = order_insert($user_id, $fullname, $phoneNumber, $note, $address, $coupon_discount, $status_id, $created_at);
@@ -38,6 +41,10 @@ if (exist_param("btn_checkout")) {
                 }
             }
             unset($_SESSION['cart']);
+        }
+
+        if ($coupon_code != "") {
+            coupon_update_coupon_used($coupon_code);
         }
         $MESSAGE = "Thanh toán thành công. Cảm ơn bạn đã đặt hàng";
     } catch (Exception $exc) {

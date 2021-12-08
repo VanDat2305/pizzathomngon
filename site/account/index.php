@@ -21,7 +21,7 @@ if (isset($_SESSION['user'])) {
                     add_cookie("username", $username, 30);
                     add_cookie("password", $password, 30);
                 } else {
-                    delete_cookie("ma_kh");
+                    delete_cookie("username");
                     delete_cookie("password");
                 }
                 $_SESSION["user"] = $user;

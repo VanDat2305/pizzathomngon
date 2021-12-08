@@ -30,45 +30,48 @@
                 </div>
                 <div class="card-body-wrapper">
                     <?php $total = 0 ?>
-                    <?php foreach ($_SESSION['cart'] as $key => $c) { ?>
+                    <?php if (isset($_SESSION['cart'])) { ?>
 
-                        <div class="uk-card-body mini_cart_unit">
-                            <div class="uk-grid-small uk-flex-middle" uk-grid>
-                                <div class="uk-width-auto">
-                                    <img class="uk-border-circle" width="100" height="100" src="<?= CONTENT_URL . 'img/products/' . $_SESSION['cart'][$key]['product_image'] ?>">
-                                </div>
-                                <div class="uk-width-expand">
-                                    <h4 class="uk-margin-remove-bottom"><?= $_SESSION['cart'][$key]['product_name'] ?></h4>
-                                    <ul class="mini_cart_extra">
-                                        <li>Số lượng: <sub>x</sub>
-                                            <b class="uk-text-danger"><?= $_SESSION['cart'][$key]['quantity'] ?></b>
-                                        </li>
-                                        <!-- Giá topping -->
-                                        <?php $total_extra = 0 ?>
-                                        <?php if (isset($_SESSION['cart'][$key]['extra_topping'])) { ?>
-                                            <?php $extra = $_SESSION['cart'][$key]['extra_topping'] ?>
+                        <?php foreach ($_SESSION['cart'] as $key => $c) { ?>
 
-                                            <?php for ($i = 0; $i < count($extra); $i++) {  ?>
-                                                <?php
-                                                $extra_price = $extra[$i]['extra_price'];
-                                                $total_extra += $extra_price;
-                                                ?>
-                                                <li><?= $extra[$i]['extra_name'] ?> ( <?= number_format($extra_price, 0, ',') ?> đ),</li>
+                            <div class="uk-card-body mini_cart_unit">
+                                <div class="uk-grid-small uk-flex-middle" uk-grid>
+                                    <div class="uk-width-auto">
+                                        <img class="uk-border-circle" width="100" height="100" src="<?= CONTENT_URL . 'img/products/' . $_SESSION['cart'][$key]['product_image'] ?>">
+                                    </div>
+                                    <div class="uk-width-expand">
+                                        <h4 class="uk-margin-remove-bottom"><?= $_SESSION['cart'][$key]['product_name'] ?></h4>
+                                        <ul class="mini_cart_extra">
+                                            <li>Số lượng: <sub>x</sub>
+                                                <b class="uk-text-danger"><?= $_SESSION['cart'][$key]['quantity'] ?></b>
+                                            </li>
+                                            <!-- Giá topping -->
+                                            <?php $total_extra = 0 ?>
+                                            <?php if (isset($_SESSION['cart'][$key]['extra_topping'])) { ?>
+                                                <?php $extra = $_SESSION['cart'][$key]['extra_topping'] ?>
+
+                                                <?php for ($i = 0; $i < count($extra); $i++) {  ?>
+                                                    <?php
+                                                    $extra_price = $extra[$i]['extra_price'];
+                                                    $total_extra += $extra_price;
+                                                    ?>
+                                                    <li><?= $extra[$i]['extra_name'] ?> ( <?= number_format($extra_price, 0, ',') ?> đ),</li>
+                                                <?php } ?>
                                             <?php } ?>
-                                        <?php } ?>
-                                    </ul>
-                                </div>
-                                <!-- Giá option -->
-                                <div class="uk-width-expand">
-                                    <?php
-                                    $price = ($_SESSION['cart'][$key]['option_price'] * (100 - $_SESSION['cart'][$key]['discount']) / 100);
-                                    $total = $total +  ($price + $total_extra) * $_SESSION['cart'][$key]['quantity'];
-                                    ?>
-                                    <span><sub>x</sub> <?= number_format($price, 0, ',') ?> đ</span>
+                                        </ul>
+                                    </div>
+                                    <!-- Giá option -->
+                                    <div class="uk-width-expand">
+                                        <?php
+                                        $price = ($_SESSION['cart'][$key]['option_price'] * (100 - $_SESSION['cart'][$key]['discount']) / 100);
+                                        $total = $total +  ($price + $total_extra) * $_SESSION['cart'][$key]['quantity'];
+                                        ?>
+                                        <span><sub>x</sub> <?= number_format($price, 0, ',') ?> đ</span>
+                                    </div>
                                 </div>
                             </div>
-                        </div>
 
+                        <?php } ?>
                     <?php } ?>
                 </div>
 
@@ -79,16 +82,22 @@
                     </div>
                     <div class="card-tax" uk-grid>
                         <div class="uk-width-1-2">Thuế:</div>
-                        <div class="uk-width-1-2"><?= number_format($total * 0.02, 0, ',') ?>đ</div>
+                        <?php $tax = $total * 0.07 ?>
+                        <div class="uk-width-1-2"><?= number_format($tax, 0, ',') ?>đ</div>
                     </div>
-                    <div class="card_coupon_applied" uk-grid>
-                        <div class="uk-width-1-2">Mã giảm giá: <span id="card_coupon_applied_code"></span></div>
-                        <div class="uk-width-1-2">- <span id="card_coupon_applied_money"></span></div>
+                    <div class="card_coupon_applied">
+                        <div class="" uk-grid>
+                            <div class="uk-width-1-2">Áp dụng mã: <span id="card_coupon_applied_code"></span></div>
+                            <div class="uk-width-1-2"> - <del id="card_coupon_applied_money"></del></div>
+
+                            <input type="hidden" name="card_coupon_code" id="card_coupon_code" value="">
+                        </div>
                     </div>
+
                     <hr class="uk-divider-icon">
                     <div uk-grid>
                         <div class="uk-width-1-2">TỔNG CỘNG:</div>
-                        <div class="uk-width-1-2 uk-text-danger uk-text-lead uk-text-bolder"><?= number_format($total + $total * 0.02, 0, ',') ?>đ</div>
+                        <div class="uk-width-1-2 uk-text-danger uk-text-lead uk-text-bolder" id="final_total"><?= number_format($total + $tax, 0, ',') ?>đ</div>
                     </div>
                 </div>
                 <div class="btn-checkout-group">
@@ -103,8 +112,10 @@
             </div>
 
         </div>
+        <input type="hidden" name="discount_price_value" id="discount_price_value" value="">
     </form>
 </div>
+<!-- Modal coupon -->
 <div id="modal-coupon" class="uk-flex-top" uk-modal>
     <div class="uk-modal-dialog uk-modal-body uk-margin-auto-vertical">
 
@@ -115,6 +126,8 @@
             <input type="text" id="coupon_discount" name="coupon_discount" class="uk-input uk-input-small" value="">
             <button class="uk-button" id="btn_coupon_discount">Áp dụng</button>
             <input type="hidden" id="checkout_total" value="<?= $total ?>">
+            <input type="hidden" id="checkout_tax" value="<?= $tax ?>">
+            <span id="coupon_discount_message"></span>
         </div>
         <div class="modal_body_wrapper">
             <ul class="uk-text-center coupon_list">

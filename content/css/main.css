@@ -6371,7 +6371,7 @@ body.dm-light .pan-loader .shadow {
 .modal_body_wrapper {
     max-height: 400px;
     overflow: auto;
-    margin-top: 20px;
+    margin-top: 10px;
 }
 
 
@@ -6405,4 +6405,11 @@ body.dm-light .pan-loader .shadow {
 
 .modal_body_wrapper::-webkit-scrollbar-thumb:hover {
     background: #ff6600;
+}
+
+#coupon_discount_message {
+    color: #ff6600;
+    margin-top: 10px;
+    font-size: 12px;
+    display: block;
 }

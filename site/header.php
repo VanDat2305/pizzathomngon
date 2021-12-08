@@ -72,7 +72,18 @@
                                     </li>
                                     <!-- Cart -->
                                     <li class="uk-cart-box">
-                                        <span class="uk-cart-quantity">2</span>
+                                        <?php
+
+                                        if (isset($_SESSION['cart'])) {
+                                            $total_quantity_cart = 0;
+                                            foreach ($_SESSION['cart'] as $key => $value) {
+                                                $total_quantity_cart += $_SESSION['cart'][$key]['quantity'];
+                                            }
+                                        } else {
+                                            $total_quantity_cart = 0;
+                                        }
+                                        ?>
+                                        <span class="uk-cart-quantity" id="quantity_session"><?= $total_quantity_cart ?></span>
                                         <a href="<?= SITE_URL ?>cart/"><span data-uk-icon="cart"></span></a>
                                     </li>
                                 </ul>

@@ -1,6 +1,6 @@
 <?php
 require_once "pdo.php";
-define("TAX", 0.0005);
+define("TAX", 0.07);
 /**
  * Them moi tbl order
  */
