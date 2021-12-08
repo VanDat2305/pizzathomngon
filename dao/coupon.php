@@ -3,19 +3,18 @@ require_once "pdo.php";
 /**
  * Them moi
  */
-function coupon_insert($coupon_code, $coupon_name, $coupon_count, $coupon_used, $coupon_price, $coupon_type, $coupon_status, $start_date, $end_date)
-{
-    $sql = "INSERT INTO tbl_coupons(`coupon_code`,`coupon_name`,`coupon_count`,`coupon_used`,`coupon_price`,`coupon_type`,`coupon_status`,`start_date`,`end_date`) VALUES (?,?,?,?,?,?,?,?,?)";
-    pdo_execute($sql, $coupon_code, $coupon_name, $coupon_count, $coupon_used, $coupon_price, $coupon_type, $coupon_status, $start_date, $end_date);
+
+function coupon_insert($coupon_code,$coupon_name,$coupon_count,$coupon_used,$coupon_price,$coupon_type,$coupon_limit,$coupon_status,$start_date,$end_date){
+    $sql = "INSERT INTO tbl_coupons(`coupon_code`,`coupon_name`,`coupon_count`,`coupon_used`,`coupon_price`,`coupon_type`,`coupon_limit`,`coupon_status`,`start_date`,`end_date`) VALUES (?,?,?,?,?,?,?,?,?,?)";
+    pdo_execute($sql,$coupon_code,$coupon_name,$coupon_count,$coupon_used,$coupon_price,$coupon_type,$coupon_limit,$coupon_status,$start_date,$end_date);
 }
 
 /**
  * Cap nhat 
  */
-function coupon_update($coupon_id, $coupon_code, $coupon_name, $coupon_count, $coupon_price, $coupon_type, $coupon_status, $start_date, $end_date)
-{
-    $sql = "UPDATE tbl_coupons SET `coupon_code` = ?,`coupon_name` = ?,`coupon_count` = ?,`coupon_price`  = ?,`coupon_type` = ?,`coupon_status`= ?,`start_date` = ?,`end_date`= ? WHERE coupon_id = ?";
-    pdo_execute($sql, $coupon_code, $coupon_name, $coupon_count, $coupon_price, $coupon_type, $coupon_status, $start_date, $end_date, $coupon_id);
+function coupon_update($coupon_id,$coupon_code,$coupon_name,$coupon_count,$coupon_price,$coupon_type,$coupon_limit,$coupon_status,$start_date,$end_date){
+    $sql = "UPDATE tbl_coupons SET `coupon_code` = ?,`coupon_name` = ?,`coupon_count` = ?,`coupon_price`  = ?,`coupon_type` = ?,`coupon_limit` = ?,`coupon_status`= ?,`start_date` = ?,`end_date`= ? WHERE coupon_id = ?";
+    pdo_execute($sql,$coupon_code,$coupon_name,$coupon_count,$coupon_price,$coupon_type,$coupon_limit,$coupon_status,$start_date,$end_date,$coupon_id);
 }
 /**
  * update status
