@@ -409,6 +409,10 @@ $("#form_insert_coupon").validate({
       required: true,
       minlength: 1,
     },
+    coupon_limit: {
+      required: true,
+      minlength: 1,
+    },
     start_date: {
       required: true,
       minlength: 1,
@@ -430,6 +434,10 @@ $("#form_insert_coupon").validate({
     coupon_count: {
       required: "Vui lòng điền số lượt",
       minlength: "Hãy nhập đúng số lượng",
+    },
+    coupon_limit: {
+      required: "Vui lòng điền số tiền",
+      minlength: "Hãy nhập đúng số tiền",
     },
     coupon_price: {
       required: "Vui lòng điền số tiền",
@@ -463,6 +471,10 @@ $("#form_edit_coupon").validate({
       required: true,
       minlength: 1,
     },
+    coupon_limit: {
+      required: true,
+      minlength: 1,
+    },
     start_date: {
       required: true,
       minlength: 1,
@@ -486,6 +498,10 @@ $("#form_edit_coupon").validate({
       minlength: "Hãy nhập đúng số lượng",
     },
     coupon_price: {
+      required: "Vui lòng điền số tiền",
+      minlength: "Hãy nhập đúng số tiền",
+    },
+    coupon_limit: {
       required: "Vui lòng điền số tiền",
       minlength: "Hãy nhập đúng số tiền",
     },

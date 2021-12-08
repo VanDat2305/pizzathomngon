@@ -1,6 +1,6 @@
 <?php
 require_once "pdo.php";
-define("TAX", 0.0005);
+define("TAX", 0.07);
 /**
  * Them moi tbl order
  */
@@ -98,7 +98,7 @@ function order_exist_name_id($order_id, $order_name)
 }
 
 /**
- * truy van hoa đơn
+ * truy van hoa đơn   GROUP BY op.option_id, total_option
  */
 function order_select_by_id_status($status_id)
 {
@@ -119,7 +119,7 @@ function order_select_by_id_status($status_id)
                     FROM tbl_options op 
                     JOIN tbl_order_details or_de ON op.option_id = or_de.option_id 
                     JOIN tbl_products pro ON pro.product_id = op.product_id 
-                    GROUP BY op.option_id, total_option
+                   
                 ) as total_option
                 JOIN (
                     SELECT 
@@ -142,7 +142,8 @@ function order_select_by_id_status($status_id)
             JOIN tbl_orders ord ON ord.order_id = tbl_total.order_id
             JOIN tbl_status_order sta ON sta.status_id = ord.status_id
             WHERE sta.status_id = ?
-            GROUP BY ord.created_at DESC
+            GROUP BY ord.order_id
+            ORDER BY ord.order_id DESC
     ";
 
     return pdo_query($sql, $status_id);
@@ -169,7 +170,7 @@ function order_select_by_date($start_date, $end_date)
                     FROM tbl_options op 
                     JOIN tbl_order_details or_de ON op.option_id = or_de.option_id 
                     JOIN tbl_products pro ON pro.product_id = op.product_id 
-                    GROUP BY op.option_id, total_option
+
                 ) as total_option
                 JOIN (
                     SELECT 
@@ -193,7 +194,7 @@ function order_select_by_date($start_date, $end_date)
             JOIN tbl_status_order sta ON sta.status_id = ord.status_id
             WHERE ord.created_at >= ? AND ord.created_at <= ?
             GROUP BY ord.order_id,ord.fullname
-            ORDER BY ord.created_at DESC
+            ORDER BY ord.order_id DESC
     ";
 
     return pdo_query($sql, $start_date, $end_date);
@@ -208,7 +209,7 @@ function order_select_list()
                 sta.status_id,sta.status_name,ord.created_at,
                 SUM(distinct tbl_total.total)* " . TAX . " as tax,
                 SUM(distinct tbl_total.total) as money_pro,
-                SUM(distinct tbl_total.total)-ord.coupon_discount + SUM(distinct tbl_total.total)* " . TAX . " as total_money
+                SUM(distinct tbl_total.total) - ord.coupon_discount + SUM(distinct tbl_total.total)* " . TAX . " as total_money
             FROM(
                 SELECT
                 total_option.order_id,
@@ -220,7 +221,7 @@ function order_select_list()
                     FROM tbl_options op 
                     JOIN tbl_order_details or_de ON op.option_id = or_de.option_id 
                     JOIN tbl_products pro ON pro.product_id = op.product_id 
-                    GROUP BY op.option_id, total_option
+                    
                 ) as total_option
                 JOIN (
                     SELECT 
@@ -242,7 +243,8 @@ function order_select_list()
                 ) as tbl_total
             JOIN tbl_orders ord ON ord.order_id = tbl_total.order_id
             JOIN tbl_status_order sta ON sta.status_id = ord.status_id
-            GROUP BY ord.created_at DESC
+            GROUP BY ord.order_id
+            ORDER BY ord.order_id DESC
     ";
 
     return pdo_query($sql);
@@ -266,8 +268,8 @@ function order_select_by_id($order_id)
                     FROM tbl_options op 
                     JOIN tbl_order_details or_de ON op.option_id = or_de.option_id 
                     JOIN tbl_products pro ON pro.product_id = op.product_id 
-                    GROUP BY op.option_id, total_option
-                ) as total_option
+                    
+                    ) as total_option
                 JOIN (
                     SELECT 
                     or_de.order_detail_id,
