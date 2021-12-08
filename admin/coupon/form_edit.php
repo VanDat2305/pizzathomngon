@@ -50,7 +50,7 @@
                     <option value="1" <?= $coupon_type == 1 ? "selected" : ""?>>Giảm theo %</option>
                 </select>
             </div>
-            <div class="form-group">
+            <div class="form-group"> 
                 <label for="">Số tiền giảm</label>
                 <input type="number" class="form-control" id="coupon_price" value = "<?= $coupon_type == 0 ? number_format($coupon_price,0,"","") : number_format($coupon_price,0,"","")?>" name="coupon_price">
             </div>
