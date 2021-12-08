@@ -4,6 +4,8 @@ $('.add-to-cart').click(function(e) {
     // Lấy id_option
     var box_option_id = $(this).parent();
     var option_id = box_option_id.children('.option_ajax:checked').val();
+    var quantity_session = $('#quantity_session').html();
+    $('#quantity_session').html(Number(quantity_session) + 1);
 
     // Lấy id extra (topping)
 
@@ -48,6 +50,12 @@ $('#add-to-cart_detail').click(function(e) {
 
     var arrExtra_id = [];
     var detail_quantity = $('.detail_quantity').val();
+
+    var quantity_session = $('#quantity_session').html();
+    $('#quantity_session').html(
+        Number(quantity_session) + Number(detail_quantity)
+    );
+
     for (let i = 0; i < extra_id.length; i++) {
         let element = extra_id[i];
 
@@ -76,6 +84,7 @@ $('#add-to-cart_detail').click(function(e) {
 $('.quantity').on('change', function(e) {
     e.preventDefault();
     var quantity = $(this).val();
+
     var counter = $(this).parent();
     var cart_option_price = counter[0].nextElementSibling.value;
     var cart_option_id = counter[0].nextElementSibling.nextElementSibling.value;
@@ -93,6 +102,7 @@ $('.quantity').on('change', function(e) {
     var total_unit_formated = formatPrice(total_unit);
 
     total_unitElement.html(total_unit_formated);
+    loadTotalCart();
     loadTotalMoney();
 
     $.post('../../site/cart/add_to_cart.php', {
@@ -109,7 +119,7 @@ $('.remove_cart_unit').click(function(e) {
 
     tr.remove();
     var cart_empty = $('#cart_empty');
-
+    loadTotalCart();
     loadTotalMoney();
 
     if (tbody[0].childElementCount == 0) {
@@ -135,7 +145,7 @@ $('#clear_cart').click(function(e) {
     tr.remove();
 
     var cart_empty = $('#cart_empty');
-
+    loadTotalCart();
     loadTotalMoney();
 
     if (tbody[0].childElementCount == 0) {
@@ -153,23 +163,35 @@ function formatPrice(param) {
     return param.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ',') + ' đ';
 }
 
+function loadTotalCart() {
+    var totalElement = $('.cart_option_price');
+    var quantity = $('.quantity');
+    var total_quantity = 0;
+    for (let i = 0; i < totalElement.length; i++) {
+        total_quantity += Number(quantity[i].value);
+    }
+    $('#quantity_session').html(total_quantity);
+}
 // Load total khi có sự kiện thay đổi
 function loadTotalMoney() {
     var totalElement = $('.cart_option_price');
     var quantity = $('.quantity');
     var total_value = 0;
+
     for (let i = 0; i < totalElement.length; i++) {
         let value = Number(totalElement[i].value) * Number(quantity[i].value);
 
         total_value += value;
     }
+
     // Phải là string mới replace được
 
     var total_value_formated = formatPrice(total_value);
 
     $('#total_money_cart').html(total_value_formated);
 
-    var tax = 0.02 * total_value;
+    // Thuế
+    var tax = 0.07 * total_value;
     var tax_formated = formatPrice(tax);
     $('#cart_tax').html(tax_formated);
 

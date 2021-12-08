@@ -976,7 +976,7 @@ body.dm-light .pan-loader .shadow {
 }
 
 .page-header__top {
-    margin: 20px 0 30px;
+    margin: 10px 0 30px;
     background-color: #333230;
 }
 
@@ -1043,7 +1043,7 @@ body.dm-light .pan-loader .shadow {
 }
 
 .page-header__bottom {
-    margin: 30px 0;
+    margin: 15px 0;
 }
 
 .other-links {
@@ -6133,7 +6133,12 @@ body.dm-light .pan-loader .shadow {
 }
 
 .card-tax {
-    margin-top: 20px !important;
+    margin-top: 10px !important;
+}
+
+.card_coupon_applied {
+    margin-top: 10px !important;
+    display: none;
 }
 
 .mini_cart {
@@ -6147,6 +6152,10 @@ body.dm-light .pan-loader .shadow {
     margin: 0;
 }
 
+.mini_cart_extra li {
+    font-size: 12px;
+}
+
 .cart-product-title {
     margin-bottom: 0;
 }
@@ -6157,7 +6166,11 @@ body.dm-light .pan-loader .shadow {
     align-items: center;
 }
 
-.mini_cart_unit {}
+.mini_cart_unit {
+    border-top: 1px solid #ffffff;
+    margin: 12px 16px;
+    padding: 10px 0;
+}
 
 .apply-coupon {
     display: block;
@@ -6165,7 +6178,6 @@ body.dm-light .pan-loader .shadow {
     padding: 8px;
     border-radius: 2px;
     margin: 0 auto;
-    margin-top: 10px;
 }
 
 .apply-coupon:hover {
@@ -6173,7 +6185,51 @@ body.dm-light .pan-loader .shadow {
     text-decoration: none;
 }
 
-.p-20 {
+.card-body-wrapper {
+    max-height: 300px;
+    overflow: auto;
+}
+
+
+/* Css thanh scrollbar */
+
+
+/* width */
+
+.card-body-wrapper::-webkit-scrollbar {
+    width: 8px;
+}
+
+
+/* Track */
+
+.card-body-wrapper::-webkit-scrollbar-track {
+    box-shadow: inset 0 0 5px grey;
+    border-radius: 10px;
+}
+
+
+/* Handle */
+
+.card-body-wrapper::-webkit-scrollbar-thumb {
+    background: #ff6600;
+    border-radius: 10px;
+}
+
+
+/* Handle on hover */
+
+.card-body-wrapper::-webkit-scrollbar-thumb:hover {
+    background: #ff6600;
+}
+
+.card-header {
+    padding: 10px 0 0;
+    position: relative;
+}
+
+.card-middle {
+    border-top: 1px solid #ffffff;
     padding: 20px;
 }
 
@@ -6186,4 +6242,174 @@ body.dm-light .pan-loader .shadow {
 
 #btn_coupon_discount {
     height: 40px;
+}
+
+.btn-edit-cart {
+    position: absolute;
+    right: 6%;
+    top: 16%;
+    padding: 12px 8px;
+    background-color: #ff6600;
+    text-decoration: none;
+    color: #fff;
+    border-radius: 3px;
+    font-weight: bold;
+}
+
+.btn-edit-cart:hover {
+    color: #fff;
+    text-decoration: none;
+    filter: hue-rotate(45deg);
+}
+
+.checkout-container {
+    margin-top: 40px;
+}
+
+.btn-checkout-group {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.coupon_list {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    max-width: 500px;
+    margin: 10px auto;
+}
+
+.coupon_item_box {
+    box-shadow: 2px 5px 3px #ff6600, -2px -5px 3px #ff6600, 2px -5px 3px #ff6600, -2px 5px 3px #ff6600;
+    padding: 8px;
+    margin: 20px 0;
+    border-radius: 3px;
+}
+
+.coupon_item {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.btn_get_coupon {
+    background-color: #6dc405;
+    text-decoration: none;
+    color: #fff;
+    border-radius: 3px;
+    cursor: pointer;
+    outline: none;
+    height: 40px;
+}
+
+.btn_get_coupon:hover {
+    background-color: #ff6600;
+}
+
+.coupon_item_code {
+    color: #00ad0e;
+    text-transform: uppercase;
+}
+
+.coupon_message {
+    font-size: 11px;
+    font-style: italic;
+    color: #ccc;
+}
+
+.coupon_message_red {
+    color: #ff0000;
+}
+
+.coupon_item_expired {
+    position: relative;
+}
+
+.coupon_item_expired::after {
+    content: '';
+    position: absolute;
+    z-index: 5;
+    top: 0;
+    right: 0;
+    left: 0;
+    bottom: 0;
+    background-color: rgba(255, 255, 255, 0.5);
+    filter: contrast(0.4);
+}
+
+.coupon_item_expired .coupon_item_code,
+.coupon_item_expired .coupon_message {
+    color: #ffffff;
+}
+
+.coupon_item_expired.coupon_item_box {
+    box-shadow: none;
+}
+
+.coupon_item_expired .btn_get_coupon,
+.coupon_item_not_start .btn_get_coupon {
+    background-color: #ccc;
+}
+
+.coupon_item_not_start {
+    position: relative;
+}
+
+.coupon_item_not_start::after {
+    content: '';
+    position: absolute;
+    z-index: 5;
+    top: 0;
+    right: 0;
+    left: 0;
+    bottom: 0;
+    background-color: rgba(255, 255, 255, 0.05);
+    filter: contrast(0.4);
+}
+
+.modal_body_wrapper {
+    max-height: 400px;
+    overflow: auto;
+    margin-top: 10px;
+}
+
+
+/* Css thanh scrollbar */
+
+
+/* width */
+
+.modal_body_wrapper::-webkit-scrollbar {
+    width: 8px;
+}
+
+
+/* Track */
+
+.modal_body_wrapper::-webkit-scrollbar-track {
+    box-shadow: inset 0 0 5px grey;
+    border-radius: 10px;
+}
+
+
+/* Handle */
+
+.modal_body_wrapper::-webkit-scrollbar-thumb {
+    background: #ff6600;
+    border-radius: 10px;
+}
+
+
+/* Handle on hover */
+
+.modal_body_wrapper::-webkit-scrollbar-thumb:hover {
+    background: #ff6600;
+}
+
+#coupon_discount_message {
+    color: #ff6600;
+    margin-top: 10px;
+    font-size: 12px;
+    display: block;
 }
