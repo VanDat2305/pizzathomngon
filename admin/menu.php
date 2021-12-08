@@ -44,16 +44,12 @@ $array_url =  explode('/', $_SERVER['REQUEST_URI']);
                 <span class="fas fa-comments"></span><span>Quản lý bình luận</span></a>
         </li>
         <li>
-            <a href="<?= ADMIN_URL ?>post/" class="list <?= in_array("post", $array_url) ? "active" : "" ?>">
+            <a href="<?= ADMIN_URL ?>blog/" class="list <?= in_array("blog", $array_url) ? "active" : "" ?>">
                 <span class="fas fa-book-open"></span><span>Quản lý bài viết</span></a>
         </li>
         <li>
             <a href="<?= ADMIN_URL ?>/feedback" class="list <?= in_array("feedback", $array_url) ? "active" : "" ?>">
                 <span class="fas fa-address-book"></span><span>Quản lý phản hồi</span></a>
-        </li>
-        <li>
-            <a href="<?= ADMIN_URL ?>logo/" class="list <?= in_array("logo", $array_url) ? "active" : "" ?>">
-                <span class="fas fa-images"></span><span>Quản lý logo</span></a>
         </li>
         <li>
             <a href="<?= ADMIN_URL ?>contact/" class="list <?= in_array("contact", $array_url) ? "active" : "" ?>">

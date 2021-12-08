@@ -409,6 +409,10 @@ $("#form_insert_coupon").validate({
       required: true,
       minlength: 1,
     },
+    coupon_limit: {
+      required: true,
+      minlength: 1,
+    },
     start_date: {
       required: true,
       minlength: 1,
@@ -430,6 +434,10 @@ $("#form_insert_coupon").validate({
     coupon_count: {
       required: "Vui lòng điền số lượt",
       minlength: "Hãy nhập đúng số lượng",
+    },
+    coupon_limit: {
+      required: "Vui lòng điền số tiền",
+      minlength: "Hãy nhập đúng số tiền",
     },
     coupon_price: {
       required: "Vui lòng điền số tiền",
@@ -463,6 +471,10 @@ $("#form_edit_coupon").validate({
       required: true,
       minlength: 1,
     },
+    coupon_limit: {
+      required: true,
+      minlength: 1,
+    },
     start_date: {
       required: true,
       minlength: 1,
@@ -489,6 +501,10 @@ $("#form_edit_coupon").validate({
       required: "Vui lòng điền số tiền",
       minlength: "Hãy nhập đúng số tiền",
     },
+    coupon_limit: {
+      required: "Vui lòng điền số tiền",
+      minlength: "Hãy nhập đúng số tiền",
+    },
     start_date: {
       required: "Vui lòng điền ngày bắt đầu",
       minlength: "Hãy nhập đúng ngày",
@@ -499,4 +515,65 @@ $("#form_edit_coupon").validate({
     },
   },
 });
+$("#form_insert_blog").validate({
+  rules: {
+    blog_title: {
+      required: true,
+      minlength: 3,
+    },
+    blog_image: {
+      required: true,
+      extension: "jpg|jpeg|png|ico|bmp",
+    },
+    blog_content: {
+      required: true,
+      minlength: 3,
+    },
+  },
+  messages: {
+    blog_title: {
+      required: "Vui lòng tên bài viết",
+      minlength: "Hãy nhập ít nhất 3 ký tự",
+    },
+    blog_image: {
+      required: "Vui lòng chọn ảnh",
+      minlength: "Hãy nhập đúng định dạng",
+    },
+    blog_content: {
+      required: "Vui lòng điền nội dung",
+      minlength: "Hãy nhập thêm kí tự",
+    },
+  },
+});
+$("#form_edit_blog").validate({
+  rules: {
+    blog_title: {
+      required: true,
+      minlength: 3,
+    },
+    blog_image: {
+      required: true,
+      extension: "jpg|jpeg|png|ico|bmp",
+    },
+    blog_content: {
+      required: true,
+      minlength: 3,
+    },
+  },
+  messages: {
+    blog_title: {
+      required: "Vui lòng tên bài viết",
+      minlength: "Hãy nhập ít nhất 3 ký tự",
+    },
+    blog_image: {
+      required: "Vui lòng chọn ảnh",
+      minlength: "Hãy nhập đúng định dạng",
+    },
+    blog_content: {
+      required: "Vui lòng điền nội dung",
+      minlength: "Hãy nhập thêm kí tự",
+    },
+  },
+});
+
 
