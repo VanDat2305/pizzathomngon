@@ -46,15 +46,21 @@
                         <div class="product-full-card__select">
                             <div class="select-box select-box--size">
                                 <ul>
-                                    <?php $index = 1 ?>
+                                    <?php $index = 1;
+                                    $stt_option = 0 ?>
+
                                     <?php foreach ($options as $o) { ?>
                                         <li>
                                             <label>
-                                                <input <?= $index == 1 ? 'checked' : '' ?> type="radio" name="size" value="<?= $o['option_price'] ?>" class="product-item__price">
+                                                <?php
+                                                $new_price = $o['option_price'] - ($o['option_price'] * ($product['discount'] / 100));
+                                                ?>
+                                                <input <?= $index == 1 ? 'checked' : '' ?> type="radio" name="size" value="<?= $new_price ?>" class="product_option_price option_detail_price<?= $stt_option ?>">
                                                 <span><?= $o['option_name'] ?></span>
                                             </label>
                                         </li>
-                                        <?php $index++;  ?>
+                                        <?php $index++;
+                                        $stt_option++; ?>
                                     <?php } ?>
                                 </ul>
                             </div>
@@ -68,7 +74,7 @@
 
                                 <div class="row">
                                     <label>
-                                        <input class="uk-checkbox" type="checkbox">
+                                        <input class="uk-checkbox extra_id" type="checkbox" value="<?= $e['extra_id'] ?>">
                                         <span class="uk-padding-small"><?= $e['extra_name'] ?> </span>
                                         <span class="uk-padding-small"><?= number_format($e['extra_price']) ?> đ</span>
                                     </label>
@@ -87,14 +93,38 @@
                     <!-- Format giá bằng jquery trong main.js -->
                     <div class="product-item__price">
                         <div class="product-full-card__price">
-                            <span>Giá: </span><span class="value product-item__value"></span>
+
+                            <span>Giá: </span>
+                            <?php if ($product['discount'] > 0) { ?>
+                                <span></span><del class="product_detail_old_value">123</del>
+                            <?php } ?>
+                            <span class="value product_detail_new_value"></span>
+
                         </div>
+                        <input type="hidden" id="discount_value" value="<?= $product['discount'] ?>">
                     </div>
 
-                    <div class="product-full-card__btns"><span class="counter"><span class="minus">-</span><input type="text" value="1" /><span class="plus">+</span></span><a class="uk-button" href="#!">Thêm
-                            vào giỏ hàng<span data-uk-icon="cart"></span></a></div>
+                    <div class="product-full-card__btns">
+                        <span class="counter">
+                            <span class="minus">-</span>
+                            <input type="text" class="detail_quantity" value="1" />
+                            <span class="plus">+</span></span>
+                        <?php $index2 = 1;
+                        $stt_option2 = 0; ?>
+                        <?php foreach ($options as $o) { ?>
+
+                            <input type="radio" <?= $index2 == 1 ? 'checked' : '' ?> class="option_ajax option_detail option_detail_id<?= $stt_option2 ?>" name="option_by_pro" value="<?= $o['option_id'] ?>">
+
+                            <?php $index2++;  ?>
+                            <?php $stt_option2++;  ?>
+
+                        <?php    } ?>
+                        <button class="uk-button" id="add-to-cart_detail">Thêm vào giỏ hàng
+                            <span data-uk-icon="cart"> </span>
+                        </button>
+                    </div>
                 </div>
-                <div class="product-full-card__category"><span>Danh mục: </span><a href="#!">Pizza</a>
+                <div class="product-full-card__category"><span>Danh mục: </span><a href="#!"><?= $product['category_name'] ?></a>
                 </div>
                 <div class="product-full-card__share"><span>Chia sẻ:</span>
                     <ul>
@@ -194,14 +224,17 @@
                 <div class="uk-position-relative">
                     <div class="uk-slider-container">
                         <ul class="uk-slider-items uk-grid uk-grid-medium uk-child-width-1-1 uk-child-width-1-2@s uk-child-width-1-3@m uk-child-width-1-3@xl uk-child-width-1-3@xl" data-uk-height-match=".product-card__intro">
-                            <?php $number = 0 ?>
-                            <?php $stt = 0 ?>
+                            <?php $stt_option_same = 0 ?>
+                            <?php $stt_product_same = 0 ?>
                             <?php foreach ($product_same as $p_s) { ?>
 
                                 <li>
                                     <div class="product-item">
                                         <div class="product-item__box">
                                             <div class="product-item__intro">
+                                                <?php if ($p_s['discount'] > 0) { ?>
+                                                    <div class="product-item__discount"><?= $p_s['discount'] ?> %</div>
+                                                <?php } ?>
                                                 <div class="product-item__not-active">
                                                     <div class="product-item__media">
                                                         <div class="uk-inline-clip uk-transition-toggle uk-light" data-uk-lightbox="data-uk-lightbox">
@@ -230,7 +263,7 @@
                                                                         <li>
                                                                             <label>
                                                                                 <!-- Giá main.js -->
-                                                                                <input type="radio" <?= $index == 1 ? 'checked' : '' ?> name="<?= $p_s['product_name'] ?>" value="<?= $o_p_s['option_price'] ?>" class="option_price option_price<?= $number++ ?> product_price<?= $stt ?>" />
+                                                                                <input type="radio" <?= $index == 1 ? 'checked' : '' ?> name="<?= $p_s['product_name'] ?>" value="<?= $o_p_s['option_price'] ?>" class="option_price option_price<?= $stt_option_same++ ?> product_price<?= $stt_product_same ?>" />
                                                                                 <span><?= $o_p_s['option_name'] ?></span>
                                                                             </label>
                                                                         </li>
@@ -267,9 +300,17 @@
                                                     <span>Thêm topping</span></button></div>
                                             <div class="product-item__info">
                                                 <div class="product-item__price">
-                                                    <span>Giá: </span><span class="value value<?= $stt++ ?>"></span>
+                                                    <span>Giá:
+                                                        <?php if ($p_s['discount'] > 0) { ?>
+                                                            <del class="old_value<?= $stt_product ?>"></del>
+                                                        <?php } ?>
+                                                    </span><span class="value value<?= $stt_product_same++ ?>"></span>
                                                 </div>
-                                                <div class="product-item__addcart"> <a class="uk-button uk-button-default" href="page-product.html">Thêm vào giỏ hàng<span data-uk-icon="cart"></span></a></div>
+                                                <div class="product-item__addcart">
+                                                    <button class="uk-button uk-button-default add-to-cart">Thêm vào giỏ hàng
+                                                        <span data-uk-icon="cart"></span>
+                                                    </button>
+                                                </div>
                                             </div>
                                         </div>
                                     </div>

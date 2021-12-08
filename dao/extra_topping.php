@@ -47,6 +47,7 @@ function extra_select_all($cate_id)
     $sql = "SELECT * FROM tbl_extra ex JOIN tbl_categories cate ON ex.category_id = cate.category_id WHERE ex.category_id = ?";
     return pdo_query($sql, $cate_id);
 }
+
 /**
  * truy van 1 ma
  */

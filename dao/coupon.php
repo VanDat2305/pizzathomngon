@@ -53,3 +53,19 @@ function coupon_select_by_id($coupon_id){
     $sql = "SELECT * FROM tbl_coupons WHERE coupon_id = ?";
     return pdo_query_one($sql,$coupon_id);
 }
+/**
+ * Kiem tra coupon
+ */
+function coupon_exist_code($coupon_code)
+{
+    $sql = "SELECT count(*) FROM tbl_coupons WHERE coupon_code = ?";
+    return pdo_query_value($sql, $coupon_code) > 0 ? 1 : 0;
+}
+/**
+ * truy van 1 coupon code
+ */
+function coupon_select_by_code($coupon_code){
+    $sql = "SELECT * FROM tbl_coupons WHERE coupon_code = ?";
+    return pdo_query_one($sql,$coupon_code);
+}
+

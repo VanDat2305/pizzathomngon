@@ -25,7 +25,19 @@
                         <td><?= $phoneNumber ?></td>
                     </tr>
                     <tr>
-                        <th>Tổng tiền:</th>
+                        <th>Tổng tiền hàng:</th>
+                        <td><?= number_format($money_pro, 0, ",", ".") ?> đ</td>
+                    </tr>
+                    <tr>
+                        <th>Tiền giảm giá:</th>
+                        <td><?= number_format($coupon_discount, 0, ",", ".") ?> đ</td>
+                    </tr>
+                    <tr>
+                        <th>Thuế:</th>
+                        <td><?= number_format($tax, 0, ",", ".") ?> đ</td>
+                    </tr>
+                    <tr>
+                        <th>Tổng thanh toán:</th>
                         <td><?= number_format($total_money, 0, ",", ".") ?> đ</td>
                     </tr>
                     <tr>
