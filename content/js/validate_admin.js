@@ -499,4 +499,65 @@ $("#form_edit_coupon").validate({
     },
   },
 });
+$("#form_insert_blog").validate({
+  rules: {
+    blog_title: {
+      required: true,
+      minlength: 3,
+    },
+    blog_image: {
+      required: true,
+      extension: "jpg|jpeg|png|ico|bmp",
+    },
+    blog_content: {
+      required: true,
+      minlength: 3,
+    },
+  },
+  messages: {
+    blog_title: {
+      required: "Vui lòng tên bài viết",
+      minlength: "Hãy nhập ít nhất 3 ký tự",
+    },
+    blog_image: {
+      required: "Vui lòng chọn ảnh",
+      minlength: "Hãy nhập đúng định dạng",
+    },
+    blog_content: {
+      required: "Vui lòng điền nội dung",
+      minlength: "Hãy nhập thêm kí tự",
+    },
+  },
+});
+$("#form_edit_blog").validate({
+  rules: {
+    blog_title: {
+      required: true,
+      minlength: 3,
+    },
+    blog_image: {
+      required: true,
+      extension: "jpg|jpeg|png|ico|bmp",
+    },
+    blog_content: {
+      required: true,
+      minlength: 3,
+    },
+  },
+  messages: {
+    blog_title: {
+      required: "Vui lòng tên bài viết",
+      minlength: "Hãy nhập ít nhất 3 ký tự",
+    },
+    blog_image: {
+      required: "Vui lòng chọn ảnh",
+      minlength: "Hãy nhập đúng định dạng",
+    },
+    blog_content: {
+      required: "Vui lòng điền nội dung",
+      minlength: "Hãy nhập thêm kí tự",
+    },
+  },
+});
+
 

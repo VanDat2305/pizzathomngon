@@ -49,7 +49,7 @@
             </nav>
             <!-- end of navbar navigation -->
             <div class="content">
-                    <?php include $VIEW_NAME ?>
+                <?php include $VIEW_NAME ?>
             </div>
         </div>
     </div>
@@ -58,11 +58,10 @@
     <script src="<?= CONTENT_URL ?>js/datatables.min.js"></script>
     <script src="<?= CONTENT_URL ?>js/initiate-datatables.js"></script>
     <script src="<?= CONTENT_URL ?>js/jquery.validate.js"></script>
-    <script src="<?= CONTENT_URL ?>js/ckeditor.js"></script>
+    <script src="<?= CONTENT_URL ?>ckeditor/ckeditor.js"></script>
     <script src="<?= CONTENT_URL ?>js/dashboard.js"></script>
     <script src="<?= CONTENT_URL ?>js/validate_admin.js"></script>
     <script src="<?= CONTENT_URL ?>js/multi_option.js"></script>
     <script src="<?= CONTENT_URL ?>js/ajax.js"></script>
 </body>
-
 </html>
