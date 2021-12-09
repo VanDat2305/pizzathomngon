@@ -4,20 +4,22 @@ require '../../dao/product.php';
 require '../../dao/extra_topping.php';
 require '../../dao/user.php';
 require '../../dao/order.php';
-// $tong_tien = 0;
-// foreach ($_SESSION['cart'] as $key => $value) {
-//     $tong_tien +=  ($value['don_gia'] * $value['sl']) - ($value['don_gia'] * $value['sl'] * ($value['giam_gia'] / 100));
-// }
+require '../../dao/coupon.php';
+
 
 extract($_REQUEST);
 
-
-
+// echo "<pre>";
+//     var_dump($coupon_code);
+//     die;
 if (exist_param("btn_checkout")) {
-    $created_at = date_format(date_create(), 'Y-m-d h:i:s');
-    $coupon_discount = 0;
+    $created_at = date_format(date_create(), 'Y-m-d H:i:s');
     $status_id = 1;
     $user_id = $_SESSION['user']['user_id'];
+
+    $coupon_discount = $discount_price_value == '' ? 0 : $discount_price_value;
+    $coupon_code = $card_coupon_code;
+
 
     try {
         $order_id  = order_insert($user_id, $fullname, $phoneNumber, $note, $address, $coupon_discount, $status_id, $created_at);
@@ -40,6 +42,10 @@ if (exist_param("btn_checkout")) {
             }
             unset($_SESSION['cart']);
         }
+
+        if ($coupon_code != "") {
+            coupon_update_coupon_used($coupon_code);
+        }
         $MESSAGE = "Thanh toán thành công. Cảm ơn bạn đã đặt hàng";
     } catch (Exception $exc) {
         $MESSAGE = "Thanh toán thất bại!";
@@ -48,15 +54,21 @@ if (exist_param("btn_checkout")) {
     }
     echo "<script>alert('" . $MESSAGE . "'); location.href='" . SITE_URL . "cart/index.php'</script>";
 } elseif (exist_param("form_checkout")) {
-    extract($_SESSION['user']);
-    $VIEW_NAME = 'checkout_ui.php';
+    if (!isset($_SESSION['user'])) {
+        header("Location:" . SITE_URL . "account");
+    } else {
+        extract($_SESSION['user']);
+
+        // Lấy coupon 
+        $coupons = coupon_select_all();
+        // echo "<pre>";
+        // var_dump($coupons);
+        // die;
+        $VIEW_NAME = 'checkout_ui.php';
+    }
 }
 
 
 
 
 require '../layout.php';
-
-
-// echo "<script>alert('" . $MESSAGE . "'); location.href='" . SITE_URL . "cart/list_cart.php'</script>";
-// header("location:" . SITE_URL . "cart/list_cart.php");

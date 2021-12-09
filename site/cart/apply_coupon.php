@@ -7,37 +7,27 @@ extract($_REQUEST);
 
 
 
-if (isset($coupon_value)) {
+if (isset($coupon_value) && isset($checkout_total)) {
 
     $exist_code = coupon_exist_code($coupon_value);
 
-    $RESPONSE['status'] = 1;
     if ($exist_code == 1) {
         $coupon = coupon_select_by_code($coupon_value);
-        $now = date_format(date_create(), 'Y-m-d h:i:s');
 
-        if ($now > $coupon['end_date']) {
-            $RESPONSE['message'] = "Mã giảm giá đã quá hạn";
-        } elseif ($coupon['coupon_status'] == 0) {
-            $RESPONSE['message'] = "Mã giảm giá đã dừng chạy";
-        } elseif ($coupon['coupon_used'] == $coupon['coupon_count']) {
-            $RESPONSE['message'] = "Mã giảm giá đã quá lượt áp dụng";
+
+        if ($checkout_total > $coupon['coupon_limit']) {
+
+            if ($coupon['coupon_type'] == 0) {
+                $coupon_price = $coupon['coupon_price'];
+            } else {
+                $coupon_price = $checkout_total * $coupon['coupon_price'] / 100;
+            }
+            echo number_format($coupon_price, 0, '', '');
         } else {
-            $RESPONSE['message'] = "Áp dụng thành công";
-            $RESPONSE['status'] = 0;
+            echo 0;
         }
-    } else {
-        $RESPONSE['message'] = "Mã giảm giá không tồn tại";
+        // echo "<pre>";
+        // var_dump($coupon);
+        // die;
     }
-
-    foreach ($RESPONSE as $value) {
-        echo $value;
-    }
-
-    // echo "<pre>";
-    // var_dump($coupon);
-    // die;
-
-
-
 }

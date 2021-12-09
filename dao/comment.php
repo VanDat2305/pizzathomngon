@@ -66,7 +66,7 @@ function comment_select_by_id_parent($product_id)
  */
 function comment_select_by_id_product($product_id)
 {
-    $sql = "SELECT * FROM tbl_comments cmt JOIN tbl_products pro ON cmt.product_id = pro.product_id JOIN tbl_users us ON us.user_id = cmt.user_id WHERE cmt.product_id = ?";
+    $sql = "SELECT * FROM tbl_comments cmt JOIN tbl_products pro ON cmt.product_id = pro.product_id JOIN tbl_users us ON us.user_id = cmt.user_id WHERE cmt.product_id = ? ORDER BY cmt.cmt_date DESC";
     return pdo_query($sql, $product_id);
 }
 
@@ -85,4 +85,18 @@ function comment_exist_parent($parent_id)
 {
     $sql = "SELECT count(*) FROM tbl_comments WHERE parent_id = ?";
     return pdo_query_value($sql, $parent_id) > 0;
+}
+
+/**
+ * ham kiem tra khách hàng đã mua hang hay chưa
+ */
+function comment_exist_product($product_id, $user_id)
+{
+    $sql = "SELECT count(*) as count_user_comment         
+    FROM tbl_options op 
+    JOIN tbl_order_details or_de ON op.option_id = or_de.option_id 
+    JOIN tbl_products pro ON pro.product_id = op.product_id
+    JOIN tbl_orders ord ON ord.order_id =  or_de.order_id
+    WHERE pro.product_id = ? AND ord.user_id = ?";
+    return pdo_query_value($sql, $product_id, $user_id);
 }

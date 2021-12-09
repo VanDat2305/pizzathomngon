@@ -41,8 +41,8 @@
                                 <img class="uk-margin-small-left" src="<?= CONTENT_URL ?>img/icons/pizza.png" alt="pizza">
                             </a>
                             <ul class="uk-navbar-nav">
-                                <li><a href="<?= SITE_URL ?>home/index.php?blog">Blog</a></li>
-                                <li><a href="<?= SITE_URL ?>home/index.php?contact">Liên hệ</a></li>
+                                <li><a href="<?= SITE_URL ?>post/index.php?blog">Blog</a></li>
+                                <li><a href="<?= SITE_URL ?>contact/index.php?contact">Liên hệ</a></li>
                             </ul>
                         </div>
                     </nav>
@@ -52,8 +52,9 @@
                 <div class="uk-container">
                     <div class="uk-navbar-container uk-navbar-transparent" data-uk-navbar="">
                         <div class="uk-navbar-left">
-                            <div>
-                                <div class="block-with-phone"><img src="<?= CONTENT_URL ?>img/icons/delivery.svg" alt="delivery" data-uk-svg>
+                            <div uk-grid>
+                                <div class="block-with-phone uk-width-1-2">
+                                    <img src="<?= CONTENT_URL ?>img/icons/delivery.svg" alt="delivery" data-uk-svg>
                                     <div> <span>Vận chuyển, SDT</span><a href="tel:13205448749">0987654321</a>
                                     </div>
                                 </div>
@@ -72,7 +73,18 @@
                                     </li>
                                     <!-- Cart -->
                                     <li class="uk-cart-box">
-                                        <span class="uk-cart-quantity">2</span>
+                                        <?php
+
+                                        if (isset($_SESSION['cart'])) {
+                                            $total_quantity_cart = 0;
+                                            foreach ($_SESSION['cart'] as $key => $value) {
+                                                $total_quantity_cart += $_SESSION['cart'][$key]['quantity'];
+                                            }
+                                        } else {
+                                            $total_quantity_cart = 0;
+                                        }
+                                        ?>
+                                        <span class="uk-cart-quantity" id="quantity_session"><?= $total_quantity_cart ?></span>
                                         <a href="<?= SITE_URL ?>cart/"><span data-uk-icon="cart"></span></a>
                                     </li>
                                 </ul>
