@@ -430,7 +430,7 @@ blockquote::before {
 
 #mode-toggler {
     border-radius: 100%;
-    v-align: middle;
+    vertical-align: middle;
     background: #fff;
     cursor: pointer;
     -webkit-animation: pulse 1s infinite cubic-bezier(0.6, 0, 0, 1);
@@ -2459,7 +2459,7 @@ body.dm-light .pan-loader .shadow {
 .banner-card__category {
     -webkit-transition: 0.5s;
     -o-transition: 0.5s;
-    colr: #6dc405;
+    color: #6dc405;
     font-style: normal;
     font-weight: 400;
     letter-spacing: normal;
@@ -6412,4 +6412,19 @@ body.dm-light .pan-loader .shadow {
     margin-top: 10px;
     font-size: 12px;
     display: block;
+}
+
+.rating_icon {
+    position: relative;
+    font-size: 24px;
+    color: #f4ca16;
+}
+
+.rating_icon::before {
+    content: '\2605';
+    position: absolute;
+}
+
+#ajax_comment_item {
+    display: none;
 }
