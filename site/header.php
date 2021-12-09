@@ -52,16 +52,11 @@
                 <div class="uk-container">
                     <div class="uk-navbar-container uk-navbar-transparent" data-uk-navbar="">
                         <div class="uk-navbar-left">
-                            <div>
-                                <div class="block-with-phone"><img src="<?= CONTENT_URL ?>img/icons/delivery.svg" alt="delivery" data-uk-svg>
+                            <div uk-grid>
+                                <div class="block-with-phone uk-width-1-2">
+                                    <img src="<?= CONTENT_URL ?>img/icons/delivery.svg" alt="delivery" data-uk-svg>
                                     <div> <span>Vận chuyển, SDT</span><a href="tel:13205448749">0987654321</a>
                                     </div>
-                                </div>
-                                <div class="uk-margin uk-align-right">
-                                    <form class="uk-search uk-search-default">
-                                        <a href="" uk-search-icon></a>
-                                        <input class="uk-search-input" type="search" placeholder="Search">
-                                    </form>
                                 </div>
                             </div>
                         </div>

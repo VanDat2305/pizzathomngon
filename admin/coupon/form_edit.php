@@ -11,15 +11,17 @@
                 <label for="">Mã Code</label>
                 <input type="text" class="form-control" id="coupon_code" value="<?= $coupon_code ?>" name="coupon_code">
             </div>
+
             <div class="row ">
                 <div class="form-group col-4">
                     <label for="">Số lần nhập mã</label>
-                    <input type="number" class="form-control" id="coupon_count" name="coupon_count" value="<?= $coupon_count?>">
+                    <input type="number" class="form-control" id="coupon_count" name="coupon_count" value="<?= $coupon_count ?>">
                 </div>
                 <div class="form-group col-8">
                     <label for="">Giới hạn giá trị đơn hàng</label>
-                    <input type="number" class="form-control" id="coupon_limit" name="coupon_limit" value="<?= $coupon_limit?>">
+                    <input type="number" class="form-control" id="coupon_limit" name="coupon_limit" value="<?= $coupon_limit ?>">
                 </div>
+
             </div>
             <div class="form-group">
                 <label for="">Tổng số lần nhập mã</label>
@@ -50,7 +52,7 @@
                     <option value="1" <?= $coupon_type == 1 ? "selected" : "" ?>>Giảm theo %</option>
                 </select>
             </div>
-            <div class="form-group"> 
+            <div class="form-group">
                 <label for="">Số tiền giảm</label>
                 <input type="number" class="form-control" id="coupon_price" value="<?= $coupon_type == 0 ? number_format($coupon_price, 0, "", "") : number_format($coupon_price, 0, "", "") ?>" name="coupon_price">
             </div>

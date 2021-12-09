@@ -152,60 +152,72 @@
                     <div class="section-title">
                         <div class="uk-h2">Đánh giá</div>
                     </div>
-                    <ul class="uk-comment-list">
-                        <li>
-                            <article class="uk-comment">
-                                <header class="uk-comment-header">
-                                    <div class="uk-grid-small uk-grid-divider" data-uk-grid>
-                                        <div class="uk-width-auto@s"><img class="uk-comment-avatar" src="./../content/img/blog/img-reviews-1.png" alt></div>
-                                        <div class="uk-width-expand@s">
-                                            <div class="uk-flex uk-flex-middle uk-margin-small-bottom">
-                                                <h4 class="uk-comment-title uk-margin-remove">Hiếu Minh
-                                                </h4><span class="uk-text-meta uk-margin-small-left">20
-                                                    Tháng 11 2021</span>
-                                            </div>
-                                            <div class="uk-comment-body">
-                                                <p>Hàng đểu ko nên mua</p><a class="link-more" href="#!"><span data-uk-icon="arrow-right">Trả
-                                                        lời</span></a>
+                    <ul class="uk-comment-list" id="comment_list">
+                        <?php foreach ($list_comment as $cm) { ?>
+                            <li>
+                                <article class="uk-comment">
+                                    <header class="uk-comment-header">
+                                        <div class="uk-grid-small uk-grid-divider" data-uk-grid>
+                                            <div class="uk-width-auto@s"><img class="uk-comment-avatar" src="./../content/img/blog/img-reviews-1.png" alt></div>
+                                            <div class="uk-width-expand@s">
+                                                <div>
+                                                    <?php for ($i = 0; $i < $cm['rate']; $i++) { ?>
+                                                        <span class="rating_icon">☆</span>
+                                                    <?php } ?>
+                                                </div>
+                                                <div class="uk-flex uk-flex-middle uk-margin-small-bottom">
+                                                    <h4 class="uk-comment-title uk-margin-remove"><?= $cm['fullname'] ?></h4>
+                                                    <span class="uk-text-meta uk-margin-small-left"><?= $cm['cmt_date'] ?></span>
+
+                                                </div>
+                                                <div class="uk-comment-body">
+                                                    <p><?= $cm['comment'] ?></p>
+                                                </div>
+                                                <hr>
                                             </div>
                                         </div>
-                                    </div>
-                                </header>
-                            </article>
+                                    </header>
+                                </article>
 
-                        </li>
+                            </li>
+                        <?php } ?>
 
                     </ul>
-                    <div class="block-form uk-margin-medium-top">
-                        <div class="section-title">
-                            <div class="uk-h2">Đánh giá món ăn</div>
-                        </div>
-                        <div class="section-content">
-                            <form id="form_comment">
-                                <div class="uk-grid uk-grid-small uk-child-width-1-2@s" data-uk-grid>
-                                    <div class="uk-width-1-1">
-                                        <div class="rating">
-                                            <input type="radio" name="rating_value" class="rating_value" value="5" id="5" checked>
-                                            <label for="5">☆</label>
-                                            <input type="radio" name="rating_value" class="rating_value" value="4" id="4">
-                                            <label for="4">☆</label>
-                                            <input type="radio" name="rating_value" class="rating_value" value="3" id="3">
-                                            <label for="3">☆</label>
-                                            <input type="radio" name="rating_value" class="rating_value" value="2" id="2">
-                                            <label for="2">☆</label>
-                                            <input type="radio" name="rating_value" class="rating_value" value="1" id="1">
-                                            <label for="1">☆</label>
+                    <?php if ($comment_exist_product == '1') { ?>
+                        <div class="block-form uk-margin-medium-top" id="form_comment">
+                            <div class="section-title">
+                                <div class="uk-h2">Đánh giá món ăn</div>
+                            </div>
+                            <div class="section-content">
+                                <form id="form_comment">
+                                    <div class="uk-grid uk-grid-small uk-child-width-1-2@s" data-uk-grid>
+                                        <div class="uk-width-1-1">
+                                            <div class="rating">
+                                                <input type="radio" name="rating_value" class="rating_value" value="5" id="5" checked>
+                                                <label for="5">☆</label>
+                                                <input type="radio" name="rating_value" class="rating_value" value="4" id="4">
+                                                <label for="4">☆</label>
+                                                <input type="radio" name="rating_value" class="rating_value" value="3" id="3">
+                                                <label for="3">☆</label>
+                                                <input type="radio" name="rating_value" class="rating_value" value="2" id="2">
+                                                <label for="2">☆</label>
+                                                <input type="radio" name="rating_value" class="rating_value" value="1" id="1">
+                                                <label for="1">☆</label>
+                                            </div>
+                                            <div class="rating_message" style="color:red"></div>
+                                            <textarea class="uk-textarea uk-form-large" id="rating_content" placeholder="Vui lòng nhập đánh giá"></textarea>
                                         </div>
-                                        <div class="rating_message" style="color:red"></div>
-                                        <textarea class="uk-textarea uk-form-large" id="rating_content" placeholder="Vui lòng nhập đánh giá"></textarea>
+                                        <div>
+                                            <input type="hidden" id="product_id_comment" value="<?= $product['product_id'] ?>">
+                                            <button class="uk-button uk-button-large" id="btn_comment">Đăng bình luận</button>
+                                        </div>
                                     </div>
-                                    <div>
-                                        <button class="uk-button uk-button-large" id="btn_comment">Đăng bình luận</button>
-                                    </div>
-                                </div>
-                            </form>
+                                </form>
+                            </div>
                         </div>
-                    </div>
+                    <?php } else { ?>
+                        <div class="uk-h4 uk-text-center uk-text-danger">Để đánh giá bạn phải mua món ăn này!</div>
+                    <?php } ?>
                 </li>
             </ul>
         </div>
@@ -335,3 +347,27 @@
         </div>
     </div>
 </div>
+
+<li id="ajax_comment_item">
+    <article class="uk-comment">
+        <header class="uk-comment-header">
+            <div class="uk-grid-small uk-grid-divider" data-uk-grid>
+                <div class="uk-width-auto@s"><img class="uk-comment-avatar" src="./../content/img/blog/img-reviews-1.png" alt></div>
+                <div class="uk-width-expand@s">
+                    <div>
+                        <span class="rating_icon">☆</span>
+                    </div>
+                    <div class="uk-flex uk-flex-middle uk-margin-small-bottom">
+                        <h4 class="uk-comment-title uk-margin-remove"><?= $_SESSION['user']['fullname'] ?></h4>
+                        <span class="uk-text-meta uk-margin-small-left"></span>
+
+                    </div>
+                    <div class="uk-comment-body">
+                        <p id="comment_content"></p>
+                    </div>
+                    <hr>
+                </div>
+            </div>
+        </header>
+    </article>
+</li>
