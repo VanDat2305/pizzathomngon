@@ -6428,3 +6428,8 @@ body.dm-light .pan-loader .shadow {
 #ajax_comment_item {
     display: none;
 }
+.imgccc{
+    width: 50%;
+    margin-left: auto;
+    margin-right: auto;
+}

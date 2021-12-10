@@ -1,6 +1,6 @@
 
         <h4>SỬA bài viết</h4>
-        <form action="index.php" id="form_edit_blog" method="post" class="form">
+        <form action="index.php" id="form_edit_blog" method="post" class="form" enctype="multipart/form-data">
             <input type="hidden" name="blog_id" value="<?= $item['blog_id']?>">
             <div class="form-group">
                 <label for="">Tiêu đề bài viết</label>
