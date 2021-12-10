@@ -3,7 +3,7 @@
     <?php extract($items);
     $index = 1; ?>
     <div class="col-lg-4  ">
-        <img src="<?= CONTENT_URL . 'img/products/' . $product_image ?>" width="100px" alt="">
+        <img src="<?= CONTENT_URL . 'img/products/' . $product_image ?>" width="100%" alt="">
         <button type="button" class="btn btn-outline-dark form-control" data-bs-toggle="modal" data-bs-target="#exampleModal">
             Xem thêm
         </button>

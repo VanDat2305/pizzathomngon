@@ -62,6 +62,8 @@
     <script src="<?= CONTENT_URL ?>js/dashboard.js"></script>
     <script src="<?= CONTENT_URL ?>js/validate_admin.js"></script>
     <script src="<?= CONTENT_URL ?>js/multi_option.js"></script>
+    <script src="<?= CONTENT_URL ?>js/Chart.min.js"></script>
     <script src="<?= CONTENT_URL ?>js/ajax.js"></script>
 </body>
+
 </html>
