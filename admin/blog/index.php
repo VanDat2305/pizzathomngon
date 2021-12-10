@@ -12,8 +12,9 @@ if (exist_param("btn_info")) {
     $blog_image = strlen($up_blog_image) > 0 ? $up_blog_image : "";
     $create_at =  date_format(date_create(), 'Y-m-d H:i:s');
     $status = 0;
+    $view = 0;
     try {
-        blog_insert($blog_title, $blog_content, $blog_image, $create_at, $status);
+        blog_insert($blog_title, $blog_content, $blog_image, $create_at, $status, $view);
         unset($blog_title, $blog_content, $blog_image, $create_at, $status);
         $MESSAGE = "Thêm mới thành công!";
     } catch (Exception $exc) {

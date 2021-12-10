@@ -23,7 +23,7 @@
                         <tr>
                             <td><?= $blog['blog_id'] ?></td>
                             <td><?= $blog['blog_title'] ?></td>
-                            <td><img src="<?= CONTENT_URL . 'img/blog/' . $blog['blog_image'] ?>" width="200rem" height="100rem" alt=""></td>
+                            <td><img src="<?= CONTENT_URL . 'img/blog/' . $blog['blog_image'] ?>" width="150rem" height="100rem" alt=""></td>
                             <td><a href="index.php?btn_info&blog_id=<?= $blog['blog_id'] ?>" class="btn btn-defaule"><i class="fas fa-external-link-alt"></i></a></td>
                             <td><?= $blog['create_at'] ?></td>
                             <td>
