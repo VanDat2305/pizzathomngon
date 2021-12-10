@@ -11,7 +11,7 @@
                     </tr>
                     <tr>
                         <th>Ảnh</th>
-                        <td><img src="<?= CONTENT_URL.'img/blog/'. $blog_image?>" width="100%" alt=""></td>
+                        <td><img src="<?= CONTENT_URL.'img/blog/'. $blog_image?>" width="50%" alt=""></td>
                     </tr>
                     <tr>
                         <th>Nội dung bài viết</th>

@@ -3,11 +3,12 @@ require_once "pdo.php";
 /**
  * Them moi
  */
-function blog_insert($blog_title, $blog_content, $blog_image, $create_at, $status)
+function blog_insert($blog_title, $blog_content, $blog_image, $create_at, $status, $view)
 {
     $status = 0;
-    $sql = "INSERT INTO tbl_blog( `blog_title`, `blog_content`, `blog_image`, `create_at`, `status`) VALUES (?,?,?,?,b?)";
-    pdo_execute($sql, $blog_title, $blog_content, $blog_image, $create_at, $status);
+    $view = 0;
+    $sql = "INSERT INTO tbl_blog( `blog_title`, `blog_content`, `blog_image`, `create_at`, `status`, `view`) VALUES (?,?,?,?,b?,?b)";
+    pdo_execute($sql, $blog_title, $blog_content, $blog_image, $create_at, $status, $view);
 }
 
 /**
