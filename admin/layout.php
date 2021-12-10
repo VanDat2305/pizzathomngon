@@ -1,4 +1,6 @@
-<?php require_once "../../global.php" ?>
+<?php require_once "../../global.php";
+check_role();
+?>
 <!doctype html>
 <html lang="en">
 

@@ -1,6 +1,7 @@
 <?php
 require_once "../../global.php";
 require_once "../../dao/chart.php";
+check_role_admin();
 
 $item_top10_product = chart_top_10_pro();
 // $item_statistic = chart_money_statistic();

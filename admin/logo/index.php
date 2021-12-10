@@ -1,6 +1,7 @@
 <?php
 require_once "../../global.php";
 require "../../dao/logo.php";
+check_role_admin();
 extract($_REQUEST);
 if (exist_param("btn_insert")) {
     $up_logo_image = save_file("logo_image", "$IMAGE_DIR/logos/");
