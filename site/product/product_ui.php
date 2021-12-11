@@ -162,7 +162,7 @@
                             <!-- Lọc theo input range -->
                             <h4>Lọc theo giá</h4>
                             <div class="widjet-filter-price">
-                                Từ: <span id="from-price"><?= number_format($min_price, 0, ',') ?> đ</span> - <span id="to-price"><?= number_format($max_price, 0, ',') ?> đ</span>
+                                Từ: <span id="from-price"><?= number_format($min_price, 0, ',',',') ?> đ</span> - <span id="to-price"><?= number_format($max_price, 0, ',',',') ?> đ</span>
                             </div>
                             <div class="middle">
                                 <div class="multi-range-slider">
