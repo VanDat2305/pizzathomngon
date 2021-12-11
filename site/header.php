@@ -31,7 +31,7 @@
                                 <div class="logo__box">
                                     <a class="logo__link" href="<?= SITE_URL ?>home/index.php">
                                         <img class="logo__img logo__img--full" src="<?= CONTENT_URL ?>img/logo.png" alt="logo">
-                                        <img class="logo__img logo__img-small" src="<?= CONTENT_URL ?>img/logo-small.png" alt="logo">
+                                        <img class="logo__img logo__img-small" src="<?= CONTENT_URL ?>img/logo.png" alt="logo">
                                     </a>
                                 </div>
                             </div>
@@ -52,11 +52,11 @@
                 <div class="uk-container">
                     <div class="uk-navbar-container uk-navbar-transparent" data-uk-navbar="">
                         <div class="uk-navbar-left">
-                            <div uk-grid>
-                                <div class="block-with-phone uk-width-1-2">
-                                    <img src="<?= CONTENT_URL ?>img/icons/delivery.svg" alt="delivery" data-uk-svg>
-                                    <div> <span>Vận chuyển, SDT</span><a href="tel:13205448749">0987654321</a>
-                                    </div>
+                            <div class="block-with-phone">
+                                <img src="<?= CONTENT_URL ?>img/icons/delivery.svg" alt="delivery" data-uk-svg>
+                                <?php require_once "../../dao/contact.php";
+                                $contact = contact_select_by_status() ?>
+                                <div> <span>Vận chuyển, SDT</span><a href="tel:13205448749"><?= $contact['contact_phone'] ?></a>
                                 </div>
                             </div>
                         </div>
@@ -67,10 +67,7 @@
                                     <li>
                                         <a href="#modal-full" data-uk-toggle><span data-uk-icon="search"></span></a>
                                     </li>
-                                    <!-- User -->
-                                    <li class="uk-inline">
-                                        <a href="<?= SITE_URL ?>account/"><span data-uk-icon="user"></span></a>
-                                    </li>
+
                                     <!-- Cart -->
                                     <li class="uk-cart-box">
                                         <?php
@@ -88,7 +85,31 @@
                                         <a href="<?= SITE_URL ?>cart/"><span data-uk-icon="cart"></span></a>
                                     </li>
                                 </ul>
-                                <a class="uk-button" href="page-pizza-builder.html"> <span>Đặt bánh Pizza</span><img class="uk-margin-small-left" src="<?= CONTENT_URL ?>img/icons/pizza.png" alt="pizza"></a>
+                                <?php if (isset($_SESSION['user'])) { ?>
+                                    <div class="uk-inline">
+                                        <button class="user-name" href="<?= SITE_URL ?>account/">
+                                            Chào, Hiếu Minh <span data-uk-icon="user"></span>
+                                        </button>
+                                        <div uk-dropdown="mode: click" class="user-dropdown">
+                                            <ul class="user-list">
+                                                <li class="user-item">
+                                                    <a href="" class="user-item-link">Đăng nhập</a>
+                                                </li>
+                                                <li class="user-item">
+                                                    <a href="" class="user-item-link">Đăng ký</a>
+                                                </li>
+                                                <li class="user-item">
+                                                    <a href="" class="user-item-link">Đăng xuất</a>
+                                                </li>
+                                            </ul>
+                                        </div>
+                                    </div>
+                                <?php } else { ?>
+                                    <div class="uk-inline">
+                                        <a class="user-name" href="<?= SITE_URL ?>account/">Đăng nhập</span>
+                                        </a>
+                                    </div>
+                                <?php } ?>
                             </div>
                         </div>
                     </div>

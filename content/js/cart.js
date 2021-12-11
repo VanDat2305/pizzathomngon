@@ -1,45 +1,47 @@
-// Xử lý ajax add to cart trang show nhiều sp
-$('.add-to-cart').click(function(e) {
-    e.preventDefault();
-    // Lấy id_option
-    var box_option_id = $(this).parent();
-    var option_id = box_option_id.children('.option_ajax:checked').val();
-    var quantity_session = $('#quantity_session').html();
-    $('#quantity_session').html(Number(quantity_session) + 1);
+function addCart() {
+    // Xử lý ajax add to cart trang show nhiều sp
+    $('.add-to-cart').click(function(e) {
+        e.preventDefault();
+        // Lấy id_option
+        var box_option_id = $(this).parent();
+        var option_id = box_option_id.children('.option_ajax:checked').val();
+        var quantity_session = $('#quantity_session').html();
+        $('#quantity_session').html(Number(quantity_session) + 1);
 
-    // Lấy id extra (topping)
+        // Lấy id extra (topping)
 
-    var extra_id = box_option_id
-        .parent()
-        .parent()
-        .children('.product-item__intro')
-        .children('.product-item__active')
-        .children('.row')
-        .children('label')
-        .children('input');
-    // console.dir(extra_id);
-    var arrExtra_id = [];
-    for (let i = 0; i < extra_id.length; i++) {
-        let element = extra_id[i];
-        // Lấy những thằng nào được checked
-        if (element.checked == true) {
-            arrExtra_id.push(Number(element.value));
+        var extra_id = box_option_id
+            .parent()
+            .parent()
+            .children('.product-item__intro')
+            .children('.product-item__active')
+            .children('.row')
+            .children('label')
+            .children('input');
+        // console.dir(extra_id);
+        var arrExtra_id = [];
+        for (let i = 0; i < extra_id.length; i++) {
+            let element = extra_id[i];
+            // Lấy những thằng nào được checked
+            if (element.checked == true) {
+                arrExtra_id.push(Number(element.value));
+            }
         }
-    }
-    // Gửi dữ liệu
-    $.post(
-        '../../site/cart/add_to_cart.php', {
-            option_id: option_id,
-            extra_id: arrExtra_id,
-        }
-        //   function (response) {
-        //     // console.log(response) {);
-        //     var giohang = $("#count_cart");
-        //     giohang.text(response);
-        //   }
-    );
-});
-
+        // Gửi dữ liệu
+        $.post(
+            '../../site/cart/add_to_cart.php', {
+                option_id: option_id,
+                extra_id: arrExtra_id,
+            }
+            //   function (response) {
+            //     // console.log(response) {);
+            //     var giohang = $("#count_cart");
+            //     giohang.text(response);
+            //   }
+        );
+    });
+}
+addCart();
 // Xử lý ajax add to cart trang chi tiết sp
 
 $('#add-to-cart_detail').click(function(e) {

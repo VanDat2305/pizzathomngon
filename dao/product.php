@@ -106,7 +106,7 @@ function product_select_all()
  */
 function product_select_top10()
 {
-    $sql = "SELECT * FROM tbl_products pro JOIN tbl_categories cate ON pro.category_id = cate.category_id order by pro.count_view LIMIT 10";
+    $sql = "SELECT * FROM tbl_products pro JOIN tbl_categories cate ON pro.category_id = cate.category_id order by pro.count_view DESC LIMIT 10";
     return pdo_query($sql);
 }
 
@@ -155,6 +155,7 @@ function product_select_by_option_id($option_id)
     $sql = "SELECT * FROM tbl_options op JOIN tbl_products p ON op.product_id = p.product_id WHERE option_id = ?";
     return pdo_query_one($sql, $option_id);
 }
+
 /**
  * truy van tat ca option
  */
@@ -162,6 +163,37 @@ function option_select_all()
 {
     $sql = "SELECT * FROM tbl_options";
     return pdo_query($sql);
+}
+/**
+ *================================================================ loc san pham =====================================================================
+ */
+function product_select_by_filter_price($from_price, $to_price)
+{
+    $sql = "SELECT * FROM tbl_options op JOIN tbl_products p ON op.product_id = p.product_id WHERE op.option_price >= ? and op.option_price <= ?";
+
+    return pdo_query($sql, $from_price, $to_price);
+}
+function product_select_by_filter_date()
+{
+    $sql = "SELECT * FROM tbl_options op JOIN tbl_products p ON op.product_id = p.product_id ORDER BY p.created_at DESC";
+
+    return pdo_query($sql);
+}
+function product_select_by_order_price($orderby)
+{
+    $sql = "SELECT * FROM tbl_options op JOIN tbl_products p ON op.product_id = p.product_id ORDER BY op.option_price $orderby";
+
+    return pdo_query($sql);
+}
+function product_select_max_price()
+{
+    $sql = "SELECT MAX(option_price) FROM tbl_options";
+    return pdo_query_value($sql);
+}
+function product_select_min_price()
+{
+    $sql = "SELECT MIN(option_price) FROM tbl_options";
+    return pdo_query_value($sql);
 }
 /**
  * truy van gallery
