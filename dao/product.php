@@ -169,19 +169,19 @@ function option_select_all()
  */
 function product_select_by_filter_price($from_price, $to_price)
 {
-    $sql = "SELECT * FROM tbl_options op JOIN tbl_products p ON op.product_id = p.product_id WHERE op.option_price >= ? and op.option_price <= ?";
+    $sql = "SELECT * FROM tbl_options op JOIN tbl_products p ON op.product_id = p.product_id  WHERE op.option_price >= ? and op.option_price <= ? GROUP BY p.product_id";
 
     return pdo_query($sql, $from_price, $to_price);
 }
 function product_select_by_filter_date()
 {
-    $sql = "SELECT * FROM tbl_options op JOIN tbl_products p ON op.product_id = p.product_id ORDER BY p.created_at DESC";
+    $sql = "SELECT * FROM tbl_options op JOIN tbl_products p ON op.product_id = p.product_id GROUP BY p.product_id ORDER BY p.created_at DESC";
 
     return pdo_query($sql);
 }
 function product_select_by_order_price($orderby)
 {
-    $sql = "SELECT * FROM tbl_options op JOIN tbl_products p ON op.product_id = p.product_id ORDER BY op.option_price $orderby";
+    $sql = "SELECT * FROM tbl_options op JOIN tbl_products p ON op.product_id = p.product_id GROUP BY p.product_id ORDER BY op.option_price $orderby";
 
     return pdo_query($sql);
 }
