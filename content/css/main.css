@@ -6433,7 +6433,6 @@ body.dm-light .pan-loader .shadow {
     display: none;
 }
 
-
 .user-name {
     padding: 10px;
     background-color: transparent;
@@ -6655,10 +6654,10 @@ input[type='range']::-webkit-slider-thumb {
     border: 0 none;
     background-color: red;
     -webkit-appearance: none;
+}
 
-.imgccc{
+.imgccc {
     width: 50%;
     margin-left: auto;
     margin-right: auto;
-
 }
