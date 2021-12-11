@@ -81,6 +81,13 @@
     </div>
 </footer>
 </div>
+<!-- Toast add to cart -->
+<div id="simpleToast">
+    <h3>Đã thêm vào giỏ hàng</h3>
+    <div>
+        <span uk-icon="icon: check; ratio: 3.5"></span>
+    </div>
+</div>
 
 <script src="<?= CONTENT_URL ?>js/jquery-3.6.0.min.js"></script>
 <script src="<?= CONTENT_URL ?>js/uikit.min.js"></script>

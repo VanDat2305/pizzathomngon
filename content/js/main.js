@@ -130,7 +130,7 @@ $(document).ready(function() {
 
 // // Xử lý trang show sản phẩm
 
-$(document).ready(function() {
+function load_price() {
     //Mặc định chưa chọn thì sẽ lấy cái này
 
     // Mảng chứa giá ban đầu
@@ -217,12 +217,168 @@ $(document).ready(function() {
             $('.option_stt' + j).attr('checked', 'true');
         });
     }
+}
+load_price();
+
+// =====================click vào add to cart hiển thị ra popup
+function popupAddCart() {
+    $('.add-to-cart').click(function(e) {
+        e.preventDefault();
+        var x = document.getElementById('simpleToast');
+        x.className = 'show';
+
+        setTimeout(function() {
+            x.className = x.className.replace('show', '');
+        }, 1500);
+    });
+
+    $('#add-to-cart_detail').click(function(e) {
+        e.preventDefault();
+        var x = document.getElementById('simpleToast');
+        x.className = 'show';
+
+        setTimeout(function() {
+            x.className = x.className.replace('show', '');
+        }, 1500);
+    });
+}
+popupAddCart();
+// ======================filter input range 2 values =====================
+var inputLeft = document.getElementById('input-left');
+var inputRight = document.getElementById('input-right');
+
+var thumbLeft = document.querySelector('.slider > .thumb.left');
+var thumbRight = document.querySelector('.slider > .thumb.right');
+var range = document.querySelector('.slider > .range');
+
+function setLeftValue() {
+    var _this = inputLeft,
+        min = parseInt(_this.min),
+        max = parseInt(_this.max);
+
+    _this.value = Math.min(
+        parseInt(_this.value),
+        parseInt(inputRight.value) - 1
+    );
+
+    var percent = ((_this.value - min) / (max - min)) * 100;
+
+    thumbLeft.style.left = percent + '%';
+    range.style.left = percent + '%';
+}
+setLeftValue();
+
+function setRightValue() {
+    var _this = inputRight,
+        min = parseInt(_this.min),
+        max = parseInt(_this.max);
+
+    _this.value = Math.max(
+        parseInt(_this.value),
+        parseInt(inputLeft.value) + 1
+    );
+
+    var percent = ((_this.value - min) / (max - min)) * 100;
+
+    thumbRight.style.right = 100 - percent + '%';
+    range.style.right = 100 - percent + '%';
+}
+setRightValue();
+
+inputLeft.addEventListener('input', setLeftValue);
+inputRight.addEventListener('input', setRightValue);
+
+inputLeft.addEventListener('mouseover', function() {
+    thumbLeft.classList.add('hover');
+});
+inputLeft.addEventListener('mouseout', function() {
+    thumbLeft.classList.remove('hover');
+});
+inputLeft.addEventListener('mousedown', function() {
+    thumbLeft.classList.add('active');
+});
+inputLeft.addEventListener('mouseup', function() {
+    thumbLeft.classList.remove('active');
 });
 
-// // =====================click vào add to cart hiển thị ra popup
-// $(document).ready(function() {
-//     $('.add-to-cart').click(function(e) {
-//         e.preventDefault();
-//         console.log(window);
-//     });
-// });
+inputRight.addEventListener('mouseover', function() {
+    thumbRight.classList.add('hover');
+});
+inputRight.addEventListener('mouseout', function() {
+    thumbRight.classList.remove('hover');
+});
+inputRight.addEventListener('mousedown', function() {
+    thumbRight.classList.add('active');
+});
+inputRight.addEventListener('mouseup', function() {
+    thumbRight.classList.remove('active');
+});
+
+// ===================================Ajax filter product================================
+$(document).ready(function() {
+    $('#input-left').on('change', function(e) {
+        var from_price = $(this).val();
+        var to_price = $('#input-right').val();
+
+        var from_price_formated = formatPrice(from_price);
+
+        var action = 'filter_by_range';
+
+        $('#from-price').html(from_price_formated);
+
+        $.post(
+            '../../site/product/ajax_filter_product.php', {
+                action: action,
+                from_price: from_price,
+                to_price: to_price,
+            },
+            function(response) {
+                $('#ajax-filter').html(response);
+                load_price();
+                addCart();
+                popupAddCart();
+            }
+        );
+    });
+
+    $('#input-right').on('change', function(e) {
+        var from_price = $('#input-left').val();
+        var to_price = $(this).val();
+        var to_price_formated = formatPrice(to_price);
+
+        var action = 'filter_by_range';
+        $('#to-price').html(to_price_formated);
+
+        $.post(
+            '../../site/product/ajax_filter_product.php', {
+                action: action,
+                from_price: from_price,
+                to_price: to_price,
+            },
+            function(response) {
+                $('#ajax-filter').html(response);
+                load_price();
+                addCart();
+                popupAddCart();
+            }
+        );
+    });
+
+    $('#filter_product_select').on('change', function(e) {
+        e.preventDefault();
+
+        var action = $(this).val();
+        console.log(action);
+        $.post(
+            '../../site/product/ajax_filter_product.php', {
+                action: action,
+            },
+            function(response) {
+                $('#ajax-filter').html(response);
+                load_price();
+                addCart();
+                popupAddCart();
+            }
+        );
+    });
+});
