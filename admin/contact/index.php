@@ -1,6 +1,7 @@
 <?php
 require_once "../../global.php";
 require "../../dao/contact.php";
+check_role_admin();
 extract($_REQUEST);
 
 if (exist_param("btn_insert")) {

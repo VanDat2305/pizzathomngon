@@ -26,9 +26,9 @@ if (isset($_SESSION['user'])) {
                 }
                 $_SESSION["user"] = $user;
 
-                $role =  $user['role_id'] != 3 ? "" : "nhân viên ";
+                $role =  $user['role_id'] == 1 ? "Quản trị viên" : ($user['role_id'] == 2 ? "Nhân viên" : "Thành viên");
                 echo "<script>
-                         alert('Đăng nhập tài khoản " . $role . "thành công!'); 
+                         alert('Đăng nhập tài khoản " . $role . " thành công!'); 
                          location.href='http://localhost:" . BASE_URL . "';
                     </script>";
             } else {
@@ -58,8 +58,7 @@ if (isset($_SESSION['user'])) {
                         </div>';
         } else {
 
-            // $file_name = save_file("up_hinh", "$UPLOAD_URL/users/");
-            // $hinh = $file_name ? $file_name : "";
+            
             try {
                 $created_at =  date_format(date_create(), 'Y-m-d H:i:s');
                 user_insert_view($username, $password, $fullname, $email, $created_at, $role_id = 3);
@@ -87,8 +86,8 @@ if (isset($_SESSION['user'])) {
         if (exist_param("btn_logout")) {
             unset($_SESSION['user']);
         }
-        $ma_kh = get_cookie("ma_kh");
-        $mat_khau = get_cookie("mat_khau");
+        $ma_kh = get_cookie("username");
+        $mat_khau = get_cookie("password");
     }
 }
 

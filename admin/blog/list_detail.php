@@ -1,7 +1,7 @@
 <h3 class="alert alert-secondary">Chi tiết thành viên</h3>
 <div class="row">
     <?php extract($item) ?>
-    <div class="col-lg-8 col-md p-8">
+    <div class="col-10 p-8">
         <div class="table-responsive">
             <table class="table table-hover text-left " width="100%">
                 <tbody>
@@ -11,7 +11,7 @@
                     </tr>
                     <tr>
                         <th>Ảnh</th>
-                        <td><img src="<?= CONTENT_URL.'img/blog/'. $blog_image?>" width="100%" alt=""></td>
+                        <td><img src="<?= CONTENT_URL.'img/blog/'. $blog_image?>" width="50%" alt=""></td>
                     </tr>
                     <tr>
                         <th>Nội dung bài viết</th>

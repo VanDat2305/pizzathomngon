@@ -3,11 +3,12 @@ require_once "pdo.php";
 /**
  * Them moi
  */
-function blog_insert($blog_title, $blog_content, $blog_image, $create_at, $status)
+function blog_insert($blog_title, $blog_content, $blog_image, $create_at, $status, $view)
 {
     $status = 0;
-    $sql = "INSERT INTO tbl_blog( `blog_title`, `blog_content`, `blog_image`, `create_at`, `status`) VALUES (?,?,?,?,b?)";
-    pdo_execute($sql, $blog_title, $blog_content, $blog_image, $create_at, $status);
+    $view = 0;
+    $sql = "INSERT INTO tbl_blog( `blog_title`, `blog_content`, `blog_image`, `create_at`, `status`, `view`) VALUES (?,?,?,?,b?,?b)";
+    pdo_execute($sql, $blog_title, $blog_content, $blog_image, $create_at, $status, $view);
 }
 
 /**
@@ -38,6 +39,15 @@ function blog_delete($blog_id)
 function blog_select_all()
 {
     $sql = "SELECT * FROM tbl_blog order by blog_id";
+    return pdo_query($sql);
+}function blog_select_view()
+{
+    $sql = "SELECT * FROM tbl_blog where `status` = 1 order by view LIMIT 0,5";
+    return pdo_query($sql);
+}
+function blog_select_satus()
+{
+    $sql = "SELECT * FROM tbl_blog where `status` = 1 order by blog_id ";
     return pdo_query($sql);
 }
 /**

@@ -20,7 +20,7 @@
                         echo "<tr>" . $MESSAGE . "</tr>";
                     } ?>
                     <tr>
-                        <th>Mã loại</th>
+                        <th >ID</th>
                         <th> Tên Loại</th>
                         <th>Hành động</th>
                     </tr>

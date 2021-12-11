@@ -41,7 +41,7 @@
                                 <img class="uk-margin-small-left" src="<?= CONTENT_URL ?>img/icons/pizza.png" alt="pizza">
                             </a>
                             <ul class="uk-navbar-nav">
-                                <li><a href="<?= SITE_URL ?>post/index.php?blog">Blog</a></li>
+                                <li><a href="<?= SITE_URL ?>blog/index.php?blog">Blog</a></li>
                                 <li><a href="<?= SITE_URL ?>contact/index.php?contact">Liên hệ</a></li>
                             </ul>
                         </div>
