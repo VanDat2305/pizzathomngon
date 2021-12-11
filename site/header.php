@@ -88,18 +88,18 @@
                                 <?php if (isset($_SESSION['user'])) { ?>
                                     <div class="uk-inline">
                                         <button class="user-name" href="<?= SITE_URL ?>account/">
-                                            Chào, Hiếu Minh <span data-uk-icon="user"></span>
+                                            Chào, <?= $_SESSION['user']['username'] ?> <span data-uk-icon="user"></span>
                                         </button>
                                         <div uk-dropdown="mode: click" class="user-dropdown">
                                             <ul class="user-list">
                                                 <li class="user-item">
-                                                    <a href="" class="user-item-link">Tài khoản của tôi</a>
+                                                    <a href="<?= SITE_URL ?>account/account.php?profile" class="user-item-link">Tài khoản</a>
                                                 </li>
                                                 <li class="user-item">
-                                                    <a href="" class="user-item-link">Đơn hàng của tôi</a>
+                                                    <a href="<?= SITE_URL ?>account/account.php?order" class="user-item-link">Đơn hàng</a>
                                                 </li>
                                                 <li class="user-item">
-                                                    <a href="" class="user-item-link">Đăng xuất</a>
+                                                    <a href="<?= SITE_URL ?>account/index.php?btn_logout" class="user-item-link">Đăng xuất</a>
                                                 </li>
                                             </ul>
                                         </div>

@@ -7,7 +7,16 @@ require_once "../../dao/user.php";
 extract($_REQUEST);
 
 if (isset($_SESSION['user'])) {
-    $VIEW_NAME = "account.php";
+
+    if (exist_param("btn_logout")) {
+
+
+        unset($_SESSION['user']);
+
+
+
+        $VIEW_NAME = "form.php";
+    }
 } else {
     $VIEW_NAME = "form.php";
 
@@ -46,48 +55,47 @@ if (isset($_SESSION['user'])) {
     }
     //Đăng ký
     elseif (exist_param("btn_signup")) {
-        if ($password != $password2) {
-            $MESSAGE = '<div class="uk-alert-danger" uk-alert>
-                            <a class="uk-alert-close" uk-close></a>
-                            <h>Mật khẩu phải trùng nhau!</h>
-                        </div>';
-        } elseif (user_exist_name($username)) {
-            $MESSAGE = '<div class="uk-alert-danger" uk-alert>
-                            <a class="uk-alert-close" uk-close></a>
-                            <h>Tên đăng nhập đã tồn tại</h>
-                        </div>';
-        } else {
+        if ($fullname != "" || $email != "" || $username != "" || $password != "" || $password2 != "") {
 
-            
-            try {
-                $created_at =  date_format(date_create(), 'Y-m-d H:i:s');
-                user_insert_view($username, $password, $fullname, $email, $created_at, $role_id = 3);
-
-                $_SESSION['account']['username'] = $username;
-                $_SESSION['account']['password'] = $password;
-
-                $MESSAGE = '<div class="uk-alert-success" uk-alert>
-                                <a class="uk-alert-close" uk-close></a>
-                                <h>Đăng ký thành viên thành công!</h>
-                            </div>';
-                $VIEW_NAME = "form.php";
-            } catch (Exception $exc) {
+            if ($password != $password2) {
                 $MESSAGE = '<div class="uk-alert-danger" uk-alert>
                                 <a class="uk-alert-close" uk-close></a>
-                                <h>Đăng ký thành viên thất bại!</h>
+                                <h>Mật khẩu phải trùng nhau!</h>
                             </div>';
-                // }
-            }
-        }
-    }
-    // Đăng xuất
-    else {
+            } elseif (user_exist_name($username)) {
+                $MESSAGE = '<div class="uk-alert-danger" uk-alert>
+                                <a class="uk-alert-close" uk-close></a>
+                                <h>Tên đăng nhập đã tồn tại</h>
+                            </div>';
+            } else {
 
-        if (exist_param("btn_logout")) {
-            unset($_SESSION['user']);
+
+                try {
+                    $created_at =  date_format(date_create(), 'Y-m-d H:i:s');
+                    user_insert_view($username, $password, $fullname, $email, $created_at, $role_id = 3);
+
+                    $_SESSION['user']['username'] = $username;
+                    $_SESSION['user']['password'] = $password;
+
+                    $MESSAGE = '<div class="uk-alert-success" uk-alert>
+                                    <a class="uk-alert-close" uk-close></a>
+                                    <h>Đăng ký thành viên thành công!</h>
+                                </div>';
+                    $VIEW_NAME = "form.php";
+                } catch (Exception $exc) {
+                    $MESSAGE = '<div class="uk-alert-danger" uk-alert>
+                                    <a class="uk-alert-close" uk-close></a>
+                                    <h>Đăng ký thành viên thất bại!</h>
+                                </div>';
+                    // }
+                }
+            }
+        } else {
+            $MESSAGE = '<div class="uk-alert-danger" uk-alert>
+                            <a class="uk-alert-close" uk-close></a>
+                            <h>Không được để trống!</h>
+                        </div>';
         }
-        $ma_kh = get_cookie("username");
-        $mat_khau = get_cookie("password");
     }
 }
 

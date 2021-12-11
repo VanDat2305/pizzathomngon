@@ -15,17 +15,24 @@
                             <!-- Form đăng nhập -->
                             <li>
                                 <h3 class="uk-card-title uk-text-center">Vui lòng đăng nhập!</h3>
-                                <form method="POST">
+                                <form method="POST" id="form_login">
                                     <div class="uk-margin">
                                         <div class="uk-inline uk-width-1-1">
                                             <span class="uk-form-icon" uk-icon="icon: mail"></span>
-                                            <input class="uk-input uk-form-large" type="text" name="username" placeholder="Tên tài khoản" value="<?= isset($_SESSION['account']['username']) ? $_SESSION['account']['username'] : '' ?>">
+                                            <?php if (isset($_SESSION['user'])) {
+                                                $username =  isset($_SESSION['user']['username']) ? $_SESSION['user']['username'] : '';
+                                                $password = isset($_SESSION['user']['password']) ? $_SESSION['user']['password'] : '';
+                                            } else {
+                                                $username = get_cookie("username");
+                                                $password = get_cookie("password");
+                                            } ?>
+                                            <input class="uk-input uk-form-large" type="text" name="username" placeholder="Tên tài khoản" value="<?= $username ?>">
                                         </div>
                                     </div>
                                     <div class="uk-margin">
                                         <div class="uk-inline uk-width-1-1">
                                             <span class="uk-form-icon" uk-icon="icon: lock"></span>
-                                            <input class="uk-input uk-form-large" type="password" name="password" placeholder="Mật khẩu" value="<?= isset($_SESSION['account']['password']) ? $_SESSION['account']['password'] : '' ?>">
+                                            <input class="uk-input uk-form-large" type="password" name="password" placeholder="Mật khẩu" value="<?= $password ?>">
                                         </div>
                                     </div>
                                     <div class="uk-margin uk-text-right@s uk-text-center uk-text-small">
@@ -49,7 +56,7 @@
                             <!-- Form đăng ký -->
                             <li>
                                 <h3 class="uk-card-title uk-text-center">Đăng ký và nhận ưu đãi</h3>
-                                <form method="POST">
+                                <form method="POST" id="form_signup">
                                     <div class="uk-margin">
                                         <div class="uk-inline uk-width-1-1">
                                             <span class="uk-form-icon" uk-icon="icon: user"></span>
@@ -79,9 +86,6 @@
                                             <span class="uk-form-icon" uk-icon="icon: lock"></span>
                                             <input class="uk-input uk-form-large" type="password" placeholder="Xác nhận mật khẩu" name="password2">
                                         </div>
-                                    </div>
-                                    <div class="uk-margin uk-grid-small uk-child-width-auto uk-grid">
-                                        <label><input class="uk-checkbox" type="checkbox"> Tôi đồng ý với các Điều khoản và Điều kiện.</label>
                                     </div>
                                     <div class="uk-margin">
                                         <button class="uk-button uk-button-primary uk-button-large uk-width-1-1" type="submit" name="btn_signup">Đăng ký</button>

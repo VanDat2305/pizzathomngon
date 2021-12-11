@@ -6456,7 +6456,7 @@ body.dm-light .pan-loader .shadow {
     padding: 0 10px;
     max-width: fit-content;
     background-color: #211e1e;
-    box-shadow: 4px 4px 12px #fff, 4px -4px 12px #fff, -4px 4px 12px #fff, -4px -4px 12px #fff;
+    box-shadow: 4px 4px 6px #ccc, 4px -4px 6px #ccc, -4px 4px 6px #ccc, -4px -4px 6px #ccc;
     min-width: 100%;
 }
 
