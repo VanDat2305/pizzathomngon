@@ -98,12 +98,23 @@ function  postInput($string)
 }
 function check_role()
 {
+
     if (isset($_SESSION['user'])) {
-        if ($_SESSION['user']['role'] == 1) {
+        
+        if ($_SESSION['user']['role_id'] == 1 || $_SESSION['user']['role_id'] == 2) {
             return;
         }
     }
-    $_SESSION['name_page'] = 'trang_chu';
-    header("location: " . SITE_URL . "account/login.php");
+    header("location: " . SITE_URL . "account/index.php");
+    die;
+}
+function check_role_admin(){
+    if (isset($_SESSION['user'])) {
+        
+        if ($_SESSION['user']['role_id'] == 1 ) {
+            return;
+        }
+    }
+    header("location: " . ADMIN_URL );
     die;
 }

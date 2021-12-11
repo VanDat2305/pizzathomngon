@@ -1,4 +1,6 @@
-<?php require_once "../../global.php" ?>
+<?php require_once "../../global.php";
+check_role();
+?>
 <!doctype html>
 <html lang="en">
 
@@ -62,6 +64,8 @@
     <script src="<?= CONTENT_URL ?>js/dashboard.js"></script>
     <script src="<?= CONTENT_URL ?>js/validate_admin.js"></script>
     <script src="<?= CONTENT_URL ?>js/multi_option.js"></script>
+    <script src="<?= CONTENT_URL ?>js/Chart.min.js"></script>
     <script src="<?= CONTENT_URL ?>js/ajax.js"></script>
 </body>
+
 </html>

@@ -1,6 +1,7 @@
 <?php
 require_once "../../global.php";
 require "../../dao/feedback.php";
+check_role_admin();
 extract($_REQUEST);
 
 if (exist_param("btn_delete_all")) {

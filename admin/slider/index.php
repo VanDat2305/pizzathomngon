@@ -1,6 +1,7 @@
 <?php
 require_once "../../global.php";
 require "../../dao/slider.php";
+check_role_admin();
 extract($_REQUEST);
 if (exist_param("btn_insert")) {
     $up_slide_image = save_file("slide_image", "$IMAGE_DIR/banners/");

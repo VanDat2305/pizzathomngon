@@ -47,36 +47,37 @@ $array_url =  explode('/', $_SERVER['REQUEST_URI']);
             <a href="<?= ADMIN_URL ?>blog/" class="list <?= in_array("blog", $array_url) ? "active" : "" ?>">
                 <span class="fas fa-book-open"></span><span>Quản lý bài viết</span></a>
         </li>
-        <li>
-            <a href="<?= ADMIN_URL ?>/feedback" class="list <?= in_array("feedback", $array_url) ? "active" : "" ?>">
-                <span class="fas fa-address-book"></span><span>Quản lý phản hồi</span></a>
-        </li>
-        <li>
-            <a href="<?= ADMIN_URL ?>contact/" class="list <?= in_array("contact", $array_url) ? "active" : "" ?>">
-                <span class="fas fa-phone-square-alt"></span><span>Quản lý liên hệ</span></a>
-        </li>
-        <li>
-            <a href="<?= ADMIN_URL ?>users/" class="list <?= in_array("users", $array_url) ? "active" : "" ?>">
-                <span class="fas fa-user-friends"></span><span>Quản lý thành viên</span></a>
-        </li>
+        <?php if ($_SESSION['user']['role_id'] == 1) { ?>
+            <li>
+                <a href="<?= ADMIN_URL ?>/feedback" class="list <?= in_array("feedback", $array_url) ? "active" : "" ?>">
+                    <span class="fas fa-address-book"></span><span>Quản lý phản hồi</span></a>
+            </li>
+            <li>
+                <a href="<?= ADMIN_URL ?>contact/" class="list <?= in_array("contact", $array_url) ? "active" : "" ?>">
+                    <span class="fas fa-phone-square-alt"></span><span>Quản lý liên hệ</span></a>
+            </li>
+            <li>
+                <a href="<?= ADMIN_URL ?>users/" class="list <?= in_array("users", $array_url) ? "active" : "" ?>">
+                    <span class="fas fa-user-friends"></span><span>Quản lý thành viên</span></a>
+            </li>
 
-        <li>
-            <a href="#imagemanager" data-bs-toggle="collapse" aria-expanded="false" class="dropdown-toggle no-caret-down"><i class="fas fa-layer-group"></i> Hình ảnh <i class="fas fa-angle-down"></i></a>
-            <ul class="collapse list-unstyled" id="imagemanager">
-                <li>
-                    <a href="<?= ADMIN_URL ?>logo/" class="list <?= in_array("logo", $array_url) ? "active" : "" ?>">
-                        <span class="fas fa-folder-open"></span><span>Quản lý logo</span></a>
-                </li>
-                <li>
-                    <a href="<?= ADMIN_URL ?>slider/" class="list <?= in_array("slider", $array_url) ? "active" : "" ?>">
-                        <span class="fas fa-images"></span><span>Quản lý banner</span></a>
-                </li>
-            </ul>
-        </li>
-        <li>
-            <a href="<?= ADMIN_URL ?>chart/" class="list <?= in_array("chart", $array_url) ? "active" : "" ?>">
-                <span class="fas fa-chart-bar"></span><span>Thống kê</span></a>
-        </li>
-
+            <li>
+                <a href="#imagemanager" data-bs-toggle="collapse" aria-expanded="false" class="dropdown-toggle no-caret-down"><i class="fas fa-layer-group"></i> Hình ảnh <i class="fas fa-angle-down"></i></a>
+                <ul class="collapse list-unstyled" id="imagemanager">
+                    <li>
+                        <a href="<?= ADMIN_URL ?>logo/" class="list <?= in_array("logo", $array_url) ? "active" : "" ?>">
+                            <span class="fas fa-folder-open"></span><span>Quản lý logo</span></a>
+                    </li>
+                    <li>
+                        <a href="<?= ADMIN_URL ?>slider/" class="list <?= in_array("slider", $array_url) ? "active" : "" ?>">
+                            <span class="fas fa-images"></span><span>Quản lý banner</span></a>
+                    </li>
+                </ul>
+            </li>
+            <li>
+                <a href="<?= ADMIN_URL ?>chart/" class="list <?= in_array("chart", $array_url) ? "active" : "" ?>">
+                    <span class="fas fa-chart-bar"></span><span>Thống kê</span></a>
+            </li>
+        <?php } ?>
     </ul>
 </nav>

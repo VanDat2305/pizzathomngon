@@ -1,5 +1,5 @@
 <?php
-
+define("TAX", 0.07);
 /**
  * Mở kết nối đến CSDL sử dụng PDO
  */

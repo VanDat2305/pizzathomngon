@@ -14,7 +14,6 @@
                         <th>Chi tiết</th>
                         <th>Thời gian đăng</th>
                         <th>Trạng thái</th>
-                        <th>Hành động</th>
                         <th><a href="?form_insert" class="btn btn-dark">Thêm mới</a></th>
                     </tr>
                 </thead>
@@ -39,7 +38,7 @@
                             </td>
                         </tr>
                     <?php } ?>
-                </tbody>`
+                </tbody>
             </table>
         </div>
     </div>

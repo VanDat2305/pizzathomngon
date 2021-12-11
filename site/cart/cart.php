@@ -27,7 +27,7 @@
                                             <?php $total_extra = 0 ?>
                                             <?php if (isset($c['extra_topping'])) { ?>
                                                 <?php foreach ($_SESSION['cart'][$c['option_id']]['extra_topping'] as $e) { ?>
-                                                    <li><?= $e['extra_name'] ?> ( <?= number_format($e['extra_price'], 0, ',') ?> đ),</li>
+                                                    <li><?= $e['extra_name'] ?> ( <?= number_format($e['extra_price'], 0, ',','.') ?> đ),</li>
                                                     <?php $total_extra += $e['extra_price'] ?>
                                                 <?php } ?>
                                             <?php } ?>
@@ -36,8 +36,8 @@
 
                                 </td>
                                 <td>
-                                    <del> <?= number_format($c['option_price'], 0, ',') ?> đ</del>
-                                    <div> <?= number_format(($c['option_price'] * (100 - $c['discount']) / 100), 0, ',') ?> đ</div>
+                                    <del> <?= number_format($c['option_price'], 0, ',','.') ?> đ</del>
+                                    <div> <?= number_format(($c['option_price'] * (100 - $c['discount']) / 100), 0, ',','.') ?> đ</div>
 
                                     <?php $option_price = ($c['option_price'] * (100 - $c['discount']) / 100) ?>
                                 </td>
@@ -57,7 +57,7 @@
                                 </td>
                                 <td>
                                     <?php $total = $total_unit * $c['quantity'] ?>
-                                    <div class="total_unit"><?= number_format($total, 0, ',') ?> đ</div>
+                                    <div class="total_unit"><?= number_format($total, 0, ',','.') ?> đ</div>
                                 </td>
                                 <td>
                                     <button class="remove_cart_unit" uk-icon="trash" value="<?= $c['option_id'] ?>"></button>

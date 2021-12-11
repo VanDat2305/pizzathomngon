@@ -1,7 +1,7 @@
 <?php
 require_once "../../global.php";
 require_once "../../dao/user.php";
-
+check_role_admin();
 extract($_REQUEST);
 if (exist_param("form_insert")) {
     $list_role = role_select_all();

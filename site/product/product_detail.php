@@ -13,7 +13,7 @@ extract($_REQUEST);
 // Tăng số lượt xem lên 1
 product_update_view($product_id);
 
-if ($_SESSION['user']) {
+if (isset($_SESSION['user'])) {
     $user_id = $_SESSION['user']['user_id'];
 
     $comment_exist_product = comment_exist_product($product_id, $user_id);
