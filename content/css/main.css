@@ -6454,7 +6454,7 @@ body.dm-light .pan-loader .shadow {
 .user-dropdown {
     border-radius: 4px;
     padding: 0 10px;
-    width: fit-content;
+    max-width: fit-content;
     background-color: #211e1e;
     box-shadow: 4px 4px 12px #fff, 4px -4px 12px #fff, -4px 4px 12px #fff, -4px -4px 12px #fff;
     min-width: 100%;

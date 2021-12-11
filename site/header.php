@@ -93,10 +93,10 @@
                                         <div uk-dropdown="mode: click" class="user-dropdown">
                                             <ul class="user-list">
                                                 <li class="user-item">
-                                                    <a href="" class="user-item-link">Đăng nhập</a>
+                                                    <a href="" class="user-item-link">Tài khoản của tôi</a>
                                                 </li>
                                                 <li class="user-item">
-                                                    <a href="" class="user-item-link">Đăng ký</a>
+                                                    <a href="" class="user-item-link">Đơn hàng của tôi</a>
                                                 </li>
                                                 <li class="user-item">
                                                     <a href="" class="user-item-link">Đăng xuất</a>

@@ -40,7 +40,8 @@ function blog_select_all()
 {
     $sql = "SELECT * FROM tbl_blog order by blog_id";
     return pdo_query($sql);
-}function blog_select_view()
+}
+function blog_select_view()
 {
     $sql = "SELECT * FROM tbl_blog where `status` = 1 order by view LIMIT 0,5";
     return pdo_query($sql);
