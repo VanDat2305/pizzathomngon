@@ -34,6 +34,7 @@ if (exist_param("action")) {
         <?php $stt_option1 = 0 ?>
         <?php $stt_option2 = 0 ?>
         <?php $stt_product = 0 ?>
+
         <?php foreach ($categories as $c) { ?>
             <?php foreach ($products as $p) { ?>
                 <?php if ($c['category_id'] == $p['category_id']) { ?>
