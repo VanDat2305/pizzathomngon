@@ -21,7 +21,7 @@
                         </div>
                         <div class="article-intro__bottom">
                             <div class="article-intro__tags"><i class="fas fa-tags"></i><span>Bếp trưởng hiếu đạt hiệp</span></div>
-                            <div class="article-intro__more"><a class="uk-button" href="<?= SITE_URL?>blog/index.php?btn_info&blog_id=<?= $blog[0]['blog_id'] ?>">Read More</a>
+                            <div class="article-intro__more"><a class="uk-button" href="<?= SITE_URL?>blog/index.php?btn_info&blog_id=<?= $blog[0]['blog_id'] ?>">Đọc thêm</a>
                             </div>
                         </div>
                     </div>
@@ -40,7 +40,7 @@
                         <form class="uk-search uk-search-default" action="#!"><button class="uk-search-icon-flip" data-uk-search-icon type="submit"></button><input class="uk-input uk-search-input uk-form-large" type="search" placeholder="Search blog ..."></form>
                     </div>
                     <div class="widjet widjet-list-articles">
-                        <div class="widjet__title">Popular Posts</div>
+                        <div class="widjet__title">BÀI VIẾT NỔI BẬT</div>
                         <ul class="list-articles">
                             <?php foreach ($viewbl as $u) {?>
                             <li class="list-articles-item">
