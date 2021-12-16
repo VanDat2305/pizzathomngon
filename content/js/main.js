@@ -229,7 +229,7 @@ function popupAddCart() {
 
         setTimeout(function() {
             x.className = x.className.replace('show', '');
-        }, 1500);
+        }, 1000);
     });
 
     $('#add-to-cart_detail').click(function(e) {
@@ -239,7 +239,7 @@ function popupAddCart() {
 
         setTimeout(function() {
             x.className = x.className.replace('show', '');
-        }, 1500);
+        }, 1000);
     });
 }
 popupAddCart();

@@ -6456,8 +6456,9 @@ body.dm-light .pan-loader .shadow {
     padding: 0 10px;
     max-width: fit-content;
     background-color: #211e1e;
-    box-shadow: 4px 4px 6px #ccc, 4px -4px 6px #ccc, -4px 4px 6px #ccc, -4px -4px 6px #ccc;
+    border: 1px solid #ccc;
     min-width: 100%;
+    box-shadow: 0 4px 8px #ccc;
 }
 
 .user-list {
@@ -6471,11 +6472,11 @@ body.dm-light .pan-loader .shadow {
     padding: 4px 8px;
     margin: 10px 0;
     border-radius: 4px;
-    box-shadow: inset 0 2px 4px #ff6600;
+    box-shadow: 0 2px 2px #6dc405;
 }
 
 .user-item:hover {
-    box-shadow: 0 4px 8px #00ad0e;
+    box-shadow: 0 4px 8px #6dc405;
 }
 
 .user-item-link {
@@ -6490,6 +6491,183 @@ body.dm-light .pan-loader .shadow {
 }
 
 
+/* =======================================account page===================== */
+
+.user-sidebar {
+    background-color: #333230;
+    border-radius: 8px;
+    padding: 10px;
+}
+
+.user-card--header {}
+
+.user-card-header__title {
+    color: #fff;
+    margin: 10px;
+}
+
+.user-card--img {
+    height: 100px;
+    width: 100px;
+    object-fit: cover;
+    border-radius: 50%;
+}
+
+.sidebar-user--item {
+    margin: 15px;
+}
+
+.sidebar-user--item__link {
+    font-size: 18px;
+    color: #fff;
+    display: block;
+    padding: 16px 0 16px 40px;
+    box-shadow: 2px 4px 4px #ff6600;
+    border-radius: 4px;
+    font-weight: 600;
+}
+
+.sidebar-user--item__link:hover {
+    text-decoration: none;
+    color: #fff;
+    box-shadow: 2px 8px 8px #ff6600;
+}
+
+.user-content {
+    background-color: #333230;
+    padding: 0 0 20px 0px;
+    border-radius: 8px;
+}
+
+#form-user-info {
+    padding: 0 40px;
+}
+
+.user-content__header {
+    padding: 20px;
+    background-color: #e9e9e9;
+    border-top-left-radius: 8px;
+    border-top-right-radius: 8px;
+    color: #000 !important;
+}
+
+
+/* box overflow */
+
+.user-order-list {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    overflow: auto;
+    max-height: 523px;
+}
+
+
+/* width */
+
+.user-order-list::-webkit-scrollbar {
+    width: 8px;
+}
+
+
+/* Track */
+
+.user-order-list::-webkit-scrollbar-track {
+    box-shadow: inset 0 0 5px grey;
+    border-radius: 10px;
+}
+
+
+/* Handle */
+
+.user-order-list::-webkit-scrollbar-thumb {
+    background: #ff6600;
+    border-radius: 10px;
+}
+
+
+/* Handle on hover */
+
+.user-order-list::-webkit-scrollbar-thumb:hover {
+    background: #ff6600;
+}
+
+.user-order-item {
+    margin: 20px;
+}
+
+.user-order--link {
+    text-decoration: none;
+    color: #000;
+    display: block;
+    background-color: #e9e9e9;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 2px 4px 12px #000;
+}
+
+.user-order--link:hover {
+    text-decoration: none;
+    color: #000;
+    box-shadow: 2px 4px 4px #ff6600;
+}
+
+.user-order--link-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 10px;
+}
+
+.user-order_id {
+    font-weight: 600;
+    font-size: 20px;
+}
+
+.user-order__address {
+    font-weight: 600;
+    font-size: 18px;
+}
+
+.user-order__time {
+    font-weight: 600;
+    font-size: 18px;
+}
+
+.user-order__total {
+    font-weight: 600;
+    font-size: 18px;
+}
+
+.user-order_detail-list {
+    list-style: none;
+    padding-left: 0;
+    margin: 0;
+}
+
+.user-order-box {
+    border-bottom: 1px solid #e5e5e5;
+    padding: 10px;
+}
+
+.user-order-box-total {
+    width: 300px;
+    margin-left: auto;
+    padding: 10px;
+}
+
+.user-order-box-item {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    grid-gap: 50px;
+    padding: 10px;
+}
+
+.user-order-box-item-total {
+    border-top: 1px solid #e5e5e5;
+}
+
+
 /* =================================Toast add to cart  */
 
 #simpleToast {
@@ -6498,7 +6676,7 @@ body.dm-light .pan-loader .shadow {
     width: fit-content;
     border-radius: 12px;
     color: #fff;
-    background-color: rgb(76, 175, 80, 0.8);
+    background-color: rgb(109, 196, 5, 0.7);
     text-align: center;
     padding: 16px;
     position: fixed;
@@ -6509,6 +6687,11 @@ body.dm-light .pan-loader .shadow {
     /* display: flex;
     justify-self: center;
     align-items: center; */
+}
+
+.simpleToast_title {
+    font-size: 20px;
+    font-weight: bold;
 }
 
 #simpleToast span {
@@ -6527,8 +6710,8 @@ body.dm-light .pan-loader .shadow {
     /* Show the SIMPLE-TOAST */
     /* Add animation: Take 0.5 seconds to fade in and out the SIMPLE-TOAST.
     However, delay the fade out process for 1 seconds */
-    -webkit-animation: fadein 0.5s, fadeout 0.5s 1.5s;
-    animation: fadein 0.5s, fadeout 0.5s 1.5s;
+    -webkit-animation: fadein 0.2s, fadeout 0.8s 1.5s;
+    animation: fadein 0.2s, fadeout 0.8s 1.5s;
 }
 
 

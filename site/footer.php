@@ -83,7 +83,7 @@
 </div>
 <!-- Toast add to cart -->
 <div id="simpleToast">
-    <h3>Đã thêm vào giỏ hàng</h3>
+    <div class="simpleToast_title">Đã thêm vào giỏ hàng</div>
     <div>
         <span uk-icon="icon: check; ratio: 3.5"></span>
     </div>
