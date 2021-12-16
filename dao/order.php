@@ -111,10 +111,10 @@ function order_select_by_id_status($status_id)
             FROM(
                 SELECT
                 total_option.order_id,
-                IFNULL((total_option.total_option + tbl_total_extra.total_extra),total_option.total_option) as total
+                IFNULL((total_option.total_option + tbl_total_extra.total_extra*total_option.quantity),total_option.total_option) as total
                 FROM(
                     SELECT 
-                    op.option_id, or_de.order_detail_id, or_de.order_id,
+                    op.option_id, or_de.order_detail_id, or_de.order_id, or_de.quantity,
                     (op.option_price * or_de.quantity)-((op.option_price * or_de.quantity)*(pro.discount/100)) as total_option 
                     FROM tbl_options op 
                     JOIN tbl_order_details or_de ON op.option_id = or_de.option_id 
@@ -162,10 +162,10 @@ function order_select_by_date($start_date, $end_date)
             FROM(
                 SELECT
                 total_option.order_id,
-                IFNULL((total_option.total_option + tbl_total_extra.total_extra),total_option.total_option) as total
+                IFNULL((total_option.total_option + tbl_total_extra.total_extra*total_option.quantity),total_option.total_option) as total
                 FROM(
                     SELECT 
-                    op.option_id, or_de.order_detail_id, or_de.order_id,
+                    op.option_id, or_de.order_detail_id, or_de.order_id, or_de.quantity,
                     (op.option_price * or_de.quantity)-((op.option_price * or_de.quantity)*(pro.discount/100)) as total_option 
                     FROM tbl_options op 
                     JOIN tbl_order_details or_de ON op.option_id = or_de.option_id 
@@ -213,10 +213,10 @@ function order_select_by_user_id($user_id)
             FROM(
                 SELECT
                 total_option.order_id,
-                IFNULL((total_option.total_option + tbl_total_extra.total_extra),total_option.total_option) as total
+                IFNULL((total_option.total_option + tbl_total_extra.total_extra*total_option.quantity),total_option.total_option) as total
                 FROM(
                     SELECT 
-                    op.option_id, or_de.order_detail_id, or_de.order_id,
+                    op.option_id, or_de.order_detail_id, or_de.order_id, or_de.quantity,
                     (op.option_price * or_de.quantity)-((op.option_price * or_de.quantity)*(pro.discount/100)) as total_option 
                     FROM tbl_options op 
                     JOIN tbl_order_details or_de ON op.option_id = or_de.option_id 
@@ -264,10 +264,10 @@ function order_select_list()
             FROM(
                 SELECT
                 total_option.order_id,
-                IFNULL((total_option.total_option + tbl_total_extra.total_extra),total_option.total_option) as total
+                IFNULL((total_option.total_option + tbl_total_extra.total_extra*total_option.quantity),total_option.total_option) as total
                 FROM(
                     SELECT 
-                    op.option_id, or_de.order_detail_id, or_de.order_id,
+                    op.option_id, or_de.order_detail_id, or_de.order_id, or_de.quantity,
                     (op.option_price * or_de.quantity)-((op.option_price * or_de.quantity)*(pro.discount/100)) as total_option 
                     FROM tbl_options op 
                     JOIN tbl_order_details or_de ON op.option_id = or_de.option_id 
@@ -311,10 +311,10 @@ function order_select_by_id($order_id)
             FROM(
                 SELECT
                 total_option.order_id,
-                IFNULL((total_option.total_option + tbl_total_extra.total_extra),total_option.total_option) as total
+                IFNULL((total_option.total_option + tbl_total_extra.total_extra*total_option.quantity),total_option.total_option) as total
                 FROM(
                     SELECT 
-                    op.option_id, or_de.order_detail_id, or_de.order_id,
+                    op.option_id, or_de.order_detail_id, or_de.order_id, or_de.quantity,
                     (op.option_price * or_de.quantity)-((op.option_price * or_de.quantity)*(pro.discount/100)) as total_option 
                     FROM tbl_options op 
                     JOIN tbl_order_details or_de ON op.option_id = or_de.option_id 
@@ -355,8 +355,8 @@ function option_detail_select_order($order_id)
     $sql = "SELECT
         total_option.product_name,total_option.option_name,total_option.option_price,
         total_option.order_id,total_option.quantity, total_option.order_detail_id,
-        total_option.discount,IFNULL(tbl_total_extra.total_extra,0) as total_extra,
-        IFNULL((total_option.total_option + tbl_total_extra.total_extra),total_option.total_option) as total_option
+        total_option.discount,(IFNULL(tbl_total_extra.total_extra,0))*total_option.quantity as total_extra,
+        IFNULL((total_option.total_option + tbl_total_extra.total_extra*total_option.quantity),total_option.total_option) as total_option
         FROM(
             SELECT 
             pro.product_name, op.option_name, op.option_price,
@@ -365,7 +365,50 @@ function option_detail_select_order($order_id)
             FROM tbl_options op 
             JOIN tbl_order_details or_de ON op.option_id = or_de.option_id 
             JOIN tbl_products pro ON pro.product_id = op.product_id 
-            GROUP BY op.option_id,pro.product_name, total_option
+           
+        ) as total_option
+        JOIN (
+            SELECT 
+            or_de.order_detail_id,
+            total_extra.total_extra
+            FROM tbl_order_details or_de 
+            LEFT JOIN (
+                SELECT 
+                ex_de.order_detail_id,
+                SUM(distinct ex.extra_price) as total_extra
+                FROM tbl_extra ex 
+                JOIN tbl_extra_details ex_de 
+                ON ex.extra_id = ex_de.extra_id
+                GROUP BY ex_de.order_detail_id
+                ) as total_extra
+            ON total_extra.order_detail_id = or_de.order_detail_id
+            ) as tbl_total_extra
+        ON tbl_total_extra.order_detail_id = total_option.order_detail_id
+        WHERE total_option.order_id = ?
+    ";
+    return pdo_query($sql, $order_id);
+}
+// ========================================================================================
+
+/**
+ * TRUY VAN OPTION DETAIL 
+ */
+function option_detail_client_order($order_id)
+{
+    $sql = "SELECT
+        total_option.product_name,total_option.option_name,total_option.option_price,
+        total_option.order_id,total_option.quantity, total_option.order_detail_id,
+        total_option.discount,total_option.product_image,IFNULL(tbl_total_extra.total_extra,0)*total_option.quantity as total_extra,
+        IFNULL((total_option.total_option + tbl_total_extra.total_extra*total_option.quantity),total_option.total_option) as total_option
+        FROM(
+            SELECT 
+            pro.product_name,pro.product_image, op.option_name, op.option_price,
+            op.option_id, or_de.order_detail_id, or_de.order_id, or_de.quantity, pro.discount,
+            (op.option_price * or_de.quantity)-((op.option_price * or_de.quantity)*(pro.discount/100)) as total_option 
+            FROM tbl_options op 
+            JOIN tbl_order_details or_de ON op.option_id = or_de.option_id 
+            JOIN tbl_products pro ON pro.product_id = op.product_id 
+           
         ) as total_option
         JOIN (
             SELECT 

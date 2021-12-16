@@ -92,18 +92,26 @@
                                         </button>
                                         <div uk-dropdown="mode: click" class="user-dropdown">
                                             <ul class="user-list">
+
+                                                <?php if ($_SESSION['user']['role_id'] == 1) { ?>
+                                                    <li class="user-item">
+                                                        <a href="<?= ADMIN_URL ?>" class="user-item-link">Quản trị admin</a>
+                                                    </li>
+                                                <?php } ?>
+
                                                 <li class="user-item">
-                                                    <a href="<?= SITE_URL ?>account/account.php?profile" class="user-item-link">Tài khoản</a>
+                                                    <a href="<?= SITE_URL ?>account/?profile" class="user-item-link">Tài khoản</a>
                                                 </li>
                                                 <li class="user-item">
-                                                    <a href="<?= SITE_URL ?>account/account.php?order" class="user-item-link">Đơn hàng</a>
+                                                    <a href="<?= SITE_URL ?>account/?order" class="user-item-link">Đơn hàng</a>
                                                 </li>
                                                 <li class="user-item">
-                                                    <a href="<?= SITE_URL ?>account/index.php?btn_logout" class="user-item-link">Đăng xuất</a>
+                                                    <a href="<?= SITE_URL ?>account/?btn_logout" class="user-item-link">Đăng xuất</a>
                                                 </li>
                                             </ul>
                                         </div>
                                     </div>
+
                                 <?php } else { ?>
                                     <div class="uk-inline">
                                         <a class="user-name" href="<?= SITE_URL ?>account/">Đăng nhập</span>

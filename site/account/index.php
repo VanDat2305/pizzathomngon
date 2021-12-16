@@ -3,19 +3,39 @@
 
 require_once "../../global.php";
 require_once "../../dao/user.php";
+require_once "../../dao/order.php";
 
 extract($_REQUEST);
 
 if (isset($_SESSION['user'])) {
 
     if (exist_param("btn_logout")) {
-
-
         unset($_SESSION['user']);
-
-
-
         $VIEW_NAME = "form.php";
+    } elseif (exist_param("profile")) {
+
+
+        $user_id = $_SESSION['user']['user_id'];
+        $user = user_select_by_id($user_id);
+
+
+        $VIEW_NAME = "account_ui.php";
+    } elseif (exist_param("order")) {
+
+        $user_id = $_SESSION['user']['user_id'];
+        $list_order = order_select_by_user_id($user_id);
+
+        $VIEW_NAME = "order_ui.php";
+    } elseif (exist_param("order_detail")) {
+
+        $order_detail = order_select_by_id($order_id);
+
+        $list_order_detail = option_detail_client_order($order_id);
+        $topping = select_list_topping();
+        // echo "<pre>";
+        // var_dump($order_detail);
+        // die;
+        $VIEW_NAME = "order_detail_ui.php";
     }
 } else {
     $VIEW_NAME = "form.php";
