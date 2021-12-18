@@ -1,5 +1,6 @@
 <?php require_once "../../global.php";
 check_role();
+
 ?>
 <!doctype html>
 <html lang="en">
@@ -32,6 +33,14 @@ check_role();
                 </button>
                 <div class="collapse navbar-collapse justify-content-end" id="navbarSupportedContent">
                     <ul class="nav navbar-nav ms-auto">
+                        <li class="nav-item dropdown mr-3">
+                            <div class="nav-dropdown">
+                                <a href="<?= ADMIN_URL ?>invoice/" id="noti_number" class="nav-item nav-link dropdown-toggle text-secondary"  aria-expanded="true">
+                                    <i class="far fa-bell"></i> <strong class="noti_number">0</strong>
+                                </a>
+                            </div>
+                        </li>
+
                         <li class="nav-item dropdown">
                             <div class="nav-dropdown">
                                 <a href="#" id="nav2" class="nav-item nav-link dropdown-toggle text-secondary" data-bs-toggle="dropdown" aria-expanded="false">
@@ -40,7 +49,7 @@ check_role();
                                 <div class="dropdown-menu dropdown-menu-end nav-link-menu">
                                     <ul class="nav-list">
                                         <div class="dropdown-divider"></div>
-                                        <li><a href="" class="dropdown-item"><i class="fas fa-sign-out-alt"></i>
+                                        <li><a href="<?= SITE_URL ?>account/?btn_logout" class="dropdown-item"><i class="fas fa-sign-out-alt"></i>
                                                 Đăng xuất</a></li>
                                     </ul>
                                 </div>

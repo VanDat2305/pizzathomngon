@@ -445,3 +445,20 @@ function select_list_topping()
     ";
     return pdo_query($sql);
 }
+
+/**
+ * dem so luong moi
+ */
+
+function count_order_new(){
+    $sql = "SELECT count(*) as number_noti FROM tbl_orders WHERE `notification` = 0";
+    return pdo_query_value($sql);
+}
+
+/**
+ * update noti
+ */
+function update_noti(){
+    $sql = "UPDATE tbl_orders SET `notification` = 1";
+    pdo_execute($sql);
+}
