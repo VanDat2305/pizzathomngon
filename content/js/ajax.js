@@ -154,4 +154,37 @@ $(document).ready(function () {
       });
     });
   }
+// notification 
+
+function load_noti_number(view ="") {
+    $.post(
+      "../notification.php",
+      { view:view},
+      function (data) {
+        $(".noti_number").html(data);
+      }
+    );
+    
+  }
+  setInterval(function () {
+    load_noti_number();
+    
+  },3000);
+
+/**
+ * update notidica
+ */
+
+ $("#noti_number").click(function () {
+  var view = "update";
+  $.post(
+    "../notification.php",
+    { view:view },
+    function (data) {
+      $(".noti_number").html(data);
+    }
+  );
+});
+
+
 });
