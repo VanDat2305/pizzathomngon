@@ -1,7 +1,7 @@
-@import url('https://fonts.googleapis.com/css2?family=Raleway:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Sedgwick+Ave&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Josefin+Sans:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;1,100;1,200;1,300;1,400;1,500;1,600;1,700&display=swap');
 html,
 body {
-    font-family: 'Raleway', sans-serif;
+    font-family: 'Josefin Sans', sans-serif;
     font-size: 15px;
     font-style: normal;
     line-height: normal;
@@ -24,7 +24,7 @@ h3,
 h4,
 h5,
 h6 {
-    font-family: 'Sedgwick Ave', cursive;
+    font-family: 'Josefin Sans', sans-serif;
     font-weight: 400;
 }
 
@@ -69,7 +69,7 @@ h6 {
     display: block;
     position: relative;
     margin: 0;
-    font-family: 'STIX Two Text', serif;
+    font-family: 'Josefin Sans', sans-serif;
     font-size: 36px;
     font-style: normal;
     font-weight: 400;
@@ -217,7 +217,7 @@ blockquote::before {
     border-radius: 2px;
     background-color: #ff0000;
     color: #ffffff;
-    font-family: 'Open Sans';
+    font-family: 'Josefin Sans', sans-serif;
     font-size: 15px;
     font-style: normal;
     font-weight: 600;
@@ -465,7 +465,7 @@ blockquote::before {
 
 .price-item {
     color: #ffffff;
-    font-family: 'STIX Two Text', srif;
+    font-family: 'Josefin Sans', sans-serif;
     font-size: 18px;
     font-style: normal;
     font-weight: 400;
@@ -991,8 +991,8 @@ body.dm-light .pan-loader .shadow {
     -o-transition: 0.5s;
     padding: 0 20px;
     color: #eeeeee;
-    font-family: 'Open Sans';
-    font-size: 15px;
+    font-family: 'Josefin Sans', sans-serif;
+    font-size: 20px;
     font-style: normal;
     font-weight: 400;
     letter-spacing: normal;
@@ -1428,7 +1428,7 @@ body.dm-light .pan-loader .shadow {
 .checkbox-custome span {
     display: inline-block;
     color: black;
-    font-family: Lato;
+    font-family: 'Josefin Sans', sans-serif;
     font-size: 18px;
     font-weight: 400;
     line-height: normal;
@@ -1910,7 +1910,7 @@ body.dm-light .pan-loader .shadow {
 
 .product-item__price {
     margin-bottom: 35px;
-    font-family: 'STIX Two Text', serif;
+    font-family: 'Josefin Sans', sans-serif;
     font-size: 18px;
     font-style: normal;
     letter-spacing: normal;
@@ -1920,7 +1920,7 @@ body.dm-light .pan-loader .shadow {
 }
 
 .product-item__price .value {
-    font-family: 'STIX Two Text', serif;
+    font-family: 'Josefin Sans', sans-serif;
     font-size: 26px;
     font-weight: 400;
 }
@@ -2067,7 +2067,7 @@ body.dm-light .pan-loader .shadow {
 .product-card__price {
     margin-bottom: 40px;
     color: #ffffff;
-    font-family: 'STIX Two Text', serif;
+    font-family: 'Josefin Sans', sans-serif;
     font-size: 18px;
 }
 
@@ -2179,7 +2179,7 @@ body.dm-light .pan-loader .shadow {
 .first-screen__title {
     margin: 0;
     color: #ffffff !important;
-    font-family: 'STIX Two Text', serif;
+    font-family: 'Josefin Sans', sans-serif;
     font-size: 80px;
     font-style: normal;
     font-weight: 400;
@@ -2478,7 +2478,7 @@ body.dm-light .pan-loader .shadow {
 .banner-card__title {
     margin: 15px 0 22px;
     color: #ffffff !important;
-    font-family: 'STIX Two Text', serif;
+    font-family: 'Josefin Sans', sans-serif;
     font-size: 36px;
     font-weight: 400;
     line-height: 1.2;
@@ -2796,6 +2796,11 @@ body.dm-light .pan-loader .shadow {
     background-color: #ffffff;
 }
 
+.btn_subscribe {
+    display: block;
+    margin: 0 auto;
+}
+
 .subscribe-form__box input[type='text'],
 .subscribe-form__box input[type='email'] {
     -webkit-box-sizing: border-box;
@@ -2882,7 +2887,7 @@ body.dm-light .pan-loader .shadow {
 
 .featured-deal-item__price {
     color: #ffffff;
-    font-family: 'STIX Two Text', serif;
+    font-family: 'Josefin Sans', sans-serif;
     font-size: 18px;
     font-style: normal;
     letter-spacing: normal;
@@ -3115,7 +3120,7 @@ body.dm-light .pan-loader .shadow {
 }
 
 .catalog-filter-row .uk-select {
-    max-width: 160px;
+    max-width: 180px;
     border-radius: 25px;
     padding-right: 41px !important;
     font-size: 12px !important;
@@ -3229,7 +3234,7 @@ body.dm-light .pan-loader .shadow {
 
 .recommend-list-item__price {
     color: #ffffff;
-    font-family: 'STIX Two Text', serif;
+    font-family: 'Josefin Sans', sans-serif;
 }
 
 .recommend-list-item__price .value {
@@ -3568,7 +3573,7 @@ body.dm-light .pan-loader .shadow {
 
 .product-full-card__price {
     margin-bottom: 35px;
-    font-family: 'STIX Two Text', serif;
+    font-family: 'Josefin Sans', sans-serif;
     font-size: 18px;
     font-style: normal;
     letter-spacing: normal;
@@ -3576,7 +3581,7 @@ body.dm-light .pan-loader .shadow {
 }
 
 .product-full-card__price .value {
-    font-family: 'STIX Two Text', serif;
+    font-family: 'Josefin Sans', sans-serif;
     font-size: 26px;
     font-weight: 400;
 }
@@ -3648,7 +3653,7 @@ body.dm-light .pan-loader .shadow {
     display: block;
     position: relative;
     color: rgba(34, 34, 34, 0.4);
-    font-family: 'STIX Two Text', serif;
+    font-family: 'Josefin Sans', sans-serif;
     font-size: 36px;
     font-style: normal;
     font-weight: 400;
@@ -4123,7 +4128,7 @@ body.dm-light .pan-loader .shadow {
 .article-full__title,
 .article-intro__title {
     margin: 0;
-    font-family: 'Open Sans';
+    font-family: 'Josefin Sans', sans-serif;
     font-size: 30px;
     font-style: normal;
     font-weight: 700;
@@ -4611,7 +4616,7 @@ body.dm-light .pan-loader .shadow {
 }
 
 .pizza-builder-order__title {
-    font-family: 'STIX Two Text', serif;
+    font-family: 'Josefin Sans', sans-serif;
     font-size: 30px;
     font-weight: 400;
 }
@@ -4751,8 +4756,8 @@ body.dm-light .pan-loader .shadow {
 .pizza-builder-step__title .uk-h3 {
     margin: 0;
     color: #ffffff;
-    font-family: 'STIX Two Text', serif;
-    fontsize: 30px;
+    font-family: 'Josefin Sans', sans-serif;
+    font-size: 30px;
     font-weight: 400;
     line-height: 1;
 }
@@ -4772,7 +4777,7 @@ body.dm-light .pan-loader .shadow {
     height: 65px;
     margin-right: 20px;
     color: #ff0000;
-    font-family: 'STIX Two Text', serif;
+    font-family: 'Josefin Sans', sans-serif;
     font-size: 48px;
     font-weight: 400;
     line-height: 1;
@@ -5012,7 +5017,7 @@ body.dm-light .pan-loader .shadow {
 .sause-item__price {
     display: block;
     color: #6dc405;
-    font-family: 'STIX Two Text', serif;
+    font-family: 'Josefin Sans', sans-serif;
     font-size: 18px;
     font-weight: 400;
     text-align: center;
@@ -5160,7 +5165,7 @@ body.dm-light .pan-loader .shadow {
 .toppings-item__price {
     display: block;
     color: #6dc405;
-    font-family: 'STIX Two Text', serif;
+    font-family: 'Josefin Sans', sans-serif;
     font-size: 18px;
     font-weight: 400;
     text-align: center;
@@ -5206,7 +5211,7 @@ body.dm-light .pan-loader .shadow {
         font-size: calc(15px + 5 * (100vw / 1920));
     }
     .page-header__top .uk-navbar-nav>li>a {
-        font-size: calc(13px + 2 * (100vw / 1920));
+        font-size: calc(15px + 2 * (100vw / 1920));
     }
     .category-nav .nav-item__text {
         font-size: calc(12px + 4 * (100vw / 1920));
@@ -6433,6 +6438,10 @@ body.dm-light .pan-loader .shadow {
     display: none;
 }
 
+.uk-inline-user {
+    min-width: 150px;
+}
+
 .user-name {
     padding: 10px;
     background-color: transparent;
@@ -6498,8 +6507,6 @@ body.dm-light .pan-loader .shadow {
     border-radius: 8px;
     padding: 10px;
 }
-
-.user-card--header {}
 
 .user-card-header__title {
     color: #fff;
@@ -6665,6 +6672,10 @@ body.dm-light .pan-loader .shadow {
 
 .user-order-box-item-total {
     border-top: 1px solid #e5e5e5;
+}
+
+#form_change_password {
+    padding: 20px 50px;
 }
 
 

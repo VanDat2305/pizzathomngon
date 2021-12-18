@@ -86,7 +86,7 @@
                                     </li>
                                 </ul>
                                 <?php if (isset($_SESSION['user'])) { ?>
-                                    <div class="uk-inline">
+                                    <div class="uk-inline uk-inline-user">
                                         <button class="user-name" href="<?= SITE_URL ?>account/">
                                             Chào, <?= $_SESSION['user']['username'] ?> <span data-uk-icon="user"></span>
                                         </button>
@@ -113,7 +113,7 @@
                                     </div>
 
                                 <?php } else { ?>
-                                    <div class="uk-inline">
+                                    <div class="uk-inline uk-inline-user">
                                         <a class="user-name" href="<?= SITE_URL ?>account/">Đăng nhập</span>
                                         </a>
                                     </div>

@@ -8,7 +8,7 @@ if (exist_param("form_insert")) {
     $VIEW_NAME = "form_insert.php";
 } elseif (exist_param("btn_insert")) {
     $up_image = save_file("image", "$IMAGE_DIR/users/");
-    $image = strlen($up_image) > 0 ? $up_image : 'user.png';
+    $image = strlen($up_image) > 0 ? $up_image : 'user.jpg';
     $created_at =  date_format(date_create(), 'Y-m-d H:i:s');
     $birthday = $birthdate == "" ? null : $birthdate;
     if ($username == "" || $password == "" || $repassword == "" || $fullname == "" || $phoneNumber == "") {

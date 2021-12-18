@@ -17,15 +17,17 @@ if (exist_param("home")) {
     $blog = blog_select_satus();
     $extras = extra_select_all_product();
     $options = option_select_all();
-    $products = product_category_select_all();
-    $categories = category_select_all();
+    $products = product_category_select_by_discount();
+    $categories = category_select_by_discount();
     $slides = slide_select_all();
     $VIEW_NAME = "home.php";
 }
 
+$category_banner = category_select_limit_banner();
+
 
 // echo "<pre>";
-// var_dump($pro);
+// var_dump($categories);
 // die;
 
 

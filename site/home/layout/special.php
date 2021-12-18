@@ -53,7 +53,10 @@
                                                                                 </div>
                                                                             </a>
                                                                         </div>
-                                                                        <div class="product-item__whish"><i class="fas fa-heart"></i></div>
+                                                                        <div class="product-item__whish">
+                                                                            <i class="fas fa-heart"></i>
+                                                                            <input type="hidden" class="wish_list_product_id" value="<?= $p['product_id'] ?>">
+                                                                        </div>
                                                                         <div class="product-item__type spicy"></div>
                                                                         <div class="product-item__tooltip" data-uk-tooltip="title: spicy pizza; pos: bottom-right">
                                                                             <i class="fas fa-info-circle"></i>

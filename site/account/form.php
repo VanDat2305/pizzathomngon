@@ -110,7 +110,7 @@
 
         <h3 class="uk-card-title uk-text-center">Bạn đã quên mật khẩu ư?</h3>
         <p class="uk-text-center uk-width-medium@s uk-margin-auto">Nhập địa chỉ email của bạn và chúng tôi sẽ gửi cho bạn một liên kết để đặt lại mật khẩu của bạn.</p>
-        <form>
+        <form method="post" action="">
             <div class="uk-margin">
                 <div class="uk-inline uk-width-1-1">
                     <span class="uk-form-icon" uk-icon="icon: mail"></span>
