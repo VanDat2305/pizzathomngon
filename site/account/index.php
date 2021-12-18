@@ -7,9 +7,10 @@ require_once "../../dao/order.php";
 
 extract($_REQUEST);
 
-if (isset($_SESSION['user'])) {
+if (isset($_SESSION['user']) &&  isset($_SESSION['user']['user_id'])) {
     $user_id = $_SESSION['user']['user_id'];
     $user = user_select_by_id($user_id);
+
 
     if (exist_param("btn_logout")) {
         unset($_SESSION['user']);
@@ -57,6 +58,9 @@ if (isset($_SESSION['user'])) {
             $order_detail = order_select_by_id($order_id);
 
             $list_order_detail = option_detail_client_order($order_id);
+            // echo "<pre>";
+            // var_dump($list_order_detail);
+            // die;
             $topping = select_list_topping();
 
             $FORM_NAME = "order_detail_ui.php";
@@ -126,6 +130,9 @@ if (isset($_SESSION['user'])) {
                 }
                 $_SESSION["user"] = $user;
 
+                // echo "<pre>";
+                // var_dump($_SESSION['user']);
+                // die;
                 $role =  $user['role_id'] == 1 ? "Quản trị viên" : ($user['role_id'] == 2 ? "Nhân viên" : "Thành viên");
                 echo "<script>
                          alert('Đăng nhập tài khoản " . $role . " thành công!'); 

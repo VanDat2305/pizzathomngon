@@ -1,5 +1,5 @@
 <div class="checkout-container uk-container" id="load_cart">
-    <form action="checkout.php" method="post" uk-grid>
+    <form action="checkout.php" method="post" uk-grid id="checkout_form">
         <div class="uk-width-1-2@m">
             <div class="uk-grid-small" uk-grid>
                 <div class="uk-width-1-2@s">
@@ -20,6 +20,7 @@
                     <label for="">Ghi chú</label>
                     <textarea class="uk-textarea" rows="5" name="note" placeholder="Ghi chú..."></textarea>
                 </div>
+                <h4 class="uk-text-center"><?= $MESSAGE ?></h4>
             </div>
         </div>
         <div class="uk-card uk-width-1-2@m">
@@ -55,7 +56,7 @@
                                                     $extra_price = $extra[$i]['extra_price'];
                                                     $total_extra += $extra_price;
                                                     ?>
-                                                    <li><?= $extra[$i]['extra_name'] ?> ( <?= number_format($extra_price, 0, ',',',') ?> đ),</li>
+                                                    <li><?= $extra[$i]['extra_name'] ?> ( <?= number_format($extra_price, 0, ',', ',') ?> đ),</li>
                                                 <?php } ?>
                                             <?php } ?>
                                         </ul>
@@ -66,7 +67,7 @@
                                         $price = ($_SESSION['cart'][$key]['option_price'] * (100 - $_SESSION['cart'][$key]['discount']) / 100);
                                         $total = $total +  ($price + $total_extra) * $_SESSION['cart'][$key]['quantity'];
                                         ?>
-                                        <span><sub>x</sub> <?= number_format($price, 0, ',',',') ?> đ</span>
+                                        <span><sub>x</sub> <?= number_format($price, 0, ',', ',') ?> đ</span>
                                     </div>
                                 </div>
                             </div>
@@ -78,12 +79,12 @@
                 <div class="card-middle" id="ajax_coupon_applied">
                     <div uk-grid>
                         <div class="uk-width-1-2">Thành tiền:</div>
-                        <div class="uk-width-1-2"><?= number_format($total, 0,',',',') ?>đ</div>
+                        <div class="uk-width-1-2"><?= number_format($total, 0, ',', ',') ?>đ</div>
                     </div>
                     <div class="card-tax" uk-grid>
                         <div class="uk-width-1-2">Thuế:</div>
                         <?php $tax = $total * 0.07 ?>
-                        <div class="uk-width-1-2"><?= number_format($tax, 0, ',',',') ?>đ</div>
+                        <div class="uk-width-1-2"><?= number_format($tax, 0, ',', ',') ?>đ</div>
                     </div>
                     <div class="card_coupon_applied">
                         <div class="" uk-grid>
@@ -97,7 +98,7 @@
                     <hr class="uk-divider-icon">
                     <div uk-grid>
                         <div class="uk-width-1-2">TỔNG CỘNG:</div>
-                        <div class="uk-width-1-2 uk-text-danger uk-text-lead uk-text-bolder" id="final_total"><?= number_format($total + $tax, 0, ',',',') ?>đ</div>
+                        <div class="uk-width-1-2 uk-text-danger uk-text-lead uk-text-bolder" id="final_total"><?= number_format($total + $tax, 0, ',', ',') ?>đ</div>
                     </div>
                 </div>
                 <div class="btn-checkout-group">
@@ -144,9 +145,9 @@
 
                                     <div class="coupon_item_type">Giảm
                                         <?php if ($c['coupon_type'] == 1) {
-                                            echo number_format($c['coupon_price'], 0, '','') . '%';
+                                            echo number_format($c['coupon_price'], 0, '', '') . '%';
                                         } else {
-                                            echo number_format($c['coupon_price'], 0, ',',',') . ' đ';
+                                            echo number_format($c['coupon_price'], 0, ',', ',') . ' đ';
                                         } ?>
                                     </div>
                                 </div>
@@ -163,9 +164,9 @@
 
                                     <div class="coupon_item_type">Giảm
                                         <?php if ($c['coupon_type'] == 1) {
-                                            echo number_format($c['coupon_price'], 0, '','') . '%';
+                                            echo number_format($c['coupon_price'], 0, '', '') . '%';
                                         } else {
-                                            echo number_format($c['coupon_price'], 0,',',',') . ' đ';
+                                            echo number_format($c['coupon_price'], 0, ',', ',') . ' đ';
                                         } ?>
                                     </div>
                                 </div>
@@ -186,9 +187,9 @@
 
                                     <div class="coupon_item_type">Giảm
                                         <?php if ($c['coupon_type'] == 1) {
-                                            echo number_format($c['coupon_price'], 0, '','') . '%';
+                                            echo number_format($c['coupon_price'], 0, '', '') . '%';
                                         } else {
-                                            echo number_format($c['coupon_price'], 0, ',',',') . ' đ';
+                                            echo number_format($c['coupon_price'], 0, ',', ',') . ' đ';
                                         } ?>
                                     </div>
                                 </div>

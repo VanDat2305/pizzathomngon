@@ -397,13 +397,13 @@ function option_detail_client_order($order_id)
 {
     $sql = "SELECT
         total_option.product_name,total_option.option_name,total_option.option_price,
-        total_option.order_id,total_option.quantity, total_option.order_detail_id,
+        total_option.order_id,total_option.quantity, total_option.order_detail_id, total_option.product_id,
         total_option.discount,total_option.product_image,IFNULL(tbl_total_extra.total_extra,0)*total_option.quantity as total_extra,
         IFNULL((total_option.total_option + tbl_total_extra.total_extra*total_option.quantity),total_option.total_option) as total_option
         FROM(
             SELECT 
             pro.product_name,pro.product_image, op.option_name, op.option_price,
-            op.option_id, or_de.order_detail_id, or_de.order_id, or_de.quantity, pro.discount,
+            op.option_id, or_de.order_detail_id, or_de.order_id, or_de.quantity, pro.discount, pro.product_id,
             (op.option_price * or_de.quantity)-((op.option_price * or_de.quantity)*(pro.discount/100)) as total_option 
             FROM tbl_options op 
             JOIN tbl_order_details or_de ON op.option_id = or_de.option_id 
@@ -450,7 +450,8 @@ function select_list_topping()
  * dem so luong moi
  */
 
-function count_order_new(){
+function count_order_new()
+{
     $sql = "SELECT count(*) as number_noti FROM tbl_orders WHERE `notification` = 0";
     return pdo_query_value($sql);
 }
@@ -458,7 +459,8 @@ function count_order_new(){
 /**
  * update noti
  */
-function update_noti(){
+function update_noti()
+{
     $sql = "UPDATE tbl_orders SET `notification` = 1";
     pdo_execute($sql);
 }

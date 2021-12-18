@@ -19,7 +19,11 @@
                                 <img src="<?= CONTENT_URL ?>img/products/<?= $item['product_image'] ?>" alt="" width="150">
                             </td>
                             <td>
-                                <h3><?= $item['product_name'] ?> - <?= $item['option_name'] ?></h3>
+                                <h3>
+                                    <a href="<?= SITE_URL ?>product/product_detail.php?product_id=<?= $item['product_id'] ?>">
+                                        <?= $item['product_name'] ?> - <?= $item['option_name'] ?>
+                                    </a>
+                                </h3>
                                 <ul class="user-order_detail-list">
 
                                     <?php foreach ($topping as $t) {  ?>
