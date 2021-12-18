@@ -44,7 +44,7 @@
             </nav>
             <div class="first-screen__box">
                 <h2 class="first-screen__title">Đặt pizza ngay, Khi còn nóng!</h2>
-                <p class="first-screen__desc">Ăn các món ăn nhanh ngon & bổ dưỡng với hương vị thực</p><a class="uk-button" href="page-catalog-sidebar.html">Xem thực đơn</a>
+                <p class="first-screen__desc">Ăn các món ăn nhanh ngon & bổ dưỡng với hương vị thực</p><a class="uk-button" href="<?= SITE_URL ?>product/product.php">Xem thực đơn</a>
             </div>
         </div>
     </div>
