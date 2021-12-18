@@ -13,6 +13,21 @@ jQuery(document).ready(function($) {
     });
     $('.product-item__whish').on('click', function() {
         $(this).toggleClass('is-active');
+
+        // ===================================Ajax sp yeu thich================================
+
+        console.dir($(this)[0]);
+        // $.post(
+        //     '../../site/product/ajax_filter_product.php', {
+        //         action: action,
+        //     },
+        //     function(response) {
+        //         $('#ajax-filter').html(response);
+        //         load_price();
+        //         addCart();
+        //         popupAddCart();
+        //     }
+        // );
     });
     $('.product-full-card__toggle button').on('click', function() {
         $(this)

@@ -5,9 +5,9 @@
         </div>
         <div class="section-content">
             <div class="subscribe-form">
-                <form action="#!">
-                    <div class="subscribe-form__box"><input type="email" placeholder="Nhập địa chỉ email của bạn ..."><input class="uk-button" type="submit" value="Đăng ký ngay!"></div>
-                </form>
+                <div class="subscribe-form__box uk-text-center">
+                    <a class="uk-button btn_subscribe" href="<?= SITE_URL ?>account/">Đăng ký ngay</a>
+                </div>
             </div>
         </div>
     </div>

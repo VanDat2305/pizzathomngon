@@ -120,6 +120,14 @@ function product_category_select_all()
     return pdo_query($sql);
 }
 /**
+ * truy van tat ca mon an giam gia theo tung danh muc ra vỉew
+ */
+function product_category_select_by_discount()
+{
+    $sql = "SELECT * FROM tbl_products pro JOIN tbl_categories cate ON pro.category_id = cate.category_id WHERE pro.discount>0 order by cate.category_id";
+    return pdo_query($sql);
+}
+/**
  * truy van tat ca mon an theo  danh muc ra ct mon an
  */
 function product__select_all_by_category($category_id, $product_id = 0)

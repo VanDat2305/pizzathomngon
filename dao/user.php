@@ -26,6 +26,21 @@ function user_update($user_id, $username, $user_image, $password, $fullname, $ph
     pdo_execute($sql, $username, $user_image, $password, $fullname, $phoneNumber, $email, $address, $birthdate,  $role_id, $user_id);
 }
 /**
+ * Cap nhat ben client
+ */
+function user_update_client($user_id, $username, $user_image, $fullname, $phoneNumber, $email, $address, $birthdate)
+{
+    $sql = "UPDATE tbl_users SET `username` = ?,`user_image` = ?,`fullname` = ?,`phoneNumber` = ?,`email` = ?,`address` = ?,`birthdate` = ? WHERE `user_id` = ?";
+
+    pdo_execute($sql, $username, $user_image, $fullname, $phoneNumber, $email, $address, $birthdate, $user_id);
+}
+function user_update_password($user_id, $password)
+{
+    $sql = "UPDATE tbl_users SET `password` = ? WHERE `user_id` = ?";
+
+    pdo_execute($sql, $password, $user_id);
+}
+/**
  * Xoa 1 hoac nhieu ma 
  */
 function user_delete($user_id)
